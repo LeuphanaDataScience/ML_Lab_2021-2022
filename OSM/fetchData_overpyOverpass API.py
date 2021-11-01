@@ -23,8 +23,8 @@ def get_input():
 	latitude = input('53.2723116')
 	print("\nEnter longitude (Arena->'10.4276049') >> ")
 	longitude = input('10.4276049')
-	print("\nEnter scan radius for target.(in meters) (EXAMPLE->'20000') >> ")
-	search_radius = input()
+	print("\nEnter scan radius for target (in meters) (EXAMPLE->'10000') >> ")
+	search_radius = input(10000)
 	print("\nEnter an option.(integer) :\n1. Hospitals Data\n2. Schools Data\n3. Road Network Data\n4. terrains Data(it may don't work for large radius)\n5. Electricity Network Data")
 	option = int(input("\n>>>"))
 	while option not in [1,2,3,4,5]: 
