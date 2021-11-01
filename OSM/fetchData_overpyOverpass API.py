@@ -19,10 +19,10 @@ import requests			# to import requests
 
 #this function gets the input from user.  INPUT = {laitutde, longitude, search_radius, option to specify the data domain like hospital,education etc.}
 def get_input():
-	print("\nEnter latitude (example->'28.584569') >> ")
-	latitude = input()
-	print("\nEnter longitude (example->'77.215868') >> ")
-	longitude = input()
+	print("\nEnter latitude (Lüneburg->'53.2464214') >> ")
+	latitude = input('53.2464214')
+	print("\nEnter longitude (Lüneburg->'10.4115179') >> ")
+	longitude = input('10.4115179')
 	print("\nEnter scan radius for target.(in meters) (EXAMPLE->'20000') >> ")
 	search_radius = input()
 	print("\nEnter an option.(integer) :\n1. Hospitals Data\n2. Schools Data\n3. Road Network Data\n4. terrains Data(it may don't work for large radius)\n5. Electricity Network Data")
