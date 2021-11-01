@@ -6,7 +6,7 @@ requirements : overpy==0.4 (pip install overpy)
 							 requests    (pip install requests)
 
 Note :  For terrain data, It'd be better to extract raw OSM data manually from 'overpass turbo website' , 
-        as arcgis or geojson file. Because their is limit for data and whole data of OSM will be a huge chunk 
+        as arcgis or geojson file. Because there is limit for data and whole data of OSM will be a huge chunk 
         for even a small area.
 """
 
@@ -19,10 +19,10 @@ import requests			# to import requests
 
 #this function gets the input from user.  INPUT = {laitutde, longitude, search_radius, option to specify the data domain like hospital,education etc.}
 def get_input():
-	print("\nEnter latitude (Lüneburg->'53.2464214') >> ")
-	latitude = input('53.2464214')
-	print("\nEnter longitude (Lüneburg->'10.4115179') >> ")
-	longitude = input('10.4115179')
+	print("\nEnter latitude (Arena->'53.2723116') >> ")
+	latitude = input('53.2723116')
+	print("\nEnter longitude (Arena->'10.4276049') >> ")
+	longitude = input('10.4276049')
 	print("\nEnter scan radius for target.(in meters) (EXAMPLE->'20000') >> ")
 	search_radius = input()
 	print("\nEnter an option.(integer) :\n1. Hospitals Data\n2. Schools Data\n3. Road Network Data\n4. terrains Data(it may don't work for large radius)\n5. Electricity Network Data")
