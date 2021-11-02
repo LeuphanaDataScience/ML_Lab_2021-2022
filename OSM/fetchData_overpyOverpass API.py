@@ -143,5 +143,16 @@ if __name__ == '__main__':  # main function to act accordingly to the user's inp
 		data_frame= extract_nodes_data_from_OSM(query)
 	print("Note: \n1. Please rename the output file, so that it can't be overwritten when you execute this program again.\n2. output file shouldn't remain open while running this program, because writing will perform on the output file while executing the program next time. ")
 
+path  ='/Users/AnasSuffo/OneDrive/Python/uni/ML_Lab/ML_Lab_2021-2022/output_data.json'
 
+# to explore the JSON output:
+with open(path) as f:
+  data = json.load(f)
+print(data)
+
+# Pretty Printing JSON string back
+print(json.dumps(data, indent=4, sort_keys=True))
+
+for i in data['emp_details']:
+	print(i)
 
