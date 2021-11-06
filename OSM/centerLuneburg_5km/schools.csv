@@ -1,0 +1,13 @@
+,amenity,name,latitude,longitude,id,wheelchair,alt_name,email,phone,website,addr:city,addr:country,addr:housenumber,addr:postcode,addr:street,contact:email,contact:fax,contact:phone,contact:website,official_name,operator,old_name
+0,school,Außenstelle: Wilhelm-Raabe-Schule,53.2464194,10.4118540,387432536,,,,,,,,,,,,,,,,,
+1,university,Mensa,53.2407999,10.4125354,1074813883,yes,,,,,,,,,,,,,,,,
+2,college,IBB,53.2481208,10.4464666,1123375412,,Institut für Berufliche Bildung AG,Lueneburg@IBB.com,+49 4131 2231498,http://www.IBB.com,,,,,,,,,,,,
+3,school,Volkshochschule,53.2461357,10.4097407,1509612786,yes,,,,,Lüneburg,DE,4,21335,Haagestraße,vhsinfo@vhs.lueneburg.de,+49 4131 1566-150,+49 4131 1566-0,http://www.vhs.lueneburg.de,Volkshochschule REGION Lüneburg,Gemeinnützige Bildungs- und Kulturgesellschaft Hansestadt und Landkreis Lüneburg mbH,
+4,college,SCHUBZ,53.2246849,10.3973331,1643075889,,,,,,,,,,,info@schubz.org,+49 4131 309 7979,+49 4131 309 7970,http://www.schubz-online.de/,SCHUBZ - Umweltbildungszentrum der Hansestadt Lüneburg,,Anna-Vogeley-Heim
+5,school,Grone-Bildungszentrum Lüneburg,53.2452029,10.4517367,3220882471,,,,,,,,,,,lueneburg@grone.de,+49 4131 7632-22,+49 4131 7632-0,http://www.grone.de/#&&NewPage=AORT-L%c3%bcneburg,,Grone Service- und Verwaltungsgesellschaft mbH,
+6,school,Dr. von Morgenstern Schulen,53.2539513,10.4252146,3284669618,,,,,,,,,,,info.LG@morgenstern-schulen.de,+49 4131 789 509-30,+49 4131 789 509-0,http://www.morgenstern-schulen.de/schule-lueneburg.html,,Dr. von Morgenstern Schulen Gemeinnützige Schulgesellschaft Braunschweig mbH,
+7,school,Kranken- und Altenpflegeschule,53.2455325,10.4496367,3284669619,,,,,,,,,,,lueneburg@i-w-k.de,+49 4131 681382,+49 4131 671388,http://www.i-w-k.de,Institut für Weiterbildung in der Kranken- und Altenpflege,Institut für Weiterbildung in der Kranken- & Altenpflege gemeinnützige GmbH,
+8,school,Volkshochschule,53.2463906,10.4103147,4013236523,yes,,,,,Lüneburg,DE,3 d,21335,Haagestraße,vhsinfo@vhs.lueneburg.de,+49 4131 1566-150,+49 4131 1566-0,http://www.vhs.lueneburg.de,Volkshochschule REGION Lüneburg,Gemeinnützige Bildungs- und Kulturgesellschaft Hansestadt und Landkreis Lüneburg mbH,
+9,school,Volkshochschule,53.2466547,10.4101213,4013236524,yes,,,,,Lüneburg,DE,29,21335,Kalandstraße,vhsinfo@vhs.lueneburg.de,+49 4131 1566-150,+49 4131 1566-0,http://www.vhs.lueneburg.de,Volkshochschule REGION Lüneburg,Gemeinnützige Bildungs- und Kulturgesellschaft Hansestadt und Landkreis Lüneburg mbH,
+10,school,IBB,53.2433445,10.4033771,4241708260,,Institut für Berufliche Bildung AG,Lueneburg@IBB.com,+49 4131 2231498,http://www.IBB.com,Lüneburg,,21,21335,Sülztorstraße,,,,,,,
+11,school,Lüneburger Projektwerkstatt,53.2443397,10.4210941,4697397789,,,,,,,,,,,,,,,,Job.sozial GbR,

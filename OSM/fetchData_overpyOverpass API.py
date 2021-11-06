@@ -25,7 +25,7 @@ def get_input():
 	longitude = input()
 	print("\nEnter scan radius for target (in meters) (EXAMPLE->'10000') >> ")
 	search_radius = input()
-	print("\nEnter an option.(integer) :\n1. Hospitals Data\n2. Schools Data\n3. Road Network Data\n4. terrains Data(it may don't work for large radius)\n5. Electricity Network Data")
+	print("\nEnter an option.(integer) :\n1. Hospitals Data\n2. Schools Data\n3. Road Network Data\n4. terrains Data(it may not work for large radius)\n5. Electricity Network Data")
 	option = int(input("\n>>>"))
 	while option not in [1,2,3,4,5]: 
 		print("Invalid Option. Try Again \n>>")
@@ -34,7 +34,7 @@ def get_input():
 
 
 
-#this function arrenge user inputs to build the 'query'(in overpass QL language)  for hospitals data and returns the query
+#this function arrange user inputs to build the 'query'(in overpass QL language)  for hospitals data and returns the query
 def get_hospital_query(user_input):
 	prefix = """[out:json][timeout:50];(node["amenity"="hospital"](around:""" #this is string of syntex in 'Overpass QL' language
 	suffix = """););out body;>;out skel qt;"""							      #this is string of syntex in 'Overpass QL' language
@@ -44,7 +44,7 @@ def get_hospital_query(user_input):
 
 
 
-#this function arrenge user inputs to build the 'query'(in overpass QL language) for schools,college,university and returns the query
+#this function arrange user inputs to build the 'query'(in overpass QL language) for schools,college,university and returns the query
 def get_school_query(user_input):
 	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
 	schoolnode="""node["amenity"="school"](around:""" 		  	  #this is string of syntex in 'Overpass QL' language
@@ -67,7 +67,7 @@ def get_roads_query(user_input):
 
 
 
-#this function arrenge user inputs to build the 'query' (in overpass QL language) for all data and returns the query
+#this function arrange user inputs to build the 'query' (in overpass QL language) for all data and returns the query
 def get_terrian_query(user_input):
 	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
 	schoolnode="""node(around:""" 		  	 										  #this is string of syntex in 'Overpass QL' language
@@ -81,7 +81,7 @@ def get_terrian_query(user_input):
 
 
 
-#this function arrenge user inputs to build the 'query' (in overpass QL language) for electricity data and returns the query
+#this function arrange user inputs to build the 'query' (in overpass QL language) for electricity data and returns the query
 def get_electricity_query(user_input):
 	prefix = """[out:json][timeout:50];(node[power](around:""" 		#this is string of syntex in 'Overpass QL' language
 	suffix = """););out body;>;out skel qt;"""							   	  #this is string of syntex in 'Overpass QL' language
@@ -90,7 +90,7 @@ def get_electricity_query(user_input):
 	return built_query
 
 
-# this funciton uses the overpy.Overpass API to send a query and get the response from overpass servers in json format and then it extract the nodes(hospitals , schools) data to a csv file.
+# this function uses the overpy.Overpass API to send a query and get the response from overpass servers in json format and then it extract the nodes(hospitals , schools) data to a csv file.
 def extract_nodes_data_from_OSM(built_query):
 	api = overpy.Overpass()                       # creating a overpass API instance 
 	result = api.query(built_query)               # get result from API by sending the query to overpass servers
@@ -109,11 +109,11 @@ def extract_nodes_data_from_OSM(built_query):
 
 # this function only extracts the raw  json data from overpass api through get request
 def extract_raw_data_from_OSM(built_query):
-	overpass_url = "http://overpass-api.de/api/interpreter" 					 #url of overpass api
-	response = requests.get(overpass_url,params={'data': built_query}) # sending a get request and passing the overpass query as data parameter in url
+	overpass_url = "http://overpass-api.de/api/interpreter" 				   # url of overpass api
+	response = requests.get(overpass_url,params={'data': built_query})         # sending a get request and passing the overpass query as data parameter in url
 	print(response.text)
 	json_data = response.json()
-	with open("output_data.json", "w") as outfile:  									 # writing the json output to a file
+	with open("output_data.json", "w") as outfile:  						   # writing the json output to a file
 		json.dump(json_data, outfile)
 	print("Raw Data extraction successfull!  check 'output_data.json' file.")
 	return json_data
