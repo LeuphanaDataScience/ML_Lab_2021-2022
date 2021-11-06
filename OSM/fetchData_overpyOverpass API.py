@@ -19,22 +19,22 @@ import requests			# to import requests
 
 #this function gets the input from user.  INPUT = {laitutde, longitude, search_radius, option to specify the data domain like hospital,education etc.}
 def get_input():
-	print("\nEnter latitude (Arena->'53.2723116') >> ")
+	print("\nEnter latitude \nArena: 53.2723116 \nCenter Lueneburg: 53.248706 \n>> ")
 	latitude = input()
-	print("\nEnter longitude (Arena->'10.4276049') >> ")
+	print("\nEnter longitude \nArena: 10.4276049 \nCenter Lueneburg: 10.407855 \n>> ")
 	longitude = input()
-	print("\nEnter scan radius for target (in meters) (EXAMPLE->'10000') >> ")
+	print("\nEnter scan radius for target (in meters) (EXAMPLE->'10000') \n>> ")
 	search_radius = input()
-	print("\nEnter an option.(integer) :\n1. Hospitals Data\n2. Schools Data\n3. Road Network Data\n4. terrains Data(it may not work for large radius)\n5. Electricity Network Data")
+	print("\nEnter an option.(integer) :\n1. Hospitals Data\n2. Schools Data\n3. Road Network Data\n4. terrains Data(it may not work for large radius)\n5. Electricity Network Data \n6. Bus Stops \n7. Bus Stations")
 	option = int(input("\n>>>"))
-	while option not in [1,2,3,4,5]: 
+	while option not in [1,2,3,4,5,6,7]: 
 		print("Invalid Option. Try Again \n>>")
 		option = int(input())
 	return([latitude,longitude,search_radius,option])   #returns the list of user inputs
 
 
 
-#this function arrange user inputs to build the 'query'(in overpass QL language)  for hospitals data and returns the query
+#this function arranges user inputs to build the 'query'(in overpass QL language)  for hospitals data and returns the query
 def get_hospital_query(user_input):
 	prefix = """[out:json][timeout:50];(node["amenity"="hospital"](around:""" #this is string of syntex in 'Overpass QL' language
 	suffix = """););out body;>;out skel qt;"""							      #this is string of syntex in 'Overpass QL' language
@@ -42,9 +42,23 @@ def get_hospital_query(user_input):
 	built_query = prefix + q + suffix                           #arrange all above strings into a correct order to form complete query
 	return built_query 														              #return the complete query to main function
 
+def get_busStop_query(user_input):
+	prefix = """[out:json][timeout:50];(node["highway"="bus_stop"](around:""" #this is string of syntex in 'Overpass QL' language
+	suffix = """););out body;>;out skel qt;"""							      #this is string of syntex in 'Overpass QL' language
+	q = user_input[2]+','+user_input[0]+','+user_input[1]       #(radius,latitude,longitude) in a string from the user input
+	built_query = prefix + q + suffix                           #arrange all above strings into a correct order to form complete query
+	return built_query 			
 
 
-#this function arrange user inputs to build the 'query'(in overpass QL language) for schools,college,university and returns the query
+def get_busStation_query(user_input):
+	prefix = """[out:json][timeout:50];(node["amenity"="bus_station"](around:""" #this is string of syntex in 'Overpass QL' language
+	suffix = """););out body;>;out skel qt;"""							      #this is string of syntex in 'Overpass QL' language
+	q = user_input[2]+','+user_input[0]+','+user_input[1]       #(radius,latitude,longitude) in a string from the user input
+	built_query = prefix + q + suffix                           #arrange all above strings into a correct order to form complete query
+	return built_query 	
+
+
+#this function arranges user inputs to build the 'query'(in overpass QL language) for schools,college,university and returns the query
 def get_school_query(user_input):
 	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
 	schoolnode="""node["amenity"="school"](around:""" 		  	  #this is string of syntex in 'Overpass QL' language
@@ -68,7 +82,7 @@ def get_roads_query(user_input):
 
 
 #this function arrange user inputs to build the 'query' (in overpass QL language) for all data and returns the query
-def get_terrian_query(user_input):
+def get_terrain_query(user_input):
 	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
 	schoolnode="""node(around:""" 		  	 										  #this is string of syntex in 'Overpass QL' language
 	collegenode="""relation(around:"""		  	  								#this is string of syntex in 'Overpass QL' language
@@ -136,10 +150,16 @@ if __name__ == '__main__':  # main function to act accordingly to the user's inp
 		query = get_roads_query(user_input)
 		data_frame = extract_raw_data_from_OSM(query)
 	elif(option==4):
-		query = get_terrian_query(user_input)
+		query = get_terrain_query(user_input)
 		data_frame = extract_raw_data_from_OSM(query)
 	elif(option==5):
 		query = get_electricity_query(user_input)
+		data_frame= extract_nodes_data_from_OSM(query)
+	elif(option==6):
+		query = get_busStop_query(user_input)
+		data_frame= extract_nodes_data_from_OSM(query)
+	elif(option==7):
+		query = get_busStation_query(user_input)
 		data_frame= extract_nodes_data_from_OSM(query)
 	print("Note: \n1. Please rename the output file, so that it can't be overwritten when you execute this program again.\n2. output file shouldn't remain open while running this program, because writing will perform on the output file while executing the program next time. ")
 
