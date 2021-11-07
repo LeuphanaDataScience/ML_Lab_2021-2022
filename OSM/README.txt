@@ -11,3 +11,5 @@ Center Lüneburg: 	Latitude: 53.248706 | Longitude: 10.407855
 Location Arena: 	Latitude: 53.272312 | Longitude: 10.427605
 
 B) osmnx
+
+refer to the HELP file in the osmnx folder for an installation/setup guide
