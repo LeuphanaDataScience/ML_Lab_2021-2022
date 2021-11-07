@@ -9,7 +9,7 @@ Created on Sun Nov  7 17:19:19 2021
 (Re-)Sources: 
     - https://automating-gis-processes.github.io/2017/lessons/L7/network-analysis.html
     - https://osmnx.readthedocs.io/en/stable/
-    - https://github.com/gboeing/osmnx/blob/main/README.md
+    - https://github.com/gboeing/osmnx/
     - https://geoffboeing.com
 """
 
@@ -36,24 +36,15 @@ fig, ax = ox.plot_graph(graph)
 
 # %% Option B: By coordinates 
 
-# This example with city center doesn't include arena.
-
 city_center = (53.248706, 10.407855)
-arena       = (53.248706, 10.407855)
+arena       = (53.272312, 10.427605)
         
-radius = 5000                        # meters
+radius = 10000                        # meters
 
-graph = ox.graph_from_point(city_center, dist=radius, network_type="drive")
+#graph = ox.graph_from_point(city_center, dist=radius, network_type="drive") # city_center
+graph = ox.graph_from_point(arena, dist=radius, network_type="drive") # arena
+
 fig, ax = ox.plot_graph(graph)
-
-# %% Get coordinates for an address
-
-geolocator = Nominatim(user_agent="sample app")
-
-data = geolocator.geocode("17 Wichernstraße, Luneburg, Germany")
-
-lat = float(data.raw.get("lat"))
-lon = float(data.raw.get("lon"))
 
 # %% GeoDataFrames
 
@@ -66,7 +57,6 @@ graph_area_m = nodes.unary_union.convex_hull.area
 
 # show some basic stats about the network
 stats_basic = ox.basic_stats(graph, area=graph_area_m, clean_int_tol=15)
-
 # stats documentation: https://osmnx.readthedocs.io/en/stable/osmnx.html#module-osmnx.stats
 
 #%% Routing I: Preparation
@@ -78,8 +68,19 @@ graph = ox.speed.add_edge_travel_times(graph)
 
 # %% Routing II: Define start & end point
 
+# %% Get coordinates for an address
+
+geolocator = Nominatim(user_agent="sample app")
+
+data = geolocator.geocode("17 Wichernstraße, Luneburg, Germany")
+
+lat = float(data.raw.get("lat"))
+lon = float(data.raw.get("lon"))
+
+#%% Get nearest nodes to targets
+
 # get the nearest network nodes to two lat/lng points with the distance module
-dest, dest_dist = ox.nearest_nodes(graph, X = 53.272312, Y = 10.427605, return_dist = True) # city center
+dest, dest_dist = ox.distance.nearest_nodes(graph, X = 53.272312, Y = 10.427605, return_dist = True) # city center
 dest, dest_dist = ox.distance.nearest_nodes(graph, X= 53.248706, Y= 10.407855, return_dist = True) # arena
 
 orig, orig_dist = ox.distance.nearest_nodes(graph, X = lat,       Y = lon, return_dist = True)
@@ -109,13 +110,11 @@ fig, ax = ox.plot_graph_route(graph, route, node_size=0)
 edge_lengths = ox.utils_graph.get_route_edge_attributes(graph, route, "length")
 print(round(sum(edge_lengths)))
 
-
-#%% Visualize street centrality
+#%% Visualize street centrality (just for fun)
 
 '''
-Here we plot the street network and color its edges (streets) 
-by their relative closeness centrality.
-Attention: takes very long!!
+Plot the street network & color edges by relative closeness centrality.
+Attention: takes quite long
 '''
 
 # convert graph to line graph so edges become nodes and vice versa
@@ -126,5 +125,6 @@ nx.set_edge_attributes(graph, edge_centrality, "edge_centrality")
 ec = ox.plot.get_edge_colors_by_attr(graph, "edge_centrality", cmap="inferno")
 fig, ax = ox.plot_graph(graph, edge_color=ec, edge_linewidth=2, node_size=0)
 
+#%%
 
 
