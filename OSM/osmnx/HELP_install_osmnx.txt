@@ -1,12 +1,13 @@
 Install & use OSMnx with conda
 
-- Open Anaconda promt
+Open Anaconda promt
 - run:
 	conda config --prepend channels conda-forge
 	conda create -n ox --strict-channel-priority osmnx
+	conda install spyder
 
--> This will create a new environment calles "ox"
+-> This will create a new environment calles "ox" and install spyder in new environment
 
-- Run conda install spyder to install spyder in new environment (ox)
+
 Open Anaconda navigator 
 - change environment to ox, run spyder
