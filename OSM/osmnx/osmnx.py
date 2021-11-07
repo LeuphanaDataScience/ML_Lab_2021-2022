@@ -79,19 +79,15 @@ graph = ox.speed.add_edge_travel_times(graph)
 # %% Routing II: Define start & end point
 
 # get the nearest network nodes to two lat/lng points with the distance module
-orig = ox.distance.nearest_nodes(graph, X= 53.272312, Y= 10.427605) 
-dest = ox.distance.nearest_nodes(graph, X= lat,       Y= lon)
+dest = ox.distance.nearest_nodes(graph, X = 53.272312, Y = 10.427605) # city center
+#dest = ox.distance.nearest_nodes(graph, X= 53.248706, Y= 10.407855) # arena
 
-# %% Routing II: Define start & end point
+orig = ox.distance.nearest_nodes(graph, X = lat,       Y = lon)
 
-# get the nearest network nodes to two lat/lng points with the distance module
-dest = ox.distance.nearest_nodes(graph, X= 53.272312, Y= 10.427605) # city center
+print(graph.nodes[dest]['x'])
+print(graph.nodes[orig]['x'])
 
-# %%
-orig = ox.distance.nearest_nodes(graph, X= 53.248706, Y= 10.407855) # arena
-
-# %%
-
+# somehow the same -> THEY SHOULDN'T OF COURSE!!!
 
 # %% Routing III: Find shortest path
 
