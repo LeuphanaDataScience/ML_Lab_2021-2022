@@ -1,13 +1,11 @@
 """
-author : @nikhil_nagar
-created : 28,April,2020
-description : data_task_02 to perform data fetch operations on Open Street Map through overpy.Overpass() API 
-requirements : overpy==0.4 (pip install overpy)
-							 requests    (pip install requests)
+Extract OSM data through Overpass API
 
-Note :  For terrain data, It'd be better to extract raw OSM data manually from 'overpass turbo website' , 
-        as arcgis or geojson file. Because there is limit for data and whole data of OSM will be a huge chunk 
-        for even a small area.
+author :        @nikhil_nagar, adjusted by Rike
+created :       28,April,2020
+description :   data_task_02 to perform data fetch operations on Open Street Map through overpy.Overpass() API 
+requirements :  overpy==0.4 (pip install overpy)
+                requests    (pip install requests)
 """
 
 import overpy           # to import the overpy module
@@ -19,11 +17,11 @@ import requests			# to import requests
 
 #this function gets the input from user.  INPUT = {laitutde, longitude, search_radius, option to specify the data domain like hospital,education etc.}
 def get_input():
-	print("\nEnter latitude \nArena: 53.2723116 \nCenter Lueneburg: 53.248706 \n>> ")
+	print("\nEnter latitude \nArena: 53.2723116 \nCenter Lueneburg: 53.248706")
 	latitude = input()
-	print("\nEnter longitude \nArena: 10.4276049 \nCenter Lueneburg: 10.407855 \n>> ")
+	print("\nEnter longitude \nArena: 10.4276049 \nCenter Lueneburg: 10.407855")
 	longitude = input()
-	print("\nEnter scan radius for target (in meters) (EXAMPLE->'10000') \n>> ")
+	print("\nEnter scan radius for target (in meters) (EXAMPLE->'50000 or 5000')")
 	search_radius = input()
 	print("\nEnter an option.(integer) :\n1. Houses \n2. Schools \n3. Road Network \n4. Bus Stops \n5. Bus Stations")
 	option = int(input("\n>>>"))
@@ -34,12 +32,38 @@ def get_input():
 
 
 													              #return the complete query to main function
-def get_houses_query(user_input):
-	prefix = """[out:json][timeout:50];(node["building"="house"](around:""" #this is string of syntex in 'Overpass QL' language
+def get_houses_queryX(user_input):
+	prefix = """[out:json][timeout:50];(node["building"="appartment"](around:""" #this is string of syntex in 'Overpass QL' language
 	suffix = """););out body;>;out skel qt;"""							      #this is string of syntex in 'Overpass QL' language
 	q = user_input[2]+','+user_input[0]+','+user_input[1]       #(radius,latitude,longitude) in a string from the user input
 	built_query = prefix + q + suffix                           #arrange all above strings into a correct order to form complete query
 	return built_query 			
+
+
+def get_houses_query(user_input):
+	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
+#	dormitory="""node["amenity"="university"](around:""" 	
+	apartments="""node["building"="apartments"]; way["building"="apartments"](around:"""		  	  #this is string of syntex in 'Overpass QL' language
+#	dormitory="""node["building"="dormitory"]; way["building"="dormitory"]; relation["building"="dormitory"](around:"""		  	  #this is string of syntex in 'Overpass QL' language
+#	detached="""node["building"="detached"]; way["building"="detached"]; relation["building"="detached"](around:"""		  	  #this is string of syntex in 'Overpass QL' language
+#	se_detached="""node["building"="semidetached_house"]; way["building"="semidetached_house"]; relation["building"="semidetached_house"](around:"""		  	  #this is string of syntex in 'Overpass QL' language
+
+	suffix = """);out body;>;out skel qt;"""				        	  #this is string of syntex in 'Overpass QL' language
+	q = user_input[2]+','+user_input[0]+','+user_input[1]    	  #(radius,latitude,longitude) in a string form the user input
+	built_query = prefix + apartments+ q + ');' +suffix  #combine all the above strings in correct order to form a query
+#	built_query = prefix + apartments+ q +');'+ dormitory+ q +');'+ detached+ q +');' + se_detached+ q +');' +suffix  #combine all the above strings in correct order to form a query
+	return built_query											                    #returns the complete overpass query
+
+
+#this function arranges user inputs to build the 'query'(in overpass QL language) for schools,college,university and returns the query
+def get_schools_query(user_input):
+	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
+	schoolnode="""node["amenity"="school"](around:""" 		  	  #this is string of syntex in 'Overpass QL' language
+	collegenode="""node["amenity"="college"](around:"""		  	  #this is string of syntex in 'Overpass QL' language
+	suffix = """);out body;>;out skel qt;"""				        	  #this is string of syntex in 'Overpass QL' language
+	q = user_input[2]+','+user_input[0]+','+user_input[1]    	  #(radius,latitude,longitude) in a string form the user input
+	built_query = prefix + schoolnode+ q +');'+ collegenode+ q +');'+ suffix  #combine all the above strings in correct order to form a query
+	return built_query											                    #returns the complete overpass query
 
 
 
@@ -58,19 +82,6 @@ def get_busStations_query(user_input):
 	q = user_input[2]+','+user_input[0]+','+user_input[1]       #(radius,latitude,longitude) in a string from the user input
 	built_query = prefix + q + suffix                           #arrange all above strings into a correct order to form complete query
 	return built_query 	
-
-
-
-#this function arranges user inputs to build the 'query'(in overpass QL language) for schools,college,university and returns the query
-def get_schools_query(user_input):
-	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
-	schoolnode="""node["amenity"="school"](around:""" 		  	  #this is string of syntex in 'Overpass QL' language
-	collegenode="""node["amenity"="college"](around:"""		  	  #this is string of syntex in 'Overpass QL' language
-	suffix = """);out body;>;out skel qt;"""				        	  #this is string of syntex in 'Overpass QL' language
-	q = user_input[2]+','+user_input[0]+','+user_input[1]    	  #(radius,latitude,longitude) in a string form the user input
-	built_query = prefix + schoolnode+ q +');'+ collegenode+ q +');'+ suffix  #combine all the above strings in correct order to form a query
-	return built_query											                    #returns the complete overpass query
-
 
 
 #this function arrenge user inputs to build the 'query' (in overpass QL language) for roads data and returns the query
@@ -121,7 +132,7 @@ if __name__ == '__main__':  # main function to act accordingly to the user's inp
 	option = user_input[3]
 	if(option==1):
 		query = get_houses_query(user_input)
-		data_frame = extract_nodes_data_from_OSM(query)
+		data_frame = extract_raw_data_from_OSM(query)
 	elif(option==2):
 		query = get_schools_query(user_input)
 		data_frame= extract_nodes_data_from_OSM(query)
@@ -130,7 +141,7 @@ if __name__ == '__main__':  # main function to act accordingly to the user's inp
 		data_frame = extract_raw_data_from_OSM(query)
 	elif(option==4):
 		query = get_busStops_query(user_input)
-		data_frame = extract_raw_data_from_OSM(query)
+		data_frame = extract_nodes_data_from_OSM(query)
 	elif(option==5):
 		query = get_busStations_query(user_input)
 		data_frame= extract_nodes_data_from_OSM(query)
