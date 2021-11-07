@@ -31,14 +31,6 @@ def get_input():
 	return([latitude,longitude,search_radius,option])   #returns the list of user inputs
 
 
-													              #return the complete query to main function
-def get_houses_queryX(user_input):
-	prefix = """[out:json][timeout:50];(node["building"="appartment"](around:""" #this is string of syntex in 'Overpass QL' language
-	suffix = """););out body;>;out skel qt;"""							      #this is string of syntex in 'Overpass QL' language
-	q = user_input[2]+','+user_input[0]+','+user_input[1]       #(radius,latitude,longitude) in a string from the user input
-	built_query = prefix + q + suffix                           #arrange all above strings into a correct order to form complete query
-	return built_query 			
-
 
 def get_houses_query(user_input):
 	prefix = """[out:json][timeout:50];("""  				          	#this is string of syntex in 'Overpass QL' language
