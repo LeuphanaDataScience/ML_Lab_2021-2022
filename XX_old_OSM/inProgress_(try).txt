@@ -1,0 +1,33 @@
+Trying to make things more convenient... But problematic, because main function builds on user_input
+
+def get_input():    
+	print("\nGenerate example data with/for... \n1. Custom values \n2. Arena tast \n3. School task ")
+	
+	option1 = input()
+    
+	if(option1 == "1"):
+		print("\nEnter latitude \nArena: 53.2723116 \nCenter Lueneburg: 53.248706")
+		latitude = input()
+		print("\nEnter longitude \nArena: 10.4276049 \nCenter Lueneburg: 10.407855")
+		longitude = input()
+		print("\nEnter scan radius for target (in meters) (EXAMPLE->'50000 or 5000')")
+		search_radius = input()
+
+	elif(option1 == "2"):
+		latitude = 53.2723116
+		longitude = 10.4276049
+		search_radius = 50000     
+        
+	elif(option1 == "3"):
+		latitude = 53.248706
+		longitude = 10.407855
+		search_radius = 5000      
+        
+	print("\nEnter an option.(integer) :\n1. Houses \n2. Schools \n3. Road Network \n4. Bus Stops \n5. Bus Stations")
+	option = int(input("\n>>>"))
+	while option not in [1,2,3,4,5]: 
+		print("Invalid Option. Try Again \n>>")
+		option = int(input())
+        
+	return([latitude,longitude,search_radius,option])   #returns the list of user inputs
+
