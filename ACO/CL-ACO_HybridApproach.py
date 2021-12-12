@@ -21,36 +21,42 @@ import time
 #file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
 
 file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/'
-file_dm = 'sparse_matrix_lueneburg.csv'  # distance matrix
+#file_dm = 'sparse_matrix_lueneburg.csv'  # distance matrix
+file_dm = 'full_distance_matrix_lueneburg.csv'  # distance matrix
 file_cl = 'cluster_gdf_1.csv'
 
 # Load information on clusters
 # -----------------------------------------------------------------------------
 cl_df = pd.read_csv(file_path + file_cl)
 
+'''
 # What happens, if in a given data set, there are more than e. g. 70 people to
 # pick up at a station? Will there be multiple entries for one bus stop with
 # two different cluster IDs?
 print(cl_df['passengers'].max())
+'''
 
-# Reduce data frame by dropping not need columns
+# Reduce data frame by dropping columns that aren't needed
 cl_df = cl_df.drop(['element_type', 'osmid', 'x', 'y', 'geometry', 'passengers'],
                    axis=1)
-print(cl_df)
+#print(cl_df)
+
+# Load information on distance matrix
+# -----------------------------------------------------------------------------
+dm_df = pd.read_csv(file_path + file_dm, sep=';')
+
+'''
+# Inspection 
 
 # Max. cluster ID == no. of clusters (n_cl) == no. of inputs for run()
 cl_df['cluster'].max()
 
 # Print entries with cluster ID == 1
 print(cl_df[cl_df['cluster']==1])
-
-# Load information on distance matrix
-# -----------------------------------------------------------------------------
-dm_df = pd.read_csv(file_path + file_dm, sep=';')
-print(dm_df)
+'''
 
 
-# Process both data frames
+#%% Process both data frames
 # -----------------------------------------------------------------------------
 # Merge data frames
 df = (cl_df.merge(dm_df,
@@ -61,24 +67,37 @@ df = (cl_df.merge(dm_df,
       )
 print(df)
 
-# 'Delete'/Select only rows, which have cluster ID == 0
+
+# Recode cluster 0 (to highest cluster number)
+for i in range(len(df['cluster'])):
+    if df['cluster'][i] == 0:
+        df['cluster'][i] = cl_df['cluster'].max()+1
+
+'''
+Do we need this?
+
+'Delete'/Select only rows, which have cluster ID == 0
 df = df[df.cluster != 0]
 print(df)
+'''
 
 # Replace distances between bus stops == 0 by np.inf
 # df = df.replace(0, np.inf)
 df = df.replace(0, 999999)
-print(df)
+#print(df)
 
-# TODO: Loop over all clusters
 
-df_1 = df[df['cluster']==1]
-print(df_1)
+# Loop over all clusters to create subsets of the data
 
-df_2 = df_1[df_1['name'][df_1['cluster']==1]]
-print(df_2)
+df_clusters = {}
 
-cost_matrix = df_2
+for i in range(1, cl_df['cluster'].max()+2):
+#for i in [1]:
+    df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
+    df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)
+    df_1 = df[df['cluster']==i]
+    cost_matrix = df_1[df_1['name'][df_1['cluster']==i]]
+    df_clusters[i] = cost_matrix
 
 # =============================================================================
 #%% CLASSES
@@ -244,10 +263,12 @@ class AntColony(object):
         all_routes = []
         for i in range(self.n_colony):
             route = self.gen_route(0) # TODO: set depot as starting point
+#            route = self.gen_route(0,1) # TODO: set arena as end point
             all_routes.append((route, self.gen_route_dist(route)))
         return all_routes
 
     def gen_route(self, start):
+#    def gen_route(self, start, end):
         '''Function generating a route.
 
         Parameters
@@ -263,7 +284,8 @@ class AntColony(object):
         '''
         route = []
         visited = set()
-        visited.add(start) # TODO: add arena to visited list (so that it doesn't get visited until end)
+        visited.add(start) 
+#        visited.add(end) # TODO: add arena to visited list (so that it doesn't get visited until end)
         prev = start
         for i in range(len(self.dist) - 1):
             move = self.pick_move(self.pheromone[prev],
@@ -271,7 +293,8 @@ class AntColony(object):
             route.append((prev, move))
             prev = move
             visited.add(move)
-        route.append((prev, start))  # TODO: add arena as last stop
+        route.append((prev, start))  
+#        route.append((prev, end))  # TODO: add arena as last stop
         return route
 
     def pick_move(self, pheromone, dist, visited):
@@ -301,8 +324,40 @@ class AntColony(object):
         move = np.random.choice(self.all_inds, 1, p=norm_row)[0]
         return move
 
+#%% Let the ants run!
 
-# Put cost matrix in same format as the following example of nparray distances
+# Loop over all data subsets (defined by clusters) in df_clusters
+
+def run_all_clusters(a = 1, b = 1, g = 100, r = 0.95):
+    best_routes_all_clusters = {}
+    total_cost_all_clusters = 0
+    
+    for i in range(1, cl_df['cluster'].max()+2):
+        cost_matrix = df_clusters[i]
+        distance_matrix = np.asarray(cost_matrix)
+        new_matrix = np.array(distance_matrix)
+        ant_colony = AntColony(new_matrix,
+                           n_colony=50,
+                           n_elite=5,
+                           n_iter=1,
+                           n_iter_max=100,
+                           alpha=a,
+                           beta=b,
+                           gamma=g,
+                           rho=r)
+        route_gbest = ant_colony.run()
+        best_routes_all_clusters[i] = route_gbest
+        total_cost_all_clusters += route_gbest[0][-1]
+        print(i)
+    return best_routes_all_clusters, total_cost_all_clusters
+
+best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
+
+#%% Put cost matrix in same format as the following example of nparray distances
+
+# This step (recoding 0 = high number) already done before, right?
+
+'''
 # distances = np.array([[np.inf, 2, 2, 5, 7],
 #                       [2, np.inf, 4, 8, 2],
 #                       [2, 4, np.inf, 1, 3],
@@ -315,7 +370,6 @@ distance_matrix = np.asarray(cost_matrix)
 # distance_matrix = np.delete(distance_matrix, (0), axis=0)
 # distance_matrix = np.delete(distance_matrix, (0), axis=1)
 
-
 new_matrix = []
 for i in distance_matrix:  # for each row in matrix
     row = []
@@ -327,8 +381,41 @@ for i in distance_matrix:  # for each row in matrix
     new_matrix.append(row)
 
 new_matrix = np.array(new_matrix)
+'''
 
-#%% Run (fixed hyperparameters)
+
+#%% Hyperparameter Tuning (Combinations) 
+
+alphas = [0.5, 1]
+betas = [0.5, 1]
+gammas = [100, 200]
+rhos = [0.5, 0.95]
+
+
+parameter_search = {}
+
+#for g in range(len(gammas)):
+for a in alphas:
+    parameter_search[a] = {}
+    for b in betas:
+        parameter_search[a][b] = {}
+        for g in gammas:
+            parameter_search[a][b][g] = {}
+            for r in rhos:
+                print(f"alpha = {a}, beta = {b}, gamma = {g}, rho = {r}")
+                best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(a,b,g,r)
+                parameter_search[a][b][g][r] = total_cost_all_clusters
+                
+
+#%%
+
+# ............................................................................
+
+#%% Run (fixed hyperparameters, one cluster)
+
+cost_matrix = df_clusters[3] # here you can select one cluster
+distance_matrix = np.asarray(cost_matrix)
+new_matrix = np.array(distance_matrix)
 
 ant_colony = AntColony(new_matrix,
                        n_colony=50,
@@ -343,9 +430,7 @@ ant_colony = AntColony(new_matrix,
 route_gbest = ant_colony.run()
 print("route_gbest: {}".format(route_gbest))
 
-#%% Hyperparameter Tuning (Combinations)
-
-# TODO: find reasonable range (research?)
+#%% Hyperparameter Tuning (Combinations) (OLD)
 
 alphas = [0.5, 1]
 betas = [0.5, 1]
@@ -376,5 +461,3 @@ for a in alphas:
                 route_gbest = ant_colony.run()
                 parameter_search[a][b][g][r] = route_gbest[0][-1]
                 
-
-
