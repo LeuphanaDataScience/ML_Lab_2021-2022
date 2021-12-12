@@ -4,14 +4,7 @@
 Created on Sun Dec 12 15:07:35 2021
 
 @author: niklas-maximilianepping
-"""
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Dec 12 09:28:30 2021
-
-@author: niklas-maximilianepping
 """
 
 # =============================================================================
