@@ -4,11 +4,11 @@
 Created on Sun Dec 12 15:07:35 2021
 
 @author: niklas-maximilianepping
-
+modifications: friederikebaier
 """
 
 # =============================================================================
-# IMPORTING PACKAGES
+#%% IMPORTING PACKAGES
 # -----------------------------------------------------------------------------
 import numpy as np
 import pandas as pd
@@ -16,10 +16,12 @@ import time
 
 
 # =============================================================================
-# LOADING DATA
+#%% LOADING DATA
 # -----------------------------------------------------------------------------
-file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
-file_dm = 'sparse_matrix_lueneburg.csv'  # distancy matrix
+#file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
+
+file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/'
+file_dm = 'sparse_matrix_lueneburg.csv'  # distance matrix
 file_cl = 'cluster_gdf_1.csv'
 
 # Load information on clusters
@@ -68,6 +70,8 @@ print(df)
 df = df.replace(0, 999999)
 print(df)
 
+# TODO: Loop over all clusters
+
 df_1 = df[df['cluster']==1]
 print(df_1)
 
@@ -77,7 +81,7 @@ print(df_2)
 cost_matrix = df_2
 
 # =============================================================================
-# CLASSES
+#%% CLASSES
 # -----------------------------------------------------------------------------
 class AntColony(object):
 
@@ -239,7 +243,7 @@ class AntColony(object):
         '''
         all_routes = []
         for i in range(self.n_colony):
-            route = self.gen_route(0)
+            route = self.gen_route(0) # TODO: set depot as starting point
             all_routes.append((route, self.gen_route_dist(route)))
         return all_routes
 
@@ -259,7 +263,7 @@ class AntColony(object):
         '''
         route = []
         visited = set()
-        visited.add(start)
+        visited.add(start) # TODO: add arena to visited list (so that it doesn't get visited until end)
         prev = start
         for i in range(len(self.dist) - 1):
             move = self.pick_move(self.pheromone[prev],
@@ -267,7 +271,7 @@ class AntColony(object):
             route.append((prev, move))
             prev = move
             visited.add(move)
-        route.append((prev, start))  # going back to where we started
+        route.append((prev, start))  # TODO: add arena as last stop
         return route
 
     def pick_move(self, pheromone, dist, visited):
@@ -324,6 +328,8 @@ for i in distance_matrix:  # for each row in matrix
 
 new_matrix = np.array(new_matrix)
 
+#%% Run (fixed hyperparameters)
+
 ant_colony = AntColony(new_matrix,
                        n_colony=50,
                        n_elite=5,
@@ -336,3 +342,39 @@ ant_colony = AntColony(new_matrix,
 
 route_gbest = ant_colony.run()
 print("route_gbest: {}".format(route_gbest))
+
+#%% Hyperparameter Tuning (Combinations)
+
+# TODO: find reasonable range (research?)
+
+alphas = [0.5, 1]
+betas = [0.5, 1]
+gammas = [100, 200]
+rhos = [0.5, 0.95]
+
+
+parameter_search = {}
+
+#for g in range(len(gammas)):
+for a in alphas:
+    parameter_search[a] = {}
+    for b in betas:
+        parameter_search[a][b] = {}
+        for g in gammas:
+            parameter_search[a][b][g] = {}
+            for r in rhos:
+                print(f"alpha = {a}, beta = {b}, gamma = {g}, rho = {r}")
+                ant_colony = AntColony(new_matrix,
+                       n_colony=50,
+                       n_elite=5,
+                       n_iter=1,
+                       n_iter_max=100,
+                       alpha=a,
+                       beta=b,
+                       gamma=g,
+                       rho=r)
+                route_gbest = ant_colony.run()
+                parameter_search[a][b][g][r] = route_gbest[0][-1]
+                
+
+
