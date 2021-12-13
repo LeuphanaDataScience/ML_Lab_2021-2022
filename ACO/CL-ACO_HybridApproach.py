@@ -74,7 +74,6 @@ class AntColony(object):
         self.gamme = gamma  # pheromone supply of an ant
         self.rho = rho  # decay/evaporation factor of pheromone, double, rho<1
 
-#%%
 # =============================================================================
 # ALGORITHMS AND FUNCTIONS
 # -----------------------------------------------------------------------------
@@ -246,7 +245,7 @@ class AntColony(object):
         move = np.random.choice(self.all_inds, 1, p=norm_row)[0]
         return move
 
-
+#%%
 # "Full" solution (all clusters):
 # Loop over all data subsets (defined by clusters) in df_clusters
 
@@ -345,14 +344,14 @@ for i in range(1, cl_df['cluster'].max()+1):
 
 #%% Let the ants run!
 
-
+best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
 
 #%% Computational performance (CP) evaluation
 
 ET_all = []
 
 for i in range(5):
-    print("Iteration: ", i)
+    print("Iteration: ", i+1)
     t0 = time.process_time()  # for performance evaluation
     best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
     t1 = time.process_time()   # for performance evaluation
@@ -360,7 +359,8 @@ for i in range(5):
     ET_all.append(ET)
 
 #%%
-print(np.mean(ET_all)) # 122.621875 (mean of 5 runs for setup 1 with 15 clusters)
+print(np.mean(ET_all))   # 122.621875 (mean of 5 runs for setup 1 with 15 clusters)
+                         # 134.84375 (mean of 5 runs for setup 3 with 15 clusters)
 
 #%% Run (fixed hyperparameters, one cluster)
 
