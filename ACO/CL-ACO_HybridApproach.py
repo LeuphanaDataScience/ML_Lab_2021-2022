@@ -21,7 +21,6 @@ import time
 #file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
 
 file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/'
-#file_dm = 'sparse_matrix_lueneburg.csv'  # distance matrix
 file_dm = 'full_distance_matrix_lueneburg.csv'  # distance matrix
 file_cl = 'cluster_gdf_1.csv'
 
@@ -66,13 +65,6 @@ df = (cl_df.merge(dm_df,
       .drop(columns='_merge')
       )
 print(df)
-
-'''
-# Recode cluster 0 (to highest cluster number)
-for i in range(len(df['cluster'])):
-    if df['cluster'][i] == 0:
-        df['cluster'][i] = cl_df['cluster'].max()+1
-'''
 
 # Select only rows, which have cluster ID != 0
 df = df[df.cluster != 0]
@@ -122,7 +114,6 @@ df_clusters = {}
 #df.cluster[df['name']== "Hagen Wendeplatz"] = 'NaN' # depot (start point)  
 
 for i in range(1, cl_df['cluster'].max()+1):
-#for i in [1]:
     df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
     df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)   
     df_1 = df[df['cluster']==i]
@@ -301,13 +292,12 @@ class AntColony(object):
         '''
         all_routes = []
         for i in range(self.n_colony):
-            route = self.gen_route(0) # TODO: set depot as starting point
-#            route = self.gen_route(0,-1) # TODO: set arena as end point
+            route = self.gen_route(0,np.shape(self.dist)[0]-1) # TODO: set arena as end point
             all_routes.append((route, self.gen_route_dist(route)))
         return all_routes
 
-    def gen_route(self, start):
-#    def gen_route(self, start, end):
+#    def gen_route(self, start):
+    def gen_route(self, start, end):
         '''Function generating a route.
 
         Parameters
@@ -324,7 +314,7 @@ class AntColony(object):
         route = []
         visited = set()
         visited.add(start) 
-#        visited.add(end) # TODO: add arena to visited list (so that it doesn't get visited until end)
+        visited.add(end) # TODO: add arena to visited list (so that it doesn't get visited until end)
         prev = start
         for i in range(len(self.dist) - 1):
             move = self.pick_move(self.pheromone[prev],
@@ -332,8 +322,8 @@ class AntColony(object):
             route.append((prev, move))
             prev = move
             visited.add(move)
-        route.append((prev, start))  
-#        route.append((prev, end))  # TODO: add arena as last stop
+        route.append(prev, start)
+#        route.append(end)  # TODO: add arena as last stop
         return route
 
     def pick_move(self, pheromone, dist, visited):
@@ -371,7 +361,7 @@ def run_all_clusters(a = 1, b = 1, g = 100, r = 0.95):
     best_routes_all_clusters = {}
     total_cost_all_clusters = 0
     
-    for i in range(1, cl_df['cluster'].max()+2):
+    for i in range(1, cl_df['cluster'].max()+1):
         cost_matrix = df_clusters[i]
         distance_matrix = np.asarray(cost_matrix)
         new_matrix = np.array(distance_matrix)
