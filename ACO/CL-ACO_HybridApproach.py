@@ -22,82 +22,6 @@ import numpy as np
 import pandas as pd
 import time
 
-
-# =============================================================================
-#%% LOADING DATA
-# -----------------------------------------------------------------------------
-
-# file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
-
-file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/'
-file_dm = 'full_distance_matrix_lueneburg.csv'  # distance matrix
-file_cl = 'cluster_gdf_1.csv'                   # pre-processed by cluster group
-
-
-# Load information on clusters
-# -----------------------------------------------------------------------------
-cl_df = pd.read_csv(file_path + file_cl)
-
-# Reduce data frame by dropping columns that aren't needed
-cl_df = cl_df.drop(['element_type', 'osmid', 'x', 'y', 'geometry', 'passengers'],
-                   axis=1)
-
-# Load information on distance matrix
-# -----------------------------------------------------------------------------
-dm_df = pd.read_csv(file_path + file_dm, sep=';')
-
-'''
-# Inspection 
-
-# Max. cluster ID == no. of clusters (n_cl) == no. of inputs for run()
-cl_df['cluster'].max()
-
-# Print entries with cluster ID == 1
-print(cl_df[cl_df['cluster']==1])
-'''
-
-#%% Process both data frames
-# -----------------------------------------------------------------------------
-
-# Merge data frames
-df = (cl_df.merge(dm_df,
-                  on=['name'],
-                  how='left',
-                  indicator=True)
-      .drop(columns='_merge')
-      )
-print(df)
-
-# Select only rows, which have cluster ID != 0
-df = df[df.cluster != 0]
-
-
-# Replace distances between bus stops == 0 by np.inf/ very high number
-# df = df.replace(0, np.inf)
-df = df.replace(0, 999999)
-
-#%% Cluster subsets
-
-# Loop over all clusters to create subsets of the data
-
-df_clusters = {}
-
-for i in range(1, cl_df['cluster'].max()+1):
-    df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
-    df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)   
-    df_1 = df[df['cluster']==i]
-    
-    start = df_1[df_1['name']=="Hagen Wendeplatz"]
-    end = df_1[df_1['name']== "Schlachthof"]
-    tmp = df_1[df_1['name'] != "Schlachthof"]
-    tmp = tmp[tmp['name'] != "Hagen Wendeplatz"]
-
-    df_2 = pd.concat([start, tmp, end], ignore_index = True)
-    
-    df_2 = df_2[df_2['name'][df_2['cluster']==i]]
-
-    df_clusters[i] = df_2
-
 #%%
 # =============================================================================
 # CLASSES
@@ -322,8 +246,8 @@ class AntColony(object):
         move = np.random.choice(self.all_inds, 1, p=norm_row)[0]
         return move
 
-#%% Let the ants run!
 
+# "Full" solution (all clusters):
 # Loop over all data subsets (defined by clusters) in df_clusters
 
 def run_all_clusters(a = 1, b = 1, g = 100, r = 0.95):
@@ -346,11 +270,97 @@ def run_all_clusters(a = 1, b = 1, g = 100, r = 0.95):
         route_gbest = ant_colony.run()
         best_routes_all_clusters[i] = route_gbest
         total_cost_all_clusters += route_gbest[0][-1]
-        print(i)
+        print("Cluster: ", i)
     return best_routes_all_clusters, total_cost_all_clusters
+    
+# =============================================================================
+#%% LOADING & PRE-PROCESSING DATA
+# -----------------------------------------------------------------------------
 
-best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
+# file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
 
+file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/'
+file_dm = 'full_distance_matrix_lueneburg.csv'  # distance matrix
+#file_cl = 'cluster_gdf_1.csv'                   # pre-processed by cluster group
+#file_cl = 'cluster_gdf_2.csv' 
+file_cl = 'cluster_gdf_3.csv' 
+
+# Load information on clusters
+# -----------------------------------------------------------------------------
+cl_df = pd.read_csv(file_path + file_cl)
+
+# Reduce data frame by dropping columns that aren't needed
+cl_df = cl_df.drop(['element_type', 'osmid', 'x', 'y', 'geometry', 'passengers'],
+                   axis=1)
+
+# Load information on distance matrix
+# -----------------------------------------------------------------------------
+dm_df = pd.read_csv(file_path + file_dm, sep=';')
+
+'''
+# Inspection 
+
+# Max. cluster ID == no. of clusters (n_cl) == no. of inputs for run()
+cl_df['cluster'].max()
+
+# Print entries with cluster ID == 1
+print(cl_df[cl_df['cluster']==1])
+'''
+
+# Merge data frames
+df = (cl_df.merge(dm_df,
+                  on=['name'],
+                  how='left',
+                  indicator=True)
+      .drop(columns='_merge')
+      )
+print(df)
+
+# Select only rows, which have cluster ID != 0
+df = df[df.cluster != 0]
+
+# Replace distances between bus stops == 0 by np.inf/ very high number
+# df = df.replace(0, np.inf)
+df = df.replace(0, 999999)
+
+#%% Cluster subsets
+
+# Loop over all clusters to create subsets of the data
+
+df_clusters = {}
+
+for i in range(1, cl_df['cluster'].max()+1):
+    df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
+    df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)   
+    df_1 = df[df['cluster']==i]
+    
+    start = df_1[df_1['name']=="Hagen Wendeplatz"]
+    end = df_1[df_1['name']== "Schlachthof"]
+    tmp = df_1[df_1['name'] != "Schlachthof"]
+    tmp = tmp[tmp['name'] != "Hagen Wendeplatz"]
+
+    df_2 = pd.concat([start, tmp, end], ignore_index = True)    
+    df_2 = df_2[df_2['name'][df_2['cluster']==i]]
+    df_clusters[i] = df_2
+
+#%% Let the ants run!
+
+
+
+#%% Computational performance (CP) evaluation
+
+ET_all = []
+
+for i in range(5):
+    print("Iteration: ", i)
+    t0 = time.process_time()  # for performance evaluation
+    best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
+    t1 = time.process_time()   # for performance evaluation
+    ET = t1-t0
+    ET_all.append(ET)
+
+#%%
+print(np.mean(ET_all)) # 122.621875 (mean of 5 runs for setup 1 with 15 clusters)
 
 #%% Run (fixed hyperparameters, one cluster)
 
@@ -367,6 +377,8 @@ ant_colony = AntColony(new_matrix,
                        beta=1,
                        gamma=100,
                        rho=0.95)
+
+
 
 route_gbest = ant_colony.run()
 print("route_gbest: {}".format(route_gbest))
@@ -392,6 +404,8 @@ for a in alphas:
                 print(f"alpha = {a}, beta = {b}, gamma = {g}, rho = {r}")
                 best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(a,b,g,r)
                 parameter_search[a][b][g][r] = total_cost_all_clusters
+   
+    
    
 #%% OLD
 
