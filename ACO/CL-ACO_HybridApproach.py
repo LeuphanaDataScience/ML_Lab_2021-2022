@@ -67,19 +67,16 @@ df = (cl_df.merge(dm_df,
       )
 print(df)
 
-
+'''
 # Recode cluster 0 (to highest cluster number)
 for i in range(len(df['cluster'])):
     if df['cluster'][i] == 0:
         df['cluster'][i] = cl_df['cluster'].max()+1
-
 '''
-Do we need this?
 
-'Delete'/Select only rows, which have cluster ID == 0
+# Select only rows, which have cluster ID != 0
 df = df[df.cluster != 0]
-print(df)
-'''
+
 
 # Replace distances between bus stops == 0 by np.inf
 # df = df.replace(0, np.inf)
