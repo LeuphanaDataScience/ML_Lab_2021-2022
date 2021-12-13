@@ -83,18 +83,57 @@ df = df[df.cluster != 0]
 df = df.replace(0, 999999)
 #print(df)
 
+#%%
 
 # Loop over all clusters to create subsets of the data
 
+'''
 df_clusters = {}
 
-for i in range(1, cl_df['cluster'].max()+2):
+start = df[df['name']== "Hagen Wendeplatz"]
+end = df[df['name']== "Schlachthof"]
+
+df = df[df['name']!= "Schlachthof"]
+df = df[df['name']!=  "Hagen Wendeplatz"]
+'''
+'''
+
+#%%
+for i in range(1, cl_df['cluster'].max()+1):
 #for i in [1]:
-    df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
-    df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)
-    df_1 = df[df['cluster']==i]
+ #   df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
+ #   df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)
+    df_1 = start
+    tmp = df[df['cluster']==i]
+    keep = list(tmp.columns)
+    df_1 = df_1[keep]
+#    df_1 = df_1.drop(df_1 not in keep)    
+    df_1.append(tmp)
     cost_matrix = df_1[df_1['name'][df_1['cluster']==i]]
     df_clusters[i] = cost_matrix
+
+'''
+
+#%%
+
+df_clusters = {}
+
+for i in range(1, cl_df['cluster'].max()+1):
+#for i in [1]:
+    df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
+    df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)   
+    df_1 = df[df['cluster']==i]
+    
+    start = df_1[df_1['name']=="Hagen Wendeplatz"]
+    end = df_1[df_1['name']== "Schlachthof"]
+    tmp = df_1[df_1['name'] != "Schlachthof"]
+    tmp = df_1[df_1['name'] != "Hagen Wendeplatz"]
+
+    df_2 = pd.concat([start, tmp, end], ignore_index = True)
+    
+    df_2 = df_1[df_1['name'][df_1['cluster']==i]]
+
+    df_clusters[i] = df_2
 
 # =============================================================================
 #%% CLASSES
@@ -260,7 +299,7 @@ class AntColony(object):
         all_routes = []
         for i in range(self.n_colony):
             route = self.gen_route(0) # TODO: set depot as starting point
-#            route = self.gen_route(0,1) # TODO: set arena as end point
+#            route = self.gen_route(0,-1) # TODO: set arena as end point
             all_routes.append((route, self.gen_route_dist(route)))
         return all_routes
 
