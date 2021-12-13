@@ -316,7 +316,7 @@ df = (cl_df.merge(dm_df,
 print(df)
 
 # Select only rows, which have cluster ID != 0
-df = df[df.cluster != 0]
+#df = df[df.cluster != 0]
 
 # Replace distances between bus stops == 0 by np.inf/ very high number
 # df = df.replace(0, np.inf)
