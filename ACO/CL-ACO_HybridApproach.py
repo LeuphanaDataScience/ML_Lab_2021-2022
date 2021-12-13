@@ -5,6 +5,14 @@ Created on Sun Dec 12 15:07:35 2021
 
 @author: niklas-maximilianepping
 modifications: friederikebaier
+
+Questions:
+1)  What happens, if in a given data set, there are more than e. g. 70 people to
+    pick up at a station? Will there be multiple entries for one bus stop with
+    two different cluster IDs?
+    print(cl_df['passengers'].max())
+    
+'''
 """
 
 # =============================================================================
@@ -18,27 +26,21 @@ import time
 # =============================================================================
 #%% LOADING DATA
 # -----------------------------------------------------------------------------
-#file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
+
+# file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
 
 file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/'
 file_dm = 'full_distance_matrix_lueneburg.csv'  # distance matrix
-file_cl = 'cluster_gdf_1.csv'
+file_cl = 'cluster_gdf_1.csv'                   # pre-processed by cluster group
+
 
 # Load information on clusters
 # -----------------------------------------------------------------------------
 cl_df = pd.read_csv(file_path + file_cl)
 
-'''
-# What happens, if in a given data set, there are more than e. g. 70 people to
-# pick up at a station? Will there be multiple entries for one bus stop with
-# two different cluster IDs?
-print(cl_df['passengers'].max())
-'''
-
 # Reduce data frame by dropping columns that aren't needed
 cl_df = cl_df.drop(['element_type', 'osmid', 'x', 'y', 'geometry', 'passengers'],
                    axis=1)
-#print(cl_df)
 
 # Load information on distance matrix
 # -----------------------------------------------------------------------------
@@ -54,9 +56,9 @@ cl_df['cluster'].max()
 print(cl_df[cl_df['cluster']==1])
 '''
 
-
 #%% Process both data frames
 # -----------------------------------------------------------------------------
+
 # Merge data frames
 df = (cl_df.merge(dm_df,
                   on=['name'],
@@ -70,48 +72,15 @@ print(df)
 df = df[df.cluster != 0]
 
 
-# Replace distances between bus stops == 0 by np.inf
+# Replace distances between bus stops == 0 by np.inf/ very high number
 # df = df.replace(0, np.inf)
 df = df.replace(0, 999999)
-#print(df)
 
-#%%
+#%% Cluster subsets
 
 # Loop over all clusters to create subsets of the data
 
-'''
 df_clusters = {}
-
-start = df[df['name']== "Hagen Wendeplatz"]
-end = df[df['name']== "Schlachthof"]
-
-df = df[df['name']!= "Schlachthof"]
-df = df[df['name']!=  "Hagen Wendeplatz"]
-'''
-'''
-
-#%%
-for i in range(1, cl_df['cluster'].max()+1):
-#for i in [1]:
- #   df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
- #   df.cluster[df['name']== "Hagen Wendeplatz"] = i # depot (start point)
-    df_1 = start
-    tmp = df[df['cluster']==i]
-    keep = list(tmp.columns)
-    df_1 = df_1[keep]
-#    df_1 = df_1.drop(df_1 not in keep)    
-    df_1.append(tmp)
-    cost_matrix = df_1[df_1['name'][df_1['cluster']==i]]
-    df_clusters[i] = cost_matrix
-
-'''
-
-#%%
-
-df_clusters = {}
-
-#df.cluster[df['name']== "Schlachthof"] = 'NaN' # arena (end point)
-#df.cluster[df['name']== "Hagen Wendeplatz"] = 'NaN' # depot (start point)  
 
 for i in range(1, cl_df['cluster'].max()+1):
     df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
@@ -129,8 +98,9 @@ for i in range(1, cl_df['cluster'].max()+1):
 
     df_clusters[i] = df_2
 
+#%%
 # =============================================================================
-#%% CLASSES
+# CLASSES
 # -----------------------------------------------------------------------------
 class AntColony(object):
 
@@ -180,7 +150,7 @@ class AntColony(object):
         self.gamme = gamma  # pheromone supply of an ant
         self.rho = rho  # decay/evaporation factor of pheromone, double, rho<1
 
-
+#%%
 # =============================================================================
 # ALGORITHMS AND FUNCTIONS
 # -----------------------------------------------------------------------------
@@ -292,7 +262,7 @@ class AntColony(object):
         '''
         all_routes = []
         for i in range(self.n_colony):
-            route = self.gen_route(0,np.shape(self.dist)[0]-1) # TODO: set arena as end point
+            route = self.gen_route(0,len(self.dist) - 1) # set depot as start & arena as end point
             all_routes.append((route, self.gen_route_dist(route)))
         return all_routes
 
@@ -314,16 +284,15 @@ class AntColony(object):
         route = []
         visited = set()
         visited.add(start) 
-        visited.add(end) # TODO: add arena to visited list (so that it doesn't get visited until end)
+        visited.add(end) # add arena to "visited" list (so that it doesn't get visited until end)
         prev = start
-        for i in range(len(self.dist) - 1):
+        for i in range(len(self.dist) - 2):
             move = self.pick_move(self.pheromone[prev],
                                   self.dist[prev], visited)
             route.append((prev, move))
             prev = move
             visited.add(move)
-        route.append(prev, start)
-#        route.append(end)  # TODO: add arena as last stop
+        route.append((prev, end)) # add arena as last stop
         return route
 
     def pick_move(self, pheromone, dist, visited):
@@ -382,6 +351,50 @@ def run_all_clusters(a = 1, b = 1, g = 100, r = 0.95):
 
 best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
 
+
+#%% Run (fixed hyperparameters, one cluster)
+
+cost_matrix = df_clusters[3] # here you can select one cluster
+distance_matrix = np.asarray(cost_matrix)
+new_matrix = np.array(distance_matrix)
+
+ant_colony = AntColony(new_matrix,
+                       n_colony=50,
+                       n_elite=5,
+                       n_iter=1,
+                       n_iter_max=100,
+                       alpha=1,
+                       beta=1,
+                       gamma=100,
+                       rho=0.95)
+
+route_gbest = ant_colony.run()
+print("route_gbest: {}".format(route_gbest))
+
+#%% Hyperparameter Tuning (Combinations) 
+
+alphas = [0.5, 1]
+betas = [0.5, 1]
+gammas = [100, 200]
+rhos = [0.5, 0.95]
+
+
+parameter_search = {}
+
+#for g in range(len(gammas)):
+for a in alphas:
+    parameter_search[a] = {}
+    for b in betas:
+        parameter_search[a][b] = {}
+        for g in gammas:
+            parameter_search[a][b][g] = {}
+            for r in rhos:
+                print(f"alpha = {a}, beta = {b}, gamma = {g}, rho = {r}")
+                best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(a,b,g,r)
+                parameter_search[a][b][g][r] = total_cost_all_clusters
+   
+#%% OLD
+
 #%% Put cost matrix in same format as the following example of nparray distances
 
 # This step (recoding 0 = high number) already done before, right?
@@ -411,53 +424,6 @@ for i in distance_matrix:  # for each row in matrix
 
 new_matrix = np.array(new_matrix)
 '''
-
-
-#%% Hyperparameter Tuning (Combinations) 
-
-alphas = [0.5, 1]
-betas = [0.5, 1]
-gammas = [100, 200]
-rhos = [0.5, 0.95]
-
-
-parameter_search = {}
-
-#for g in range(len(gammas)):
-for a in alphas:
-    parameter_search[a] = {}
-    for b in betas:
-        parameter_search[a][b] = {}
-        for g in gammas:
-            parameter_search[a][b][g] = {}
-            for r in rhos:
-                print(f"alpha = {a}, beta = {b}, gamma = {g}, rho = {r}")
-                best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(a,b,g,r)
-                parameter_search[a][b][g][r] = total_cost_all_clusters
-                
-
-#%%
-
-# ............................................................................
-
-#%% Run (fixed hyperparameters, one cluster)
-
-cost_matrix = df_clusters[3] # here you can select one cluster
-distance_matrix = np.asarray(cost_matrix)
-new_matrix = np.array(distance_matrix)
-
-ant_colony = AntColony(new_matrix,
-                       n_colony=50,
-                       n_elite=5,
-                       n_iter=1,
-                       n_iter_max=100,
-                       alpha=1,
-                       beta=1,
-                       gamma=100,
-                       rho=0.95)
-
-route_gbest = ant_colony.run()
-print("route_gbest: {}".format(route_gbest))
 
 #%% Hyperparameter Tuning (Combinations) (OLD)
 
