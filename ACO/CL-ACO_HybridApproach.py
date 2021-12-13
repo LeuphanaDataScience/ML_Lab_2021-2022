@@ -359,6 +359,8 @@ for i in range(5):
     ET_all.append(ET)
 
 #%%
+
+print(total_cost_all_clusters)
 print(np.mean(ET_all))   # 122.621875 (mean of 5 runs for setup 1 with 15 clusters)
                          # 134.84375 (mean of 5 runs for setup 3 with 15 clusters)
 
