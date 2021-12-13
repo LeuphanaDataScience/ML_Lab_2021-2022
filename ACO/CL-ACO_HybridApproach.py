@@ -118,6 +118,9 @@ for i in range(1, cl_df['cluster'].max()+1):
 
 df_clusters = {}
 
+#df.cluster[df['name']== "Schlachthof"] = 'NaN' # arena (end point)
+#df.cluster[df['name']== "Hagen Wendeplatz"] = 'NaN' # depot (start point)  
+
 for i in range(1, cl_df['cluster'].max()+1):
 #for i in [1]:
     df.cluster[df['name']== "Schlachthof"] = i # arena (end point)
@@ -127,11 +130,11 @@ for i in range(1, cl_df['cluster'].max()+1):
     start = df_1[df_1['name']=="Hagen Wendeplatz"]
     end = df_1[df_1['name']== "Schlachthof"]
     tmp = df_1[df_1['name'] != "Schlachthof"]
-    tmp = df_1[df_1['name'] != "Hagen Wendeplatz"]
+    tmp = tmp[tmp['name'] != "Hagen Wendeplatz"]
 
     df_2 = pd.concat([start, tmp, end], ignore_index = True)
     
-    df_2 = df_1[df_1['name'][df_1['cluster']==i]]
+    df_2 = df_2[df_2['name'][df_2['cluster']==i]]
 
     df_clusters[i] = df_2
 
