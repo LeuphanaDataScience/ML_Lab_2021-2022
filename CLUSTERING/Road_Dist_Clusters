@@ -26,8 +26,14 @@ bus_stops_people_3 = pd.read_csv('city_stops_and_passengers_3.csv')
 #uploading matrix with distances among stations
 matrix = pd.read_csv('full_distance_matrix_lueneburg.csv', sep=";", index_col = 'name')
 
+#we do not want column with our destination to be included:
+matrix = matrix.drop(["Schlachthof", "Hagen Wendeplatz"], axis = 1)
+
 #list of distances to arena:
 distances_to_arena = list(matrix.loc["Schlachthof"])
+
+#we do not want index with our destination and    to be included:
+matrix = matrix.drop(["Schlachthof", "Hagen Wendeplatz"], axis = 0)
 
 #list of bus stop names
 bus_names = list(matrix.columns)
@@ -90,7 +96,6 @@ def cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_ch
 
 
 #CLUSTERING ALGORITHM with SEQUENCE approach
-
 def sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
@@ -128,7 +133,7 @@ def sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names
     return cluster_nodelist_dict
 
 #CLUSTERING ALGORITHM with A-star approach
-#k is hyperparameter to take into account portion of the distance to Arena
+#k is a hyperparameter to take into account portion of the distance to Arena
 def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, k):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
@@ -169,7 +174,7 @@ def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_c
     return cluster_nodelist_dict
 
 
-#Choose on of the methods
+#Choose one of the clustering methods
 #Cloud approach:
 #cluster_nodelist_dict = cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check)
 #Sequence approach:
@@ -177,14 +182,15 @@ def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_c
 #A-star approach:
 cluster_nodelist_dict = a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, 4)
 
+
 number_of_clusters = len(cluster_nodelist_dict.keys())#amount of clusters
 
 
-#to calculate amountt of bus_stops in all clusters
-amount = 0
+#to calculate amount of bus_stops in all clusters
+amount_stops = 0
 len_list = []
 for list_ in list(cluster_nodelist_dict.values()):
-    amount += len(list_)
+    amount_stops += len(list_)
 
 
 #to check repeated nodes in clusters:
