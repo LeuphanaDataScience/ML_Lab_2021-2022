@@ -21,6 +21,7 @@ Questions:
 import numpy as np
 import pandas as pd
 import time
+import copy
 
 #%%
 # =============================================================================
@@ -117,9 +118,11 @@ class AntColony(object):
             CP = CP.append(temp, ignore_index=True)
             # print(route_lbest)
             # print('>>>>>', 'Execution time: ', ET, 'sec')  # for eval
+            
 
         return route_gbest, CP.plot(x='ET in sec',
                                     y=['Cost_gbest', 'Cost_lbest'])
+
 
     def spread_pheromone(self, all_routes, n_elite, route_lbest):
         '''Function defining deposition of pheromones.
@@ -278,7 +281,7 @@ def run_all_clusters(a = 1, b = 1, g = 100, r = 0.95):
 
 # file_path = '/Users/niklas-maximilianepping/Desktop/MyProjects/ACO/'
 
-file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/'
+file_path = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/data/'
 file_dm = 'full_distance_matrix_lueneburg.csv'  # distance matrix
 #file_cl = 'cluster_gdf_1.csv'                   # pre-processed by cluster group
 #file_cl = 'cluster_gdf_2.csv' 
@@ -345,19 +348,51 @@ for i in range(1, cl_df['cluster'].max()+1):
 #%% Let the ants run!
 
 best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
+    
+#%%
+
+for j in range(1,len(best_routes_all_clusters)+1): #[0,14]  
+    best_routes_all_clusters[j] = list(best_routes_all_clusters[j])
+    del best_routes_all_clusters[j][-1]
+
+
+#%%
+
+'''
+for j in range(1,len(best_routes_all_clusters)): #[0,14]  
+    for i in range(0,len(best_routes_all_clusters[j])): #[1,15]:
+        best_routes_all_clusters[j][i] = list(best_routes_all_clusters[j][i])
+        del best_routes_all_clusters[j][i][-1]
+'''
+
+#%%
+
+# first, make a copy of the dictonary containing lists with routes for all clusters
+# -> values (numbers) for stations should be overwritten with station names
+   
+best_routes_all_clusters_names = copy.deepcopy(best_routes_all_clusters)
+
+#%%
+
+for j in range(1,len(best_routes_all_clusters)+1): #[0,14]  
+    for i in range(0,len(best_routes_all_clusters[j][0][0])): #[1,15]
+        for k in range(2):
+            index = best_routes_all_clusters[j][0][0][i][k]            
+            best_routes_all_clusters_names[j][0][0][i] = list(best_routes_all_clusters_names[j][0][0][i])
+            best_routes_all_clusters_names[j][0][0][i][k] = df_clusters[j].columns.values[index]
+
 
 #%% Computational performance (CP) evaluation
 
 ET_all = []
 
-for i in range(5):
+for i in range(1):
     print("Iteration: ", i+1)
     t0 = time.process_time()  # for performance evaluation
     best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
     t1 = time.process_time()   # for performance evaluation
     ET = t1-t0
     ET_all.append(ET)
-
 #%%
 
 print(total_cost_all_clusters)
