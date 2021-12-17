@@ -349,31 +349,19 @@ for i in range(1, cl_df['cluster'].max()+1):
 
 best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
     
-#%%
+#%% Create dictonary with stop names instead of just indexes 
 
+# Delete the plot object from the dictonary
 for j in range(1,len(best_routes_all_clusters)+1): #[0,14]  
     best_routes_all_clusters[j] = list(best_routes_all_clusters[j])
     del best_routes_all_clusters[j][-1]
 
-
-#%%
-
-'''
-for j in range(1,len(best_routes_all_clusters)): #[0,14]  
-    for i in range(0,len(best_routes_all_clusters[j])): #[1,15]:
-        best_routes_all_clusters[j][i] = list(best_routes_all_clusters[j][i])
-        del best_routes_all_clusters[j][i][-1]
-'''
-
-#%%
-
-# first, make a copy of the dictonary containing lists with routes for all clusters
+# make a copy of the dictonary containing lists with routes for all clusters
 # -> values (numbers) for stations should be overwritten with station names
-   
 best_routes_all_clusters_names = copy.deepcopy(best_routes_all_clusters)
 
-#%%
 
+# replace numbers by station names in copied dictonary
 for j in range(1,len(best_routes_all_clusters)+1): #[0,14]  
     for i in range(0,len(best_routes_all_clusters[j][0][0])): #[1,15]
         for k in range(2):
@@ -381,12 +369,11 @@ for j in range(1,len(best_routes_all_clusters)+1): #[0,14]
             best_routes_all_clusters_names[j][0][0][i] = list(best_routes_all_clusters_names[j][0][0][i])
             best_routes_all_clusters_names[j][0][0][i][k] = df_clusters[j].columns.values[index]
 
-
 #%% Computational performance (CP) evaluation
 
 ET_all = []
 
-for i in range(1):
+for i in range(5): # put in number of iterations
     print("Iteration: ", i+1)
     t0 = time.process_time()  # for performance evaluation
     best_routes_all_clusters, total_cost_all_clusters = run_all_clusters()
@@ -398,27 +385,6 @@ for i in range(1):
 print(total_cost_all_clusters)
 print(np.mean(ET_all))   # 122.621875 (mean of 5 runs for setup 1 with 15 clusters)
                          # 134.84375 (mean of 5 runs for setup 3 with 15 clusters)
-
-#%% Run (fixed hyperparameters, one cluster)
-
-cost_matrix = df_clusters[3] # here you can select one cluster
-distance_matrix = np.asarray(cost_matrix)
-new_matrix = np.array(distance_matrix)
-
-ant_colony = AntColony(new_matrix,
-                       n_colony=50,
-                       n_elite=5,
-                       n_iter=1,
-                       n_iter_max=100,
-                       alpha=1,
-                       beta=1,
-                       gamma=100,
-                       rho=0.95)
-
-
-
-route_gbest = ant_colony.run()
-print("route_gbest: {}".format(route_gbest))
 
 #%% Hyperparameter Tuning (Combinations) 
 
@@ -445,6 +411,28 @@ for a in alphas:
     
    
 #%% OLD
+
+#%% Run (fixed hyperparameters, one cluster)
+
+cost_matrix = df_clusters[3] # here you can select one cluster
+distance_matrix = np.asarray(cost_matrix)
+new_matrix = np.array(distance_matrix)
+
+ant_colony = AntColony(new_matrix,
+                       n_colony=50,
+                       n_elite=5,
+                       n_iter=1,
+                       n_iter_max=100,
+                       alpha=1,
+                       beta=1,
+                       gamma=100,
+                       rho=0.95)
+
+
+
+route_gbest = ant_colony.run()
+print("route_gbest: {}".format(route_gbest))
+
 
 #%% Put cost matrix in same format as the following example of nparray distances
 
