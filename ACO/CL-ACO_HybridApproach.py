@@ -22,6 +22,8 @@ import numpy as np
 import pandas as pd
 import time
 import copy
+import pickle
+import os
 
 #%%
 # =============================================================================
@@ -368,6 +370,15 @@ for j in range(1,len(best_routes_all_clusters)+1): #[0,14]
             index = best_routes_all_clusters[j][0][0][i][k]            
             best_routes_all_clusters_names[j][0][0][i] = list(best_routes_all_clusters_names[j][0][0][i])
             best_routes_all_clusters_names[j][0][0][i][k] = df_clusters[j].columns.values[index]
+
+#%%
+# save the dictonary in a pickle
+
+os.chdir('/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/')
+
+dict_routes = best_routes_all_clusters_names
+filehandler = open("pickles/dict_routes.obj", 'wb')
+pickle.dump(dict_routes, filehandler)
 
 #%% Computational performance (CP) evaluation
 
