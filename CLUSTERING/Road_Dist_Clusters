@@ -3,6 +3,7 @@ import warnings
 import networkx as nx
 from shapely.geometry import Point
 import random
+from scipy.spatial import ConvexHull, convex_hull_plot_2d
 #import matplotlib.cm as cm
 
 ### to switch the warnings off
@@ -179,7 +180,7 @@ def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_c
 
 #CLUSTERING ALGORITHM with A-star k-next approach
 #k is hyperparameter how many next closest points to compare to get the one that leads to Arena
-def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, k):
+def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, k = 3):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:
@@ -233,7 +234,7 @@ def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
 
 #CLUSTERING ALGORITHM with CONVEX HULL center assignment and CLOUD approach
 
-def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'distance'):
+def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'random'):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:#iterate till all nodes are assigned to clusters
@@ -297,7 +298,7 @@ def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_n
 
 #CLUSTERING ALGORITHM with CONVEX HULL center assignment and SEQUENCE approach
 
-def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'distance'):
+def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'random'):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:#iterate till all nodes are assigned to clusters
@@ -357,7 +358,7 @@ def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bu
     return cluster_nodelist_dict
 
 #CLUSTERING ALGORITHM with CONVEX HULL center assignment and A-star approach
-def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, k = 3, choice = 'distance'):
+def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, k = 3, choice = 'random'):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:#iterate till all nodes are assigned to clusters
@@ -440,9 +441,9 @@ def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
 #A-star k-next approach:
 #cluster_nodelist_dict = a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, 2)
 #CONVEX_HULL_CLOUD:
-cluster_nodelist_dict = convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'distance')
+cluster_nodelist_dict = convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'random')
 #CONVEX_HULL_SEQUENCE:
-#cluster_nodelist_dict = convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'distance')
+#cluster_nodelist_dict = convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, choice = 'random')
 #CONVEX_HULL_A_STAR:
 #cluster_nodelist_dict = convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, k = 3, choice = 'random')
 
