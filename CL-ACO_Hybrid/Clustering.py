@@ -2,41 +2,34 @@
 """
 Clustering Part
 """
-#%% SETUP
+# %% SETUP
 
-#import matplotlib.pyplot as plt
-#import networkx as nx
-from shapely.geometry import Point
+
 import random
-from scipy.spatial import ConvexHull, convex_hull_plot_2d
-
-#import osmnx as ox
-#import pandas as pd
 import numpy as np
-#import geopandas as gp
-from collections import defaultdict 
+from collections import defaultdict
 
-#%%
-# CLUSTERING ALGORITHM with CLOUD approach
+# %% CLUSTERING ALGORITHMS
 
 # CLUSTERING ALGORITHM with CONVEX HULL center assignment and CLOUD approach
+
 
 def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, choice = 'random'):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
-    while len(bus_names_check) != 0:#iterate till all nodes are assigned to clusters
+    while len(bus_names_check) != 0:  # iterate till all nodes are assigned to clusters
         people_assigned = 0
-        #determine convex points:
-        if len(bus_names_check) >= 3: #to calculate convex hull we need more than 3 points:
+        # determine convex points:
+        if len(bus_names_check) >= 3:  # to calculate convex hull we need more than 3 points:
             points_unassigned = np.array([[bus_stops_df.loc[name]['x']] + [bus_stops_df.loc[name]['y']] for name in bus_names_check])
             hull = ConvexHull(points_unassigned)
             bus_names_to_choose = [bus_names_check[index] for index in hull.vertices]
             distances_to_arena_to_choose = [distances_to_arena_check[index] for index in hull.vertices]
-        else: 
+        else:
             bus_names_to_choose = bus_names_check
             distances_to_arena_to_choose = distances_to_arena_check
-        #choose among convex point:
-        #choose randomly:
+        # choose among convex point:
+        # choose randomly:
         if choice == 'random':
             cluster_center = random.choice(bus_names_to_choose)
             ind_to_remove = bus_names_check.index(cluster_center)
@@ -216,42 +209,4 @@ def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
             people_assigned += people_assigned_next
         cluster_number += 1
     return cluster_nodelist_dict
-
-
-"""
-
-#%% Visualization: Put clusters on the map:
-
-#create one dataframe per cluster (except 0 which means that bus stop is in no cluster because it has no passengers)
-cluster_df_list = []
-for cluster_number in cluster_nodelist_dict.keys():
-    cluster_df = cluster_gdf[cluster_gdf["cluster"] == cluster_number]
-    cluster_df_list.append(cluster_df)
-
-
-# Get graph of Kreis Lüneburg:
-# kreis_lüneburg_gdf = ox.geocoder.geocode_to_gdf("R2084746", which_result=None, by_osmid=True, buffer_dist=None)
-# kreis_lüneburg_geom = kreis_lüneburg_gdf['geometry'].iloc[0]
-# graph = ox.graph_from_polygon(kreis_lüneburg_geom, network_type ="drive")
-
-# Get graph of Lüneburg only:
-location_name = 'Lüneburg'
-graph = ox.graph_from_place(location_name, network_type="drive")
-
-
-#create list of colors (default mode seems to work better)
-#colors = cm.rainbow(np.linspace(0, 2, number_of_clusters))
-#random.shuffle(colors)
-
-
-#plot map
-fig, ax = ox.plot_graph(graph, show=False, close=False)
-#for df, color in zip(cluster_df_list,colors) :
-for df in cluster_df_list:
-    df.plot(ax=ax, markersize = 10, alpha=1, zorder=7)
-    #df.plot(ax=ax, markersize = 10, alpha=1, zorder=7, color=color)
-plt.show()
-
-"""
-
 

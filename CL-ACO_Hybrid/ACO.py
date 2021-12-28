@@ -6,20 +6,16 @@ Created on Tue Dec 28 21:44:26 2021
 
 """
 
-# =============================================================================
-#%% IMPORTING PACKAGES
-# -----------------------------------------------------------------------------
+
+# %% IMPORTING PACKAGES
+
 import numpy as np
 import pandas as pd
-import copy
-import pickle
-import os
 import time
 
-#%%
-# =============================================================================
-# CLASSES
-# -----------------------------------------------------------------------------
+# %% CLASSES
+
+
 class AntColony(object):
 
     def __init__(self, dist, n_colony, n_elite, n_iter, n_iter_max,
@@ -111,11 +107,9 @@ class AntColony(object):
             CP = CP.append(temp, ignore_index=True)
             # print(route_lbest)
             # print('>>>>>', 'Execution time: ', ET, 'sec')  # for eval
-            
 
         return route_gbest, CP.plot(x='ET in sec',
                                     y=['Cost_gbest', 'Cost_lbest'])
-
 
     def spread_pheromone(self, all_routes, n_elite, route_lbest):
         '''Function defining deposition of pheromones.
@@ -127,7 +121,7 @@ class AntColony(object):
         Parameters
         ----------
         all_routes : float
-            
+
         n_elite : int
             Number of best/elitist ants who deposit pheromone
         route_lbest :
@@ -181,7 +175,7 @@ class AntColony(object):
         '''
         all_routes = []
         for i in range(self.n_colony):
-            route = self.gen_route(0,len(self.dist) - 1) # set depot as start & arena as end point
+            route = self.gen_route(0, len(self.dist) - 1)  # set depot = start & arena = end
             all_routes.append((route, self.gen_route_dist(route)))
         return all_routes
 
@@ -202,8 +196,8 @@ class AntColony(object):
         '''
         route = []
         visited = set()
-        visited.add(start) 
-        visited.add(end) # add arena to "visited" list (so that it doesn't get visited until end)
+        visited.add(start)
+        visited.add(end)  # add arena to "visited" list (shouldn't be visited until end)
         prev = start
         for i in range(len(self.dist) - 2):
             move = self.pick_move(self.pheromone[prev],
@@ -211,7 +205,7 @@ class AntColony(object):
             route.append((prev, move))
             prev = move
             visited.add(move)
-        route.append((prev, end)) # add arena as last stop
+        route.append((prev, end))  # add arena as last stop
         return route
 
     def pick_move(self, pheromone, dist, visited):
@@ -241,30 +235,31 @@ class AntColony(object):
         move = np.random.choice(self.all_inds, 1, p=norm_row)[0]
         return move
 
-#%%
-# "Full" solution (all clusters):
+# %% "Full" solution (all clusters)
+
 # Loop over all data subsets (defined by clusters) in df_clusters
 
-def run_all_clusters(df_clusters, cl_df, a = 1, b = 1, g = 100, r = 0.95):
+
+def run_all_clusters(df_clusters, cl_df, a=1, b=1, g=100, r=0.95):
+
     best_routes_all_clusters = {}
     total_cost_all_clusters = 0
-    
+
     for i in range(1, int(cl_df['cluster'].max()+1)):
         cost_matrix = df_clusters[i]
         distance_matrix = np.asarray(cost_matrix)
         new_matrix = np.array(distance_matrix)
         ant_colony = AntColony(new_matrix,
-                           n_colony=50,
-                           n_elite=5,
-                           n_iter=1,
-                           n_iter_max=100,
-                           alpha=a,
-                           beta=b,
-                           gamma=g,
-                           rho=r)
+                               n_colony=50,
+                               n_elite=5,
+                               n_iter=1,
+                               n_iter_max=100,
+                               alpha=a,
+                               beta=b,
+                               gamma=g,
+                               rho=r)
         route_gbest = ant_colony.run()
         best_routes_all_clusters[i] = route_gbest
         total_cost_all_clusters += route_gbest[0][-1]
         print("Cluster: ", i)
     return best_routes_all_clusters, total_cost_all_clusters
-    
