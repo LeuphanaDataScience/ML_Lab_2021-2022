@@ -10,7 +10,7 @@ Main File ACO-Clustering
 #%% Variables to be defined
 
 # root directories of data
-src = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/ACO/CL-ACO_Hybrid (connected files)'
+src = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/CL-ACO_Hybrid'
 
 # Scenario (event)
 Scenario = 'city_stops_and_passengers_1.csv' 
