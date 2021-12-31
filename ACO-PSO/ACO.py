@@ -239,8 +239,8 @@ def run_all_clusters(param):
         distance_matrix = np.asarray(cost_matrix)
         new_matrix = np.array(distance_matrix)
         ant_colony = AntColony(new_matrix,
-                               n_colony=50,
-                               n_elite=5,
+                               n_colony=25,
+                               n_elite=1,
                                n_iter=1,
                                n_iter_max=25,
                                alpha=param[0],
