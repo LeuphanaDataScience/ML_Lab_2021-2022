@@ -12,8 +12,10 @@ import time
 # -----------------------------------------------------------------------------
 class AntColony(object):
 
+    # def __init__(self, dist, n_colony, n_elite, n_iter, n_iter_max,
+    #              alpha, beta, gamma, rho):
     def __init__(self, dist, n_colony, n_elite, n_iter, n_iter_max,
-                 alpha, beta, gamma, rho):
+                 n_no_better_sol, n_no_better_sol_max, alpha, beta, gamma, rho):
         '''Ant Colony Class
 
         Arguments
@@ -56,6 +58,8 @@ class AntColony(object):
         self.n_elite = n_elite
         self.n_iter = n_iter
         self.n_iter_max = n_iter_max
+        self.n_no_better_sol = n_no_better_sol
+        self.n_no_better_sol_max = n_no_better_sol_max
         self.alpha = alpha
         self.beta = beta
         self.gamma = gamma
@@ -76,7 +80,9 @@ class AntColony(object):
 
         route_lbest = None
         route_gbest = ("placeholder", np.inf)
-        for self.n_iter in range(self.n_iter_max):
+        while self.n_no_better_sol < (self.n_no_better_sol_max+1):  # test of new termination criteria
+        # while self.n_no_better_sol < (self.n_no_better_sol_max+1) or self.n_iter < (self.n_iter_max+1):  # test of new termination criteria
+        # for self.n_iter in range(self.n_iter_max):
 
             # t0 = time.process_time()  # for performance evaluation
 
@@ -87,6 +93,7 @@ class AntColony(object):
             route_lbest = min(all_routes, key=lambda x: x[1])
             if route_lbest[1] < route_gbest[1]:
                 route_gbest = route_lbest
+                self.n_no_better_sol = 1
             self.pheromone = self.pheromone * self.rho
 
         #     t1 = time.process_time()   # for performance evaluation
@@ -101,7 +108,9 @@ class AntColony(object):
         #     CP = CP.append(temp, ignore_index=True)
         #     # print(route_lbest)
         #     # print('>>>>>', 'Execution time: ', ET, 'sec')  # for eval
-
+            self.n_no_better_sol += 1  # test of new termination criteria
+            self.n_iter += 1  # test of new termination criteria
+        # print('> Iterations in ACO: ', self.n_iter)
         return route_gbest,  # CP.plot(x='ET in sec',
         #                             y=['Cost_gbest', 'Cost_lbest'])
 
@@ -239,10 +248,12 @@ def run_all_clusters(param):
         distance_matrix = np.asarray(cost_matrix)
         new_matrix = np.array(distance_matrix)
         ant_colony = AntColony(new_matrix,
-                               n_colony=25,
-                               n_elite=1,
+                               n_colony=50,
+                               n_elite=5,
                                n_iter=1,
-                               n_iter_max=25,
+                               n_iter_max=100,
+                               n_no_better_sol=1,
+                               n_no_better_sol_max=10,
                                alpha=param[0],
                                beta=param[1],
                                gamma=param[2],

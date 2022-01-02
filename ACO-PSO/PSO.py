@@ -20,16 +20,29 @@ from ACO import run_all_clusters
 """
     References
     ----------
-    [01] Patrick Lindner (2019). Vorlesung Schwarmintelligenz.
-    [02] Nathan A. Rooy (2016). Simple Particle Swarm Optimization (PSO) with
+    [01] P. Lindner (2019). Vorlesung Schwarmintelligenz.
+    [02] N. A. Rooy (2016). Simple Particle Swarm Optimization (PSO) with
             Python. https://nathanrooy.github.io/posts/2016-08-17/simple-
             particle-swarm-optimization-with-python/ (accessed on 21-12-17)
     [03] Niklas-MAximilian Epping, Jonathan Nyenhuis (2019). Partikel Schwarm
             Optimierung: Grundlagen, Varianten, Implementierung in Python und
             Vergleich moderner Varianten.
-    [04] Paolo Cazzaniga, Marco S. Nobile and Daniela Besozzi (2015). The
-            impact of particles initialization in PSO: parameter estimation as
-            a case in point. DOI: 10.1109/CIBCB.2015.7300288
+    [04] P. Cazzaniga, M. S. Nobile and D. Besozzi (2015). The impact of
+            particles initialization in PSO: parameter estimation as a case in
+            point. DOI: 10.1109/CIBCB.2015.7300288.
+    [05] Z. Cui, J. Zeng und Y. Yin (2008). An Improved PSO with Time-Varying
+            Accelerator Cofficients. 10.1109/ISDA.2008.86.
+    [06] Gómez-Cabrero, D., and Ranasinghe, D.N. (2018). Fine-tuning the Ant
+            Colony System algorithm through Particle Swarm Optimization.
+            ArXiv, abs/1803.08353.
+    [07] Wong, K., & Komarudin (2008). Parameter tuning for ant colony
+            optimization: A review. 2008 International Conference on Computer
+            and Communication Engineering, 542-545.
+
+    TODO
+    ----
+    - Successful fine tuning of ACO using PSO by trying to implement strategies
+            suggested in [06] and [07] --> some adjustments needed accordingly
 """
 
 
@@ -57,23 +70,22 @@ class Particle:
 
         for i in range(0, num_dimensions):
             self.velocity_i.append(random.uniform(-1, 1))
-            # TODO: Initalize differently than just using given initial values
             # # A) Initial values given
             # self.position_i.append(param[i])
-            # B-1) Initial values from uniform distribution (see 04)
+            # B-1) Initial values from uniform distribution (cf. [04])
             self.position_i.append(np.random.uniform(bounds[i][0], bounds[i][1]))
-            # # B-2) Initial values from normal distribution (see 04)
+            # # B-2) Initial values from normal distribution (cf. [04])
             # mean = (bounds[i][0] + bounds[i][1]) / 2
             # self.position_i.append(np.random.normal(loc=mean,
             #                                         scale=1,
             #                                         size=None))
-            # # B-3) Initial values from lognormal distribution (see 04)
+            # # B-3) Initial values from lognormal distribution (cf. [04])
             # mean = ((np.log(bounds[i][0])+np.log(bounds[i][1]))/2)
             # self.position_i.append(np.random.lognormal(mean=mean,
             #                                         sigma=1,
             #                                         size=None))
-            # # B-4) Initial values from logarithmic distribution (see 04)
-            # mean = np.exp(np.log(bounds[i][0])+np.log(bounds[i][1]/bounds[i][0])*np.random)
+            # # B-4) Initial values from logarithmic distribution (cf. [04])
+            # mean = np.exp(np.log(bounds[i][0])+np.log(bounds[i][1]/bounds[i][0])*np.random.rand(1))
             # self.position_i.append(np.random.lognormal(mean=mean,
             #                                         sigma=1,
             #                                         size=None))
@@ -131,11 +143,21 @@ class Particle:
         # B-2) as a function - Non-linear Time Varying
         w = 0.9                     # omega, constant inertia weight
         w = (w - 0.4) * ((max_iterations - iterations)/(max_iterations + 0.4))
+
         # LEARNING FACTORS
         # ---------------------------------------------------------------------
         # A) as constants
-        c1 = 1                      # cognitive constant
-        c2 = 2                      # social constant
+        # c1 = 1                      # cognitive constant
+        # B) as a function of time (Timve Varying Accelerator Coefficients) 
+        c1_min, c1_max = 0.5, 2.5
+        # # B-1) Upwards function (cf. [05], IPSO 1)
+        # c1 = c1_max + (c1_max - c1_min) * (iterations / max_iterations) ** 2
+        # B-2) Concave function (cf. [05], IPSO 2)
+        c1 = c1_max + (c1_max - c1_min) * (iterations / max_iterations) ** 2 - (c1_max - c1_min) * ((2 * iterations) / max_iterations)
+        # # B-3) Exponential function (cf. [05], IPSO 3)
+        # c1 = c1_min * (c1_min / c1_max) ** (1 / (1 + 10 * (iterations / max_iterations)))
+        
+        c2 = 3.0 - c1               # social constant
 
         for i in range(0, num_dimensions):
             r1 = random.random()
@@ -204,15 +226,14 @@ class PSO():
         # Initalize swarm
         swarm = []
         for i in range(0, num_particles):
-            # TODO: Initialize swarm differently crucial part for PSO
             swarm.append(Particle(param))
 
         # Optimization loop
         total_ET = 0                        # for performance evaluation
         PSO_Performance = pd.DataFrame({'Iteration': [], 'Cost': []})
-        iterations = 0
+        iterations = 1
         max_iterations = num_iter_max
-        while iterations < num_iter_max:
+        while iterations < (num_iter_max+1):
             t0 = time.process_time()        # for performance evaluation
             print('----------------------------------------------------------')
             print('Iteration: ' + str(iterations))
@@ -286,4 +307,4 @@ bounds = [(0.001, 10.00),           # alpha
 #           (0.001, 0.999)]           # rho
 
 # Run optimization
-PSO(costfunc, initial, bounds, num_particles=25, num_iter_max=25)
+PSO(costfunc, initial, bounds, num_particles=50, num_iter_max=100)
