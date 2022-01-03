@@ -9,7 +9,7 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-cluster = False
+cluster = True
 
 if cluster == True:
     src = '.'  # root directory
@@ -22,8 +22,6 @@ Scenario = 'city_stops_and_passengers_1.csv'
 
 # Clustering
 capacity = 70                 # how many people should be in one cluster
-method = "CONVEX_HULL_CLOUD"  # or "CONVEX_HULL_SEQUENCE" / "CONVEX_HULL_A_STAR"
-
 
 # %% Import modules & functions
 
@@ -31,7 +29,7 @@ import os
 import pickle
 import pandas as pd
 import numpy as np
-import matplotlip as plt
+import time
 
 if cluster == False:
     os.chdir(src)
@@ -42,8 +40,8 @@ from ACO import run_all_clusters
 
 # %% Clustering step
 
-
-methods = ["CONVEX_HULL_CLOUD", "CONVEX_HULL_SEQUENCE", "CONVEX_HULL_A_STAR"]
+methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random", "CONVEX_HULL_A_STAR_random",
+           "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance", "CONVEX_HULL_A_STAR_distance"]
 
 
 def runCluster(method):
@@ -57,21 +55,39 @@ def runCluster(method):
     distances_to_arena_check = distances_to_arena.copy()  # list of possible stops
     bus_names_check = bus_names.copy()
 
-    if method == "CONVEX_HULL_CLOUD":
+    if method == "CONVEX_HULL_CLOUD_random":
         cluster_nodelist_dict = convex_cloud_cluster(bus_stops_df, capacity,
                                                      distances_to_arena_check,
                                                      bus_names_check, matrix,
                                                      choice='random')
-    elif method == "CONVEX_HULL_SEQUENCE":
+    elif method == "CONVEX_HULL_CLOUD_distance":
+        cluster_nodelist_dict = convex_sequence_cluster(bus_stops_df, capacity,
+                                                        distances_to_arena_check,
+                                                        bus_names_check, matrix,
+                                                        choice='distance')
+    elif method == "CONVEX_HULL_SEQUENCE_random":
         cluster_nodelist_dict = convex_sequence_cluster(bus_stops_df, capacity,
                                                         distances_to_arena_check,
                                                         bus_names_check, matrix,
                                                         choice='random')
-    elif method == "CONVEX_HULL_A_STAR":
+    
+    elif method == "CONVEX_HULL_SEQUENCE_distance":
+        cluster_nodelist_dict = convex_sequence_cluster(bus_stops_df, capacity,
+                                                        distances_to_arena_check,
+                                                        bus_names_check, matrix,
+                                                        choice='distance')
+
+    elif method == "CONVEX_HULL_A_STAR_random":
         cluster_nodelist_dict = convex_a_star_cluster(bus_stops_df, capacity,
                                                       distances_to_arena_check,
                                                       bus_names_check, matrix, k=3,
                                                       choice='random')
+
+    elif method == "CONVEX_HULL_A_STAR_distance":
+        cluster_nodelist_dict = convex_a_star_cluster(bus_stops_df, capacity,
+                                                      distances_to_arena_check,
+                                                      bus_names_check, matrix, k=3,
+                                                      choice='distance')
 
     return cluster_nodelist_dict, bus_stops_df
 
@@ -158,27 +174,51 @@ for i in range(0, len(methods)):
     
 # %% Run multiple times to determine best clustering method (TAKES LOOONG!!!)
 
-methods = ["CONVEX_HULL_CLOUD", "CONVEX_HULL_SEQUENCE", "CONVEX_HULL_A_STAR"]
-iterations = 100
+methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
+           "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
 
+iterations = 250
+
+routes = {}
 costs = {}
-for i in range(0, len(methods)):
-    print(methods[i])
-    costs[i] = []
-    for j in range(0,iterations):
-        print(f'{methods[i]}, Iteration {j+1}/{iterations}')
-        routes, cost = runClusterACO(methods[i])
-        costs[i].append(cost)
+comp_time = {}
 
+for i in range(0, len(methods)):
+    T1 = time.time()
+    costs[i] = []
+    routes[i] = []
+    comp_time[i] = []
+    for j in range(0,iterations):
+        seconds = time.time()
+        print(f'{methods[i]} (Method {i+1}/{len(methods)}), Iteration {j+1}/{iterations} Time: {time.ctime(seconds)}')       
+        t0 = time.time()  
+        route, cost = runClusterACO(methods[i])
+        t1 = time.time()
+        ET = t1-t0
+        costs[i].append(cost)
+        routes[i].append(route)
+        comp_time[i].append(ET)
+    T2 = time.time()
+    time_method = T2-T1
+    print(f'Running {iterations} Iterations for method {methods[i]} took {time_method}.')
+        
 # save the dictonary in a pickle
-filehandler = open(src+"/pickles/results_eval_cluster_methods.obj", 'wb')
+filehandler = open(src+"/pickles/eval_costs.obj", 'wb')
 pickle.dump(costs, filehandler)
+
+filehandler = open(src+"/pickles/eval_routes.obj", 'wb')
+pickle.dump(routes, filehandler)
+
+filehandler = open(src+"/pickles/eval_comp-time.obj", 'wb')
+pickle.dump(comp_time, filehandler)
 
 #%%
 
-methods = ["CONVEX_HULL_CLOUD", "CONVEX_HULL_SEQUENCE", "CONVEX_HULL_A_STAR"]
+methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
+           "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
 
 if cluster == False:
     results = pd.read_pickle(src2+"/pickles/results_eval_cluster_methods.obj")
     for i in range(0,len(methods)):
         print(f'{methods[i]} : {np.mean(results[i])}')
+

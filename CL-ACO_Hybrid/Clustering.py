@@ -15,7 +15,6 @@ from scipy.spatial import ConvexHull
 
 # CLUSTERING ALGORITHM with CONVEX HULL center assignment and CLOUD approach
 
-
 def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, choice='random'):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
