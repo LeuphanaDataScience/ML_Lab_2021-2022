@@ -258,7 +258,7 @@ def run_all_clusters(df_clusters, cl_df, a=1, b=1, g=100, r=0.95):
                                gamma=g,
                                rho=r)
         route_gbest = ant_colony.run()
-        best_routes_all_clusters[i] = route_gbest
+        best_routes_all_clusters[i] = route_gbest  # TODO: remove distance (last entry)
         total_cost_all_clusters += route_gbest[-1]
         print("Cluster: ", i)
     return best_routes_all_clusters, total_cost_all_clusters

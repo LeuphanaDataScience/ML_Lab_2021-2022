@@ -10,6 +10,7 @@ Main File ACO-Clustering
 # %% Variables to be defined
 
 src = '.'  # root directory
+# src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid"
 
 # Scenario (event)
 Scenario = 'city_stops_and_passengers_1.csv'
@@ -25,7 +26,7 @@ import os
 import pickle
 import pandas as pd
 
-#os.chdir(src)
+# os.chdir(src)
 
 from data_prep import dataprep_CL, dataprep_ACO, exportClusters, namedRoute
 from Clustering import convex_cloud_cluster, convex_a_star_cluster, convex_sequence_cluster
@@ -129,8 +130,7 @@ def runClusterACO(method):
     filehandler = open(src+"/pickles/dict_routes_names_"+method+".obj", 'wb')
     pickle.dump(dict_routes_names, filehandler)
 
-    return best_routes_all_clusters, best_routes_all_clusters_names
-
+    return best_routes_all_clusters_names, total_cost_all_clusters
 
 '''
 methods = ["CONVEX_HULL_CLOUD", "CONVEX_HULL_SEQUENCE", "CONVEX_HULL_A_STAR"]
@@ -140,7 +140,28 @@ runClusterACO(method)
 
 # %% Run with different clustering methods
 
+"""
 results = {}
 for i in range(0, len(methods)):
     print(methods[i])
     results[i] = runClusterACO(methods[i])
+    table = results[i]
+"""
+    
+# %% Run multiple times to determine best clustering method (TAKES LOOONG!!!)
+
+methods = ["CONVEX_HULL_CLOUD", "CONVEX_HULL_SEQUENCE", "CONVEX_HULL_A_STAR"]
+iterations = 100
+
+costs = {}
+for i in range(0, len(methods)):
+    print(methods[i])
+    costs[i] = []
+    for j in range(0,iterations):
+        print(f'{methods[i]}, Iteration {j+1}/{iterations}')
+        routes, cost = runClusterACO(methods[i])
+        costs[i].append(cost)
+
+# save the dictonary in a pickle
+filehandler = open(src+"/pickles/results_eval_cluster_methods.obj", 'wb')
+pickle.dump(costs, filehandler)
