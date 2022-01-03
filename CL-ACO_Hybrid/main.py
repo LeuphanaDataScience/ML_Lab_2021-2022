@@ -9,8 +9,13 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-src = '.'  # root directory
-# src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid"
+cluster = False
+
+if cluster == True:
+    src = '.'  # root directory
+else:
+    src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid"
+    src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/download/CL-ACO_Hybrid"
 
 # Scenario (event)
 Scenario = 'city_stops_and_passengers_1.csv'
@@ -25,8 +30,11 @@ method = "CONVEX_HULL_CLOUD"  # or "CONVEX_HULL_SEQUENCE" / "CONVEX_HULL_A_STAR"
 import os
 import pickle
 import pandas as pd
+import numpy as np
+import matplotlip as plt
 
-# os.chdir(src)
+if cluster == False:
+    os.chdir(src)
 
 from data_prep import dataprep_CL, dataprep_ACO, exportClusters, namedRoute
 from Clustering import convex_cloud_cluster, convex_a_star_cluster, convex_sequence_cluster
@@ -165,3 +173,12 @@ for i in range(0, len(methods)):
 # save the dictonary in a pickle
 filehandler = open(src+"/pickles/results_eval_cluster_methods.obj", 'wb')
 pickle.dump(costs, filehandler)
+
+#%%
+
+methods = ["CONVEX_HULL_CLOUD", "CONVEX_HULL_SEQUENCE", "CONVEX_HULL_A_STAR"]
+
+if cluster == False:
+    results = pd.read_pickle(src2+"/pickles/results_eval_cluster_methods.obj")
+    for i in range(0,len(methods)):
+        print(f'{methods[i]} : {np.mean(results[i])}')
