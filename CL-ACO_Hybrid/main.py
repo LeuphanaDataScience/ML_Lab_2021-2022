@@ -9,7 +9,7 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-src = '/Users/fried/Documents/GitHub/ML_Lab_2021-2022/CL-ACO_Hybrid'  # root directory
+src = '.'  # root directory
 
 # Scenario (event)
 Scenario = 'city_stops_and_passengers_1.csv'
@@ -25,7 +25,7 @@ import os
 import pickle
 import pandas as pd
 
-os.chdir(src)
+#os.chdir(src)
 
 from data_prep import dataprep_CL, dataprep_ACO, exportClusters, namedRoute
 from Clustering import convex_cloud_cluster, convex_a_star_cluster, convex_sequence_cluster
@@ -121,12 +121,12 @@ def runClusterACO(method):
     best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(df_clusters, cl_df)
     # save the dictonary in a pickle
     dict_routes = best_routes_all_clusters
-    filehandler = open(f'{src}/pickles/dict_routes_{method}.obj', 'wb')
+    filehandler = open(src+"/pickles/dict_routes_"+method+".obj", 'wb')
     pickle.dump(dict_routes, filehandler)
     # create dataframe with named stations
     best_routes_all_clusters_names = namedRoute(best_routes_all_clusters, df_clusters)
     dict_routes_names = best_routes_all_clusters_names
-    filehandler = open(f'{src}/pickles/dict_routes_names_{method}.obj', 'wb')
+    filehandler = open(src+"/pickles/dict_routes_names_"+method+".obj", 'wb')
     pickle.dump(dict_routes_names, filehandler)
 
     return best_routes_all_clusters, best_routes_all_clusters_names

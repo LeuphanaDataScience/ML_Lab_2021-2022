@@ -104,11 +104,6 @@ def dataprep_ACO(src, method):
 def namedRoute(best_routes_all_clusters, df_clusters):
 
     # Create dictonary with stop names instead of just indexes
-    # Delete the plot object from the dictonary
-
-    for j in range(1, len(best_routes_all_clusters)+1):  # [0,14]
-        best_routes_all_clusters[j] = list(best_routes_all_clusters[j])
-        del best_routes_all_clusters[j][-1]
 
     # make a copy of the dictonary containing lists with routes for all clusters
     # -> values (numbers) for stations should be overwritten with station names
@@ -117,10 +112,10 @@ def namedRoute(best_routes_all_clusters, df_clusters):
 
     # replace numbers by station names in copied dictonary
     for j in range(1, len(best_routes_all_clusters)+1):  # [0,14]
-        for i in range(0, len(best_routes_all_clusters[j][0][0])):  # [1,15]
+        for i in range(0, len(best_routes_all_clusters[j][0])):  # [1,15]
             for k in range(2):
-                index = best_routes_all_clusters[j][0][0][i][k]
-                best_routes_all_clusters_names[j][0][0][i] = list(best_routes_all_clusters_names[j][0][0][i])
-                best_routes_all_clusters_names[j][0][0][i][k] = df_clusters[j].columns.values[index]
+                index = best_routes_all_clusters[j][0][i][k]
+                best_routes_all_clusters_names[j][0][i] = list(best_routes_all_clusters_names[j][0][i])
+                best_routes_all_clusters_names[j][0][i][k] = df_clusters[j].columns.values[index]
 
     return best_routes_all_clusters_names

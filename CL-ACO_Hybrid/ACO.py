@@ -108,8 +108,7 @@ class AntColony(object):
             # print(route_lbest)
             # print('>>>>>', 'Execution time: ', ET, 'sec')  # for eval
 
-        return route_gbest, CP.plot(x='ET in sec',
-                                    y=['Cost_gbest', 'Cost_lbest'])
+        return route_gbest 
 
     def spread_pheromone(self, all_routes, n_elite, route_lbest):
         '''Function defining deposition of pheromones.
@@ -260,6 +259,6 @@ def run_all_clusters(df_clusters, cl_df, a=1, b=1, g=100, r=0.95):
                                rho=r)
         route_gbest = ant_colony.run()
         best_routes_all_clusters[i] = route_gbest
-        total_cost_all_clusters += route_gbest[0][-1]
+        total_cost_all_clusters += route_gbest[-1]
         print("Cluster: ", i)
     return best_routes_all_clusters, total_cost_all_clusters
