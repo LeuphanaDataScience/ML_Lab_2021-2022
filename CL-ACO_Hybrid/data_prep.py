@@ -35,9 +35,9 @@ def dataprep_CL(src, scenario):
 
 # new dataframe with cluster numbers (and passenger numbers)
 
-def exportClusters(dict_clusters, df_clusters, src, method):
-    bus_stops_gdf = gp.GeoDataFrame(df_clusters,
-                                    geometry=gp.points_from_xy(df_clusters.x, df_clusters.y))
+def exportClusters(dict_clusters, df_clusters_raw, src, method, best = False):
+    bus_stops_gdf = gp.GeoDataFrame(df_clusters_raw,
+                                    geometry=gp.points_from_xy(df_clusters_raw.x, df_clusters_raw.y))
     cluster_gdf = bus_stops_gdf.copy()
     cluster_gdf['cluster'] = ['']*cluster_gdf.shape[0]
     for clr_number, clr_list in dict_clusters.items():
@@ -46,6 +46,9 @@ def exportClusters(dict_clusters, df_clusters, src, method):
     cluster_gdf.index = [i for i in range(cluster_gdf.shape[0])]
 
     cluster_gdf.to_csv(f'{src}/df_clusters_{method}.csv')
+    
+    if best == True:
+        cluster_gdf.to_csv(f'{src}/results/best/best_clusters_{method}.csv')
 
 
 # %% ACO
@@ -54,10 +57,11 @@ def dataprep_ACO(src, method):
     method = method
     file_path = f'{src}/data'
     file_dm = f'{file_path}/full_distance_matrix_lueneburg.csv'     # distance matrix
-    file_cl = file_path + f'/Clustered_road_distance_{method}.csv'  # pre-processed by cluster
+    file_cl = file_path + f'/df_clusters_{method}.csv'  # pre-processed by cluster
 
     # Load information on clusters
-    df_clusters = pd.read_csv(file_cl)
+    df_clusters = pd.read_csv(file_cl)    
+    df_clusters_raw = copy.deepcopy(df_clusters)
 
     # Reduce data frame by dropping columns that aren't needed
     df_clusters = df_clusters.drop(['element_type', 'osmid', 'x', 'y', 'geometry', 'passengers'],
@@ -73,7 +77,7 @@ def dataprep_ACO(src, method):
                       indicator=True)
           .drop(columns='_merge')
           )
-
+    
     # Loop over all clusters to create subsets of the data
 
     dict_clusters = {}
@@ -94,8 +98,10 @@ def dataprep_ACO(src, method):
         
         # Replace distances between bus stops == 0 by np.inf/ very high number
         dict_clusters[i] = dict_clusters[i].replace(0, 999999)
+        
+        df_clusters = df
     
-    return dict_clusters, df_clusters
+    return dict_clusters, df_clusters, df_clusters_raw
 
 
 def namedRoute(best_routes_all_clusters, df_clusters):
