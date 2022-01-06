@@ -9,9 +9,12 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-testing = True
-cluster = False
+testing = False
+cluster = True
 download = False
+
+if cluster == True:
+    testing = False
 
 if cluster == True:
     src = '.'  # root directory
@@ -167,7 +170,7 @@ comp_time = {}
 
 best_cluster = []
 best_routes = []
-best_costs = 99999999999999
+best_costs = int(99999999999999)
 
 
 for i in range(0, len(methods)):
@@ -199,7 +202,7 @@ for i in range(0, len(methods)):
         
         # to find best solution
         if cost < best_costs:
-            best_costs = costs
+            best_costs = cost
             best_routes = routes
             best_cluster = df_clusters
             exportClusters(dict_clusters_CL, df_clusters_CL, src, methods[i], best = True)
