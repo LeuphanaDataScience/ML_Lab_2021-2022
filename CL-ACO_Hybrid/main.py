@@ -9,7 +9,7 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-cluster = True
+cluster = False
 
 if cluster == True:
     src = '.'  # root directory
@@ -18,7 +18,7 @@ else:
     src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/download/CL-ACO_Hybrid"
 
 # Scenario (event)
-Scenario = 'city_stops_and_passengers_1.csv'
+Scenario = 'scenario_1.csv'
 
 # Clustering
 capacity = 70                 # how many people should be in one cluster
@@ -30,6 +30,7 @@ import pickle
 import pandas as pd
 import numpy as np
 import time
+import copy
 
 if cluster == False:
     os.chdir(src)
@@ -92,37 +93,22 @@ def runCluster(method):
     return cluster_nodelist_dict, bus_stops_df
 
 
-'''
+#%% Test Run
+
 # Create clusters
-cluster_nodelist_dict, bus_stops_df = runCluster(method)
+
+method = methods[1]
+
+dict_clusters, df_clusters = runCluster(method)
 
 # export results
-# exportClusters(bus_stops_df, cluster_nodelist_dict, src, method)  # requires geopandas
+exportClusters(dict_clusters, df_clusters, src+"/data", method) 
 
-for i in range(0, len(methods)):
-    exportClusters(bus_stops_df, cluster_nodelist_dict, src, methods[i])  # requires geopandas
-'''
-
-# %% ACO
-
-'''
 # Data pre-processing
-df_clusters, cl_df = dataprep_ACO(src, method)
+dict_clusters, df_clusters = dataprep_ACO(src, method)
+
 # Let the ants run!
-best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(df_clusters, cl_df)
-
-# save the dictonary in a pickle
-dict_routes = best_routes_all_clusters
-filehandler = open(f'{src}/pickles/dict_routes.obj', 'wb')
-pickle.dump(dict_routes, filehandler)
-
-# create dataframe with named stations
-best_routes_all_clusters_names = namedRoute(best_routes_all_clusters, df_clusters)
-
-dict_routes_names = best_routes_all_clusters_names
-filehandler = open(f'{src}/pickles/dict_routes_names.obj', 'wb')
-pickle.dump(dict_routes, filehandler)
-'''
+best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(dict_clusters, df_clusters)
 
 # %% Combined function
 
@@ -135,26 +121,26 @@ def runClusterACO(method):
     scenario = pd.read_csv(src+"/data/"+Scenario)
     matrix, distances_to_arena, bus_names, bus_stops_df = dataprep_CL(src+"/data/", scenario)
     # Create clusters
-    cluster_nodelist_dict, bus_stops_df = runCluster(method)
+    dict_clusters, df_clusters = runCluster(method)
     # export results
-    exportClusters(bus_stops_df, cluster_nodelist_dict, src, method)
+    exportClusters(dict_clusters, df_clusters, src+"/data", method)
 
     # (2) ACO step
     # Data pre-processing
-    df_clusters, cl_df = dataprep_ACO(src, method)
+    dict_clusters, df_clusters = dataprep_ACO(src, method)
     # Let the ants run!
-    best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(df_clusters, cl_df)
+    best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(dict_clusters, df_clusters)
     # save the dictonary in a pickle
     dict_routes = best_routes_all_clusters
     filehandler = open(src+"/pickles/dict_routes_"+method+".obj", 'wb')
     pickle.dump(dict_routes, filehandler)
     # create dataframe with named stations
-    best_routes_all_clusters_names = namedRoute(best_routes_all_clusters, df_clusters)
+    best_routes_all_clusters_names = namedRoute(best_routes_all_clusters, dict_clusters)
     dict_routes_names = best_routes_all_clusters_names
     filehandler = open(src+"/pickles/dict_routes_names_"+method+".obj", 'wb')
     pickle.dump(dict_routes_names, filehandler)
 
-    return best_routes_all_clusters_names, total_cost_all_clusters
+    return best_routes_all_clusters_names, total_cost_all_clusters, dict_clusters, df_clusters
 
 '''
 methods = ["CONVEX_HULL_CLOUD", "CONVEX_HULL_SEQUENCE", "CONVEX_HULL_A_STAR"]
@@ -162,42 +148,53 @@ method = methods[1]
 runClusterACO(method)
 '''
 
-# %% Run with different clustering methods
-
-"""
-results = {}
-for i in range(0, len(methods)):
-    print(methods[i])
-    results[i] = runClusterACO(methods[i])
-    table = results[i]
-"""
     
-# %% Run multiple times to determine best clustering method (TAKES LOOONG!!!)
+# %% Run multiple times to determine best clustering method & solution
+# (might take long depending on iterations)
 
-methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
-           "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
+testing = True
 
-iterations = 250
+if testing == True:
+    methods = ["CONVEX_HULL_CLOUD_random"]
+    iterations = 1
+else:    
+    methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
+               "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
+    iterations = 100
+
+
 
 routes = {}
 costs = {}
+clusters = {}
 comp_time = {}
+
+best_cluster = []
+best_routes = []
+best_costs = 99999999999999
 
 for i in range(0, len(methods)):
     T1 = time.time()
     costs[i] = []
     routes[i] = []
     comp_time[i] = []
+    clusters[i] = []
     for j in range(0,iterations):
         seconds = time.time()
         print(f'{methods[i]} (Method {i+1}/{len(methods)}), Iteration {j+1}/{iterations} Time: {time.ctime(seconds)}')       
         t0 = time.time()  
-        route, cost = runClusterACO(methods[i])
+        route, cost, dict_clusters, df_clusters = runClusterACO(methods[i])
         t1 = time.time()
         ET = t1-t0
         costs[i].append(cost)
         routes[i].append(route)
+        clusters[i].append(clusters)
         comp_time[i].append(ET)
+        if cost < best_costs:
+            best_costs = costs
+            best_routes = routes
+            best_cluster = df_clusters
+#            exportClusters(df_clusters, dict_clusters, src+"/best", methods[i])
     T2 = time.time()
     time_method = T2-T1
     print(f'Running {iterations} Iterations for method {methods[i]} took {time_method}.')
@@ -212,13 +209,36 @@ pickle.dump(routes, filehandler)
 filehandler = open(src+"/pickles/eval_comp-time.obj", 'wb')
 pickle.dump(comp_time, filehandler)
 
+
+
+filehandler = open(src+"/pickles/best_costs.obj", 'wb')
+pickle.dump(best_costs, filehandler)
+
+filehandler = open(src+"/pickles/best_routes.obj", 'wb')
+pickle.dump(best_routes, filehandler)
+
 #%%
 
 methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
            "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
 
 if cluster == False:
-    results = pd.read_pickle(src2+"/pickles/results_eval_cluster_methods.obj")
-    for i in range(0,len(methods)):
+    results = pd.read_pickle(src2+"/pickles/eval_costs.obj")
+    print("Mean distance")
+    for i in range(0,len(methods)):        
         print(f'{methods[i]} : {np.mean(results[i])}')
+    print("\nMinimum distance")
+    for i in range(0,len(methods)):
+        print(f'{methods[i]} : {np.min(results[i])}')
+    print("\nMaximum distance")
+    for i in range(0,len(methods)):
+        print(f'{methods[i]} : {np.max(results[i])}')        
+
+#%%
+
+results2 = pd.read_pickle(src2+"/pickles/eval_routes.obj")
+
+
+
+
 
