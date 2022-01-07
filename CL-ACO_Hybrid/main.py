@@ -9,11 +9,11 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-testing = True
-cluster = False
+testing = False
+cluster = True
 
 
-Iterations = 10
+Iterations = 200
 
 if cluster == True:
     testing = False
@@ -38,7 +38,10 @@ capacity = 70
 
 # Clustering: Methods
 methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
-           "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]           
+           "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance",
+#           "CONVEX_HULL_A_STAR_random", "CONVEX_HULL_A_STAR_random",
+#           "CLOUD", "SEUQUENCE", "A_STAR", "A_STAR_K_NEXT" 
+           ]           
 
 # %% Import modules & functions
 
@@ -59,6 +62,7 @@ from data_prep import dataprep_CL, dataprep_ACO, exportClusters, namedRoute
 from Clustering import convex_cloud_cluster, convex_a_star_cluster, convex_sequence_cluster
 from ACO import run_all_clusters
 
+from Clustering_2 import cloud_cluster, sequence_cluster, a_star_cluster, a_star_k_next_cluster
 
 # %% Clustering step
 
@@ -106,6 +110,26 @@ def runCluster(method):
                                                       distances_to_arena_check,
                                                       bus_names_check, matrix, k=3,
                                                       choice='distance')
+
+    elif method == "SEQUENCE":
+        dict_clusters_CL = sequence_cluster(df_clusters_CL , capacity,
+                                                      distances_to_arena_check,
+                                                      bus_names_check, matrix)
+
+    elif method == "CLOUD":
+        dict_clusters_CL = cloud_cluster(df_clusters_CL , capacity,
+                                                      distances_to_arena_check,
+                                                      bus_names_check, matrix)
+
+    elif method == "A_STAR":
+        dict_clusters_CL = a_star_cluster(df_clusters_CL , capacity,
+                                                      distances_to_arena_check,
+                                                      bus_names_check, matrix, k=3)
+        
+    elif method == "A_STAR_K_NEXT":
+        dict_clusters_CL = a_star_k_next_cluster(df_clusters_CL , capacity,
+                                                      distances_to_arena_check,
+                                                      bus_names_check, matrix, k=3)    
 
     return dict_clusters_CL, df_clusters_CL
 
@@ -257,7 +281,6 @@ best_costs = pd.read_pickle(src2+"/results/best/best_costs.obj")
 
 #%% Test Run
 
-
 if cluster == False:
 
     # Create clusters
@@ -276,7 +299,7 @@ if cluster == False:
     # named 
     named_routes = namedRoute(best_routes_all_clusters, dict_clusters)
 
-# %%
+
 
 '''
 # Maybe for creating names of files for different runs 
