@@ -101,7 +101,7 @@ def sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names
 
 #CLUSTERING ALGORITHM with A-star approach
 #k is hyperparameter to take into account portion of the distance to Arena
-def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, k, matrix):
+def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, k):
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:

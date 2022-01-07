@@ -9,8 +9,8 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-testing = False
-cluster = True
+testing = True
+cluster = False
 
 
 Iterations = 200
@@ -28,8 +28,6 @@ else:
     src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/download/CL-ACO_Hybrid"
 
 
-
-
 # Scenario (event)
 Scenario = 'scenario_1.csv'
 
@@ -39,8 +37,8 @@ capacity = 70
 # Clustering: Methods
 methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
            "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance",
-#           "CONVEX_HULL_A_STAR_random", "CONVEX_HULL_A_STAR_random",
-#           "CLOUD", "SEUQUENCE", "A_STAR", "A_STAR_K_NEXT" 
+           "CONVEX_HULL_A_STAR_random", "CONVEX_HULL_A_STAR_random",
+           "CLOUD", "SEQUENCE", "A_STAR", "A_STAR_K_NEXT" 
            ]           
 
 # %% Import modules & functions
@@ -180,11 +178,11 @@ def runClusterACO(method):
 # (might take long depending on iterations)
 
 if testing == True:
-    methods = ["CONVEX_HULL_CLOUD_random"]
+   # methods = ["CONVEX_HULL_CLOUD_random"]
+    methods = methods
     iterations = 1
 else:    
-    methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
-               "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
+    methods = methods
     iterations = Iterations
 
 # initialize variables
@@ -228,7 +226,7 @@ for i in range(0, len(methods)):
         # to find best solution
         if cost < best_costs:
             best_costs = cost
-            best_routes = routes
+            best_routes = route
             best_cluster = df_clusters
             exportClusters(dict_clusters_CL, df_clusters_CL, src, methods[i], best = True)
             
@@ -278,13 +276,19 @@ if cluster == False:
         print(f'{methods[i]} : {np.max(results[i])}')        
 
 best_costs = pd.read_pickle(src2+"/results/best/best_costs.obj")
+best_routes = pd.read_pickle(src2+"/results/best/best_routes.obj")
+eval_routes = pd.read_pickle(src2+"/results/eval_routes.obj")
+eval_costs = pd.read_pickle(src2+"/results/eval_costs.obj")
+
+if best_routes == eval_routes:
+    print("Objects are the same.")
 
 #%% Test Run
 
 if cluster == False:
 
     # Create clusters
-    method = methods[0]
+    method = methods[9]
     dict_clusters, df_clusters = runCluster(method)
 
     # export results
