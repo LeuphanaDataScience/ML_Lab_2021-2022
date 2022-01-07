@@ -13,6 +13,8 @@ testing = False
 cluster = True
 download = False
 
+Iterations = 10
+
 if cluster == True:
     testing = False
 
@@ -160,7 +162,7 @@ if testing == True:
 else:    
     methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
                "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
-    iterations = 100
+    iterations = Iterations
 
 # initialize variables
 routes = {}
