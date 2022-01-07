@@ -81,8 +81,8 @@ class AntColony(object):
 
         route_lbest = None
         route_gbest = ("placeholder", np.inf)
-#        while self.n_no_better_sol < (self.n_no_better_sol_max+1):  # test of new termination criteria
-        for self.n_iter in range(self.n_iter_max):
+        while self.n_no_better_sol < (self.n_no_better_sol_max+1):  # test of new termination criteria
+        # for self.n_iter in range(self.n_iter_max):
 
             all_routes = self.gen_all_routes()
             self.spread_pheromone(all_routes,
@@ -93,7 +93,8 @@ class AntColony(object):
                 route_gbest = route_lbest
                 self.n_no_better_sol = 1
             self.pheromone = self.pheromone * self.rho
-
+            self.n_no_better_sol += 1  # test of new termination criteria
+            self.n_iter += 1  # test of new termination criteria
         return route_gbest 
 
     def spread_pheromone(self, all_routes, n_elite, route_lbest):
@@ -128,7 +129,7 @@ class AntColony(object):
         sorted_routes = sorted(all_routes, key=lambda x: x[1])
         for route, dist in sorted_routes[:n_elite]:
             for move in route:
-                self.pheromone[move] += 1.0 / self.dist[move]
+                self.pheromone[move] += self.gamma / self.dist[move]
 
     def gen_route_dist(self, route):
         '''Function calculating total distance of a route.
@@ -221,7 +222,7 @@ class AntColony(object):
 
 # Loop over all data subsets (defined by clusters) in df_clusters
 
-def run_all_clusters(dict_clusters, df_clusters, a=1, b=1, g=100, r=0.95):
+def run_all_clusters(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
 
     best_routes_all_clusters = {}
     total_cost_all_clusters = 0
@@ -231,12 +232,12 @@ def run_all_clusters(dict_clusters, df_clusters, a=1, b=1, g=100, r=0.95):
         distance_matrix = np.asarray(cost_matrix)
         new_matrix = np.array(distance_matrix)
         ant_colony = AntColony(new_matrix,
-                               n_colony=50,
-                               n_elite=5,
+                               n_colony=22,
+                               n_elite=3,
                                n_iter=1,
                                n_iter_max=50,
                                n_no_better_sol=1,
-                               n_no_better_sol_max=1,
+                               n_no_better_sol_max=10,
                                alpha=a,
                                beta=b,
                                gamma=g,
