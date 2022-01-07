@@ -104,7 +104,7 @@ def dataprep_ACO(src, method):
     return dict_clusters, df_clusters, df_clusters_raw
 
 
-def namedRoute(best_routes_all_clusters, df_clusters):
+def namedRoute(best_routes_all_clusters, dict_clusters):
 
     # Create dictonary with stop names instead of just indexes
 
@@ -115,10 +115,12 @@ def namedRoute(best_routes_all_clusters, df_clusters):
 
     # replace numbers by station names in copied dictonary
     for j in range(1, len(best_routes_all_clusters)+1):  # [0,14]
-        for i in range(0, len(best_routes_all_clusters[j][0])):  # [1,15]
+        for i in range(0, len(best_routes_all_clusters[j])):  # [1,15]
             for k in range(2):
                 index = best_routes_all_clusters[j][i][k]
                 best_routes_all_clusters_names[j][i] = list(best_routes_all_clusters_names[j][i])
-                best_routes_all_clusters_names[j][i][k] = df_clusters[j].columns.values[index]
+                best_routes_all_clusters_names[j][i][k] = dict_clusters[j].columns.values[index]
 
     return best_routes_all_clusters_names
+
+#%%

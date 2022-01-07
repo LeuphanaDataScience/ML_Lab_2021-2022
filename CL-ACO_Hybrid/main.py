@@ -9,14 +9,17 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-testing = False
-cluster = True
-download = False
+testing = True
+cluster = False
+
 
 Iterations = 10
 
 if cluster == True:
     testing = False
+
+if testing == True:
+    cluster = False
 
 if cluster == True:
     src = '.'  # root directory
@@ -25,10 +28,6 @@ else:
     src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/download/CL-ACO_Hybrid"
 
 
-if download == True:
-    src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/download/CL-ACO_Hybrid"
-else:
-    src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid"
 
 
 # Scenario (event)
@@ -234,6 +233,14 @@ pickle.dump(best_routes, filehandler)
 
 #%% Load previously computed solutions
 
+download = True
+
+if download == True:
+    src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/download/CL-ACO_Hybrid"
+else:
+    src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid"
+
+
 if cluster == False:
     results = pd.read_pickle(src2+"/results/eval_costs.obj")
     print("Mean distance")
@@ -246,8 +253,10 @@ if cluster == False:
     for i in range(0,len(methods)):
         print(f'{methods[i]} : {np.max(results[i])}')        
 
+best_costs = pd.read_pickle(src2+"/results/best/best_costs.obj")
 
 #%% Test Run
+
 
 if cluster == False:
 
@@ -263,3 +272,19 @@ if cluster == False:
 
     # Let the ants run!
     best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(dict_clusters, df_clusters)
+
+    # named 
+    named_routes = namedRoute(best_routes_all_clusters, dict_clusters)
+
+# %%
+
+'''
+# Maybe for creating names of files for different runs 
+# based on when they happened
+
+named_tuple = time.localtime() # get struct_time
+time_string = time.strftime("%Y%d%m-%H%M%S", named_tuple)
+
+print(f'results/{time_string}_"{method}"_clusters')
+
+'''
