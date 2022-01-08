@@ -53,13 +53,13 @@ def load_data(area, plot_graph = "n"):
         return [bus_stops_gdf, bus_stops_geom, graph]
 
 data = load_data("county", "y")
-
+data_city = load_data("city")
 
 #%% sample passengers for all the bus stops
 
-def sample_passengers(data, area = "county", mu = 3000, sigma = 500, seed = 0, lower = 0, upper = 3500, empty_stops = 0):
+def sample_passengers(data_city, area = "city", mu = 2000, sigma = 500, seed = 0, lower = 0, upper = 3500, empty_stops = 0):
     
-    bus_stops_gdf, bus_stops_geom, graph = data
+    bus_stops_gdf, bus_stops_geom, graph = data_city
 
     #exclude arena and depot from assignment
     arena_index = bus_stops_gdf[bus_stops_gdf["name"] == "Schlachthof"].index[0]
@@ -78,6 +78,7 @@ def sample_passengers(data, area = "county", mu = 3000, sigma = 500, seed = 0, l
 
     if area == "city":
         pop = np.array(district_data["pop"][0:17])
+        district_data = district_data[0:17]
     
     perc = np.floor(pop/sum(pop) * 10000) / 10000
 
@@ -101,7 +102,7 @@ def sample_passengers(data, area = "county", mu = 3000, sigma = 500, seed = 0, l
         is_in_dis = [district_polygon.contains(j) for j in bus_stops_geom]
         stops_in_dis = bus_stops_geom[is_in_dis]
 
-        #distribute passengers per district evenly among bus stops, but have 15% of bus stops without passengers
+        #distribute passengers per district evenly among bus stops, but optiopnally have % of bus stops without passengers
         num_of_stops = len(stops_in_dis)
         num_of_stops_with_pass = num_of_stops - int(num_of_stops * empty_stops)
 
