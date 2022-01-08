@@ -6,12 +6,12 @@ Clustering Part
 """
 # %% SETUP
 
-
 import random
 import numpy as np
+import pandas as pd
 from collections import defaultdict
 from scipy.spatial import ConvexHull
-
+from data_prep import dataprep_CL
 
 # %% CLUSTERING ALGORITHMS
 
@@ -417,12 +417,11 @@ def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
 #%% Function imported by main script
 
 
-def runCluster(method):
+def runCluster(method, src, inputScenario, capacity):
 
     # Data pre-processing
     # import dataframe including number of passengers assigned to stations
-    scenario = pd.read_csv(src+"/data/"+Scenario)
-    matrix, distances_to_arena, bus_names, df_clusters_CL = dataprep_CL(src+"/data/", scenario)
+    matrix, distances_to_arena, bus_names, df_clusters_CL = dataprep_CL(src+"/data/", inputScenario)
 
     # Define some variables
     distances_to_arena_check = distances_to_arena.copy()  # list of possible stops

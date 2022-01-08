@@ -9,7 +9,7 @@ Main File ACO-Clustering
 
 # %% Variables to be defined
 
-testing = False
+testing = True
 cluster = False
 
 random_only = True
@@ -62,6 +62,8 @@ else:
 if random_only == True:
     methods = methods[0:3]       
 
+inputScenario = src+"/data/"+Scenario
+
 # %% Import modules & functions
 
 import os
@@ -82,19 +84,17 @@ from data_prep import dataprep_CL, dataprep_ACO, exportClusters, namedRoute
 from Clustering import runCluster 
 from ACO import runACO
 
-
 # %% Combined function
 
-def runClusterACO(method, single_run=False):
+def runClusterACO(method, inputScenario, capacity, single_run=False):
 
     ### (1) Clustering step ###
-    
     # Data pre-processing
     # import dataframe including number of passengers assigned to stations
-    scenario = pd.read_csv(src+"/data/"+Scenario)
-    matrix, distances_to_arena, bus_names, bus_stops_df = dataprep_CL(src+"/data/", scenario)
+    inputScenario = pd.read_csv(inputScenario)
+    matrix, distances_to_arena, bus_names, bus_stops_df = dataprep_CL(src+"/data/", inputScenario)
     # Create clusters
-    dict_clusters_CL, df_clusters_CL = runCluster(method)
+    dict_clusters_CL, df_clusters_CL = runCluster(method, src, inputScenario, capacity)
     # export results
     exportClusters(dict_clusters_CL, df_clusters_CL, src, method)
 
@@ -181,7 +181,7 @@ for i in range(0, len(methods)):
         t0 = time.time()  
         
         # This is the main step:
-        route, cost, dict_clusters, df_clusters, df_clusters_CL, dict_clusters_CL = runClusterACO(methods[i])
+        route, cost, dict_clusters, df_clusters, df_clusters_CL, dict_clusters_CL = runClusterACO(methods[i], inputScenario, capacity)
         
         t1 = time.time()
         ET = t1-t0
@@ -269,7 +269,7 @@ if cluster == False:
 
     # Create clusters
     method = methods[9]
-    dict_clusters, df_clusters = runCluster(method)
+    dict_clusters, df_clusters = runCluster(method, src, Scenario, capacity)
 
     # export results
     exportClusters(dict_clusters, df_clusters, src, method) 
