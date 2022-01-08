@@ -222,7 +222,7 @@ class AntColony(object):
 
 # Loop over all data subsets (defined by clusters) in df_clusters
 
-def run_all_clusters(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
+def runACO(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
 
     best_routes_all_clusters = {}
     total_cost_all_clusters = 0

@@ -12,7 +12,40 @@ Main File ACO-Clustering
 testing = False
 cluster = False
 
+random_only = True
+
 Iterations = 200
+
+# Scenario (event)
+Scenario = 'scenario_1.csv'
+
+# Clustering: How many people should be in one cluster (bus capacity)
+capacity = 70   
+
+# Clustering: Methods
+methods = ["CONVEX_HULL_CLOUD_random", 
+           "CONVEX_HULL_SEQUENCE_random",
+           "CONVEX_HULL_A_STAR_random",
+           
+           "CONVEX_HULL_CLOUD_distance", 
+           "CONVEX_HULL_SEQUENCE_distance",
+           "CONVEX_HULL_A_STAR_distance", 
+           
+           "CLOUD", 
+           "SEQUENCE", 
+           "A_STAR", 
+           "A_STAR_K_NEXT" 
+           ] 
+
+#%% Automatically set based on setup
+
+if testing == True:
+    iterations = 2
+    methods = ["CONVEX_HULL_CLOUD_random",
+               "CONVEX_HULL_SEQUENCE_distance",
+               "A_STAR"]    
+else:
+    iterations = Iterations
 
 if cluster == True:
     testing = False
@@ -26,19 +59,8 @@ else:
     src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid"
     src2 = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/download/CL-ACO_Hybrid"
 
-
-# Scenario (event)
-Scenario = 'scenario_1.csv'
-
-# Clustering: How many people should be in one cluster (bus capacity)
-capacity = 70       
-
-# Clustering: Methods
-methods = ["CONVEX_HULL_CLOUD_random", "CONVEX_HULL_SEQUENCE_random",
-           "CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance",
-           "CONVEX_HULL_A_STAR_random", "CONVEX_HULL_A_STAR_random",
-           "CLOUD", "SEQUENCE", "A_STAR", "A_STAR_K_NEXT" 
-           ]           
+if random_only == True:
+    methods = methods[0:3]       
 
 # %% Import modules & functions
 
@@ -57,83 +79,11 @@ if cluster == False:
     os.chdir(src)
 
 from data_prep import dataprep_CL, dataprep_ACO, exportClusters, namedRoute
-from Clustering import convex_cloud_cluster, convex_a_star_cluster, convex_sequence_cluster
-from ACO import run_all_clusters
-
-from Clustering_2 import cloud_cluster, sequence_cluster, a_star_cluster, a_star_k_next_cluster
-
-# %% Clustering step
-
-def runCluster(method):
-
-    # Data pre-processing
-    # import dataframe including number of passengers assigned to stations
-    scenario = pd.read_csv(src+"/data/"+Scenario)
-    matrix, distances_to_arena, bus_names, df_clusters_CL = dataprep_CL(src+"/data/", scenario)
-
-    # Define some variables
-    distances_to_arena_check = distances_to_arena.copy()  # list of possible stops
-    bus_names_check = bus_names.copy()
-
-    if method == "CONVEX_HULL_CLOUD_random":
-        dict_clusters_CL = convex_cloud_cluster(df_clusters_CL , capacity,
-                                                     distances_to_arena_check,
-                                                     bus_names_check, matrix,
-                                                     choice='random')
-    elif method == "CONVEX_HULL_CLOUD_distance":
-        dict_clusters_CL = convex_sequence_cluster(df_clusters_CL , capacity,
-                                                        distances_to_arena_check,
-                                                        bus_names_check, matrix,
-                                                        choice='distance')
-    elif method == "CONVEX_HULL_SEQUENCE_random":
-        dict_clusters_CL = convex_sequence_cluster(df_clusters_CL , capacity,
-                                                        distances_to_arena_check,
-                                                        bus_names_check, matrix,
-                                                        choice='random')
-    
-    elif method == "CONVEX_HULL_SEQUENCE_distance":
-        dict_clusters_CL = convex_sequence_cluster(df_clusters_CL , capacity,
-                                                        distances_to_arena_check,
-                                                        bus_names_check, matrix,
-                                                        choice='distance')
-
-    elif method == "CONVEX_HULL_A_STAR_random":
-        dict_clusters_CL = convex_a_star_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3,
-                                                      choice='random')
-
-    elif method == "CONVEX_HULL_A_STAR_distance":
-        dict_clusters_CL = convex_a_star_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3,
-                                                      choice='distance')
-
-    elif method == "SEQUENCE":
-        dict_clusters_CL = sequence_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix)
-
-    elif method == "CLOUD":
-        dict_clusters_CL = cloud_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix)
-
-    elif method == "A_STAR":
-        dict_clusters_CL = a_star_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3)
-        
-    elif method == "A_STAR_K_NEXT":
-        dict_clusters_CL = a_star_k_next_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3)    
-
-    return dict_clusters_CL, df_clusters_CL
+from Clustering import runCluster 
+from ACO import runACO
 
 
 # %% Combined function
-
 
 def runClusterACO(method, single_run=False):
 
@@ -157,7 +107,7 @@ def runClusterACO(method, single_run=False):
     dict_clusters, df_clusters, df_clusters_raw = dataprep_ACO(src, method)
     
     # Let the ants run!
-    best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(dict_clusters, df_clusters)
+    best_routes_all_clusters, total_cost_all_clusters = runACO(dict_clusters, df_clusters)
     
     # create dataframe with named stations
     best_routes_all_clusters_names = namedRoute(best_routes_all_clusters, dict_clusters)
@@ -177,14 +127,6 @@ def runClusterACO(method, single_run=False):
     
 #%%     Run multiple times to determine best clustering method & solution
 #       (might take long depending on number of iterations)
-
-if testing == True:
-    iterations = 2
-    methods = ["CONVEX_HULL_CLOUD_random",
-               "CONVEX_HULL_SEQUENCE_distance",
-               "A_STAR"]    
-else:
-    iterations = Iterations
 
 # initialize variables
 routes = {}
@@ -299,10 +241,10 @@ exportClusters(best_dict_clusters_CL, best_df_clusters_CL, new_result_dir+"/best
 
 # Move content from last results folder in "current_results"
 
-src_results = src+"current_results"
+src_results = src+"/current_results"
 
 if cluster == False:
-    results = pd.read_pickle(src_results+"/results/eval_costs.obj")
+    results = pd.read_pickle(src_results+"/costs.obj")
     print("Mean distance")
     for i in range(0,len(methods)):        
         print(f'{methods[i]} : {np.mean(results[i])}')
@@ -312,12 +254,14 @@ if cluster == False:
     print("\nMaximum distance")
     for i in range(0,len(methods)):
         print(f'{methods[i]} : {np.max(results[i])}')        
+    print("\nStandard Deviation")
+    for i in range(0,len(methods)):
+        print(f'{methods[i]} : {np.std(results[i])}')        
 
-best_costs = pd.read_pickle(src2+"/results/best_costs.obj")
-best_routes = pd.read_pickle(src2+"/results/best_routes.obj")
-eval_routes = pd.read_pickle(src2+"/results/routes.obj")
-eval_costs = pd.read_pickle(src2+"/results/costs.obj")
-
+best_costs = pd.read_pickle(src_results+"/best/best_costs.obj")
+best_routes = pd.read_pickle(src_results+"/best/best_routes_CONVEX_HULL_SEQUENCE_random.obj")
+routes = pd.read_pickle(src_results+"/routes.obj")
+costs = pd.read_pickle(src_results+"/costs.obj")
 
 #%% Test Run
 
@@ -334,7 +278,7 @@ if cluster == False:
     dict_clusters, df_clusters, df_clusters_raw = dataprep_ACO(src, method)
 
     # Let the ants run!
-    best_routes_all_clusters, total_cost_all_clusters = run_all_clusters(dict_clusters, df_clusters)
+    best_routes_all_clusters, total_cost_all_clusters = runACO(dict_clusters, df_clusters)
 
     # named 
     named_routes = namedRoute(best_routes_all_clusters, dict_clusters)
