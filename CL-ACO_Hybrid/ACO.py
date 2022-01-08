@@ -245,37 +245,7 @@ def run_all_clusters(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
         route_gbest = ant_colony.run()
         best_routes_all_clusters[i] = route_gbest[0]  
         total_cost_all_clusters += route_gbest[-1]
-        print("Cluster: ", i)
+#        print("Cluster: ", i)
     return best_routes_all_clusters, total_cost_all_clusters
 
 #%%
-'''
-# %% "Full" solution (all clusters)
-
-# Loop over all data subsets (defined by clusters) in df_clusters
-
-
-def run_all_clusters(dict_clusters, df_clusters, a=1, b=1, g=100, r=0.95):
-
-    best_routes_all_clusters = {}
-    total_cost_all_clusters = 0
-
-    for i in range(1, int(df_clusters['cluster'].max()+1)):
-        cost_matrix = dict_clusters[i]
-        distance_matrix = np.asarray(cost_matrix)
-        new_matrix = np.array(distance_matrix)
-        ant_colony = AntColony(new_matrix,
-                               n_colony=50,
-                               n_elite=5,
-                               n_iter=1,
-                               n_iter_max=100,
-                               alpha=a,
-                               beta=b,
-                               gamma=g,
-                               rho=r)
-        route_gbest = ant_colony.run()
-        best_routes_all_clusters[i] = route_gbest  # TODO: remove distance (last entry)
-        total_cost_all_clusters += route_gbest[-1]
-        print("Cluster: ", i)
-    return best_routes_all_clusters, total_cost_all_clusters
-'''
