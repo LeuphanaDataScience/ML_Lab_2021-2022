@@ -12,7 +12,7 @@ Main File ACO-Clustering
 testing = False
 cluster = False
 
-Iterations = 500
+Iterations = 200
 
 if cluster == True:
     testing = False
@@ -183,6 +183,8 @@ if testing == True:
     methods = ["CONVEX_HULL_CLOUD_random",
                "CONVEX_HULL_SEQUENCE_distance",
                "A_STAR"]    
+else:
+    iterations = Iterations
 
 # initialize variables
 routes = {}
