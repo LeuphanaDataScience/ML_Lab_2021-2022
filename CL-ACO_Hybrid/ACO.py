@@ -10,7 +10,6 @@ Created on Tue Dec 28 21:44:26 2021
 # %% IMPORTING PACKAGES
 
 import numpy as np
-import copy 
 
 # %% CLASSES
 
@@ -227,7 +226,7 @@ def runACO(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
     best_routes_all_clusters = {}
     total_cost_all_clusters = 0
 
-    for i in range(1, int(df_clusters['cluster'].max()+1)):
+    for i in range(0, int(df_clusters['cluster'].max()+1)):
         cost_matrix = dict_clusters[i]
         distance_matrix = np.asarray(cost_matrix)
         new_matrix = np.array(distance_matrix)
@@ -245,7 +244,5 @@ def runACO(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
         route_gbest = ant_colony.run()
         best_routes_all_clusters[i] = route_gbest[0]  
         total_cost_all_clusters += route_gbest[-1]
-#        print("Cluster: ", i)
+        
     return best_routes_all_clusters, total_cost_all_clusters
-
-#%%

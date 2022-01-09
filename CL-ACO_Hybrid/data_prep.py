@@ -10,6 +10,7 @@ import pandas as pd
 import copy
 import geopandas as gp
 
+
 # %% Clustering
 
 
@@ -54,14 +55,29 @@ def exportClusters(dict_clusters, df_clusters_raw, src, method, best = False):
 
 # %% ACO
 
-def dataprep_ACO(src, method):
-
+def dataprep_ACO(src, method='placeholder', previous_run=False, overall=True):
+    '''
+    
+    for file in os.listdir(src+"/results/"+previous_run+"/best"):
+        if file.startswith("best_clusters_overall"):
+            filename = file
+            method = filename[23:-5]
+    '''        
     # Load data
     file_path = f'{src}/data'
-    file_dm = f'{file_path}/full_distance_matrix_lueneburg.csv'     # distance matrix
-    file_cl = file_path + f'/df_clusters_{method}.csv'              # pre-processed by cluster
+    file_dm = f'{file_path}/full_distance_matrix_lueneburg.csv' # distance matrix
     
     # Load information on clusters
+    if previous_run==False:
+        file_path = f'{src}/data'
+        file_cl = file_path + f'/df_clusters_{method}.csv'   
+    if previous_run!=False:
+        file_path = f'{src}/results/{previous_run}/best/'
+        if overall == True:
+            file_cl = file_path + f'/best_clusters_overall_({method}).csv'
+        else:
+            file_cl = file_path + f'/best_clusters_{method}.csv'
+    
     df_clusters = pd.read_csv(file_cl)    
     df_clusters_raw = copy.deepcopy(df_clusters)
     
@@ -120,7 +136,7 @@ def namedRoute(best_routes_all_clusters, dict_clusters):
     best_routes_all_clusters_names = copy.deepcopy(best_routes_all_clusters)
 
     # replace numbers by station names in copied dictonary
-    for j in range(1, len(best_routes_all_clusters)+1):  # [0,14]
+    for j in range(0, len(best_routes_all_clusters)):  # [0,14]
         for i in range(0, len(best_routes_all_clusters[j])):  # [1,15]
             for k in range(2):
                 index = best_routes_all_clusters[j][i][k]
