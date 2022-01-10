@@ -23,13 +23,19 @@ def load_data(area, plot_graph = "n"):
     no_duplicates = np.array(pd.read_csv("stops_without_duplicates.csv", sep = ";")).flatten().tolist()
     bus_stops_loc = bus_stops_loc_all[bus_stops_loc_all["osmid"].isin(no_duplicates)]
     bus_stops_gdf = gp.GeoDataFrame(bus_stops_loc, geometry=gp.points_from_xy(bus_stops_loc.x, bus_stops_loc.y))
-    bus_stops_geom = bus_stops_gdf['geometry']
 
+    #hardcode wrong "Markt" coordinates into gdf
+    markt_bus_stop = ox.geocoder.geocode_to_gdf("N415971821", which_result=None, by_osmid=True, buffer_dist=None)["geometry"]
+    markt_index = bus_stops_gdf[bus_stops_gdf['name'] == 'Markt'].index[0]
+    bus_stops_gdf.at[markt_index, 'geometry'] = markt_bus_stop.values[0]
+
+ 
     def plot_map(graph):
         fig, ax = ox.plot_graph(graph, show=False, close=False)
         plt.show()
 
     if area == "county":
+        bus_stops_geom = bus_stops_gdf['geometry']
         # get area of county Lüneburg and create "drive"-type network
         graph_lüneburg_gdf = ox.geocoder.geocode_to_gdf("R2084746", which_result=None, by_osmid=True, buffer_dist=None)
         graph_lüneburg_geom = graph_lüneburg_gdf['geometry'].iloc[0]
@@ -44,20 +50,18 @@ def load_data(area, plot_graph = "n"):
         bus_stops_gdf = bus_stops_gdf[bus_stops_gdf["name"].isin(sparse_matrix["name"])]
         bus_stops_geom = bus_stops_gdf['geometry']
         graph_lüneburg_gdf = ox.geocoder.geocode_to_gdf("R2420744", which_result=None, by_osmid=True, buffer_dist=None)
-        #markt_bus_stop = ox.geocoder.geocode_to_gdf("N415971821", which_result=None, by_osmid=True, buffer_dist=None)["geometry"]
-        #bus_stops_gdf[bus_stops_gdf["name"] == "Markt"]["geometry"] = markt_bus_stop
         graph_lüneburg_geom = graph_lüneburg_gdf['geometry'].iloc[0]
         graph = ox.graph_from_polygon(graph_lüneburg_geom, network_type ="drive")
         if plot_graph == "y":
             plot_map(graph)
         return [bus_stops_gdf, bus_stops_geom, graph]
 
-data = load_data("county", "y")
+data = load_data("county", "n")
 data_city = load_data("city")
 
 #%% sample passengers for all the bus stops
 
-def sample_passengers(data_city, area = "city", mu = 2000, sigma = 500, seed = 0, lower = 0, upper = 3500, empty_stops = 0):
+def sample_passengers(data_city, area = "county", mu = 3000, sigma = 500, seed = 0, lower = 0, upper = 3500, empty_stops = 0):
     
     bus_stops_gdf, bus_stops_geom, graph = data_city
 
