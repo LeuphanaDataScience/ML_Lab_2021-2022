@@ -4,20 +4,27 @@ Clustering Part
 
 @author: Andrey, eirene
 """
+
 # %% SETUP
 
 import random
 import numpy as np
-import pandas as pd
 from collections import defaultdict
 from scipy.spatial import ConvexHull
-from data_prep import dataprep_CL
+import copy
+
 
 # %% CLUSTERING ALGORITHMS
 
 # CLUSTERING ALGORITHM with CONVEX HULL center assignment and CLOUD approach
 
-def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, choice='random'):
+def convex_cloud_cluster(inputData, capacity, choice='random'):
+    
+    matrix = copy.deepcopy(inputData[0])
+    inputFile = copy.deepcopy(inputData[1])
+    distances_to_arena_check = copy.deepcopy(inputData[2])
+    bus_names_check = copy.deepcopy(inputData[3])
+    
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:  # iterate till all nodes are assigned to clusters
@@ -25,7 +32,7 @@ def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_n
         # determine convex points:
         if len(bus_names_check) >= 3:  # to calculate convex hull we need more than 3 points:
             points_unassigned = np.array(
-                [[bus_stops_df.loc[name]['x']] + [bus_stops_df.loc[name]['y']] for name in bus_names_check])
+                [[inputFile.loc[name]['x']] + [inputFile.loc[name]['y']] for name in bus_names_check])
             hull = ConvexHull(points_unassigned)
             bus_names_to_choose = [bus_names_check[index] for index in hull.vertices]
             distances_to_arena_to_choose = [
@@ -47,7 +54,7 @@ def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_n
             distances_to_arena_check.remove(max_dist)
             bus_names_check.remove(cluster_center)
         # to ignore stops with 0 people assigned:
-        people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+        people_assigned_next = inputFile.loc[cluster_center, 'passengers']
         if people_assigned_next == 0:
             continue
         # assign cluster center to cluster
@@ -63,7 +70,7 @@ def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_n
             ind_min_dist = cluster_candidates_dist.index(min_dist)
             new_clust_elem = cluster_candidates_names[ind_min_dist]
             ind_bus_stop = bus_names_check.index(new_clust_elem)
-            people_assigned_next = bus_stops_df.loc[new_clust_elem, 'passengers']
+            people_assigned_next = inputFile.loc[new_clust_elem, 'passengers']
             # make sure we do not put in the cluster the stops with 0 people assigned
             if people_assigned_next == 0:  # make sure we do not put in cluster the
                 distances_to_arena_check.pop(ind_bus_stop)
@@ -85,7 +92,13 @@ def convex_cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_n
 # CLUSTERING ALGORITHM with CONVEX HULL center assignment and SEQUENCE approach
 
 
-def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, choice='random'):
+def convex_sequence_cluster(inputData, capacity, choice='random'):
+
+    matrix = copy.deepcopy(inputData[0])
+    inputFile = copy.deepcopy(inputData[1])
+    distances_to_arena_check = copy.deepcopy(inputData[2])
+    bus_names_check = copy.deepcopy(inputData[3])
+
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:  # iterate till all nodes are assigned to clusters
@@ -93,7 +106,7 @@ def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bu
         # determine convex points:
         if len(bus_names_check) >= 3:  # to calculate convex hull we need more than 3 points:
             points_unassigned = np.array(
-                [[bus_stops_df.loc[name]['x']] + [bus_stops_df.loc[name]['y']] for name in bus_names_check])
+                [[inputFile.loc[name]['x']] + [inputFile.loc[name]['y']] for name in bus_names_check])
             hull = ConvexHull(points_unassigned)
             bus_names_to_choose = [bus_names_check[index] for index in hull.vertices]
             distances_to_arena_to_choose = [
@@ -115,7 +128,7 @@ def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bu
             distances_to_arena_check.remove(max_dist)
             bus_names_check.remove(cluster_center)
         # to ignore stops with 0 people assigned:
-        people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+        people_assigned_next = inputFile.loc[cluster_center, 'passengers']
         if people_assigned_next == 0:
             continue
         # assign cluster center to cluster
@@ -131,7 +144,7 @@ def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bu
             min_dist = min(cluster_candidates_dist)
             ind_min_dist = cluster_candidates_dist.index(min_dist)
             cluster_center = cluster_candidates_names[ind_min_dist]
-            people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+            people_assigned_next = inputFile.loc[cluster_center, 'passengers']
             if people_assigned_next == 0:
                 ind_bus_stop = bus_names_check.index(cluster_center)
                 distances_to_arena_check.pop(ind_bus_stop)
@@ -150,7 +163,13 @@ def convex_sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bu
 # CLUSTERING ALGORITHM with CONVEX HULL center assignment and A-star approach
 
 
-def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, k=3, choice='random'):
+def convex_a_star_cluster(inputData, capacity, k=3, choice='random'):
+
+    matrix = copy.deepcopy(inputData[0])
+    inputFile = copy.deepcopy(inputData[1])
+    distances_to_arena_check = copy.deepcopy(inputData[2])
+    bus_names_check = copy.deepcopy(inputData[3])
+
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:  # iterate till all nodes are assigned to clusters
@@ -158,7 +177,7 @@ def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
         # determine convex points:
         if len(bus_names_check) >= 3:  # to calculate convex hull we need more than 3 points:
             points_unassigned = np.array(
-                [[bus_stops_df.loc[name]['x']] + [bus_stops_df.loc[name]['y']] for name in bus_names_check])
+                [[inputFile.loc[name]['x']] + [inputFile.loc[name]['y']] for name in bus_names_check])
             hull = ConvexHull(points_unassigned)
             bus_names_to_choose = [bus_names_check[index] for index in hull.vertices]
             distances_to_arena_to_choose = [
@@ -180,7 +199,7 @@ def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
             distances_to_arena_check.remove(max_dist)
             bus_names_check.remove(cluster_center)
         # to ignore stops with 0 people assigned:
-        people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+        people_assigned_next = inputFile.loc[cluster_center, 'passengers']
         if people_assigned_next == 0:
             continue
         # assign cluster center to cluster
@@ -211,7 +230,7 @@ def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
             min_dist = min(cluster_candidates_k_next_dist)
             ind_min_dist = cluster_candidates_k_next_dist.index(min_dist)
             cluster_center = cluster_candidates_k_next_names[ind_min_dist]
-            people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+            people_assigned_next = inputFile.loc[cluster_center, 'passengers']
             if people_assigned_next == 0:
                 ind_bus_stop = bus_names_check.index(cluster_center)
                 distances_to_arena_check.pop(ind_bus_stop)
@@ -230,7 +249,13 @@ def convex_a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
 
 #CLUSTERING ALGORITHM with CLOUD approach
 
-def cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix):
+def cloud_cluster(inputData, capacity):
+
+    matrix = copy.deepcopy(inputData[0])
+    inputFile = copy.deepcopy(inputData[1])
+    distances_to_arena_check = copy.deepcopy(inputData[2])
+    bus_names_check = copy.deepcopy(inputData[3])
+    
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:#iterate till all nodes are assigned to clusters
@@ -241,7 +266,7 @@ def cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_ch
         distances_to_arena_check.remove(max_dist)
         bus_names_check.remove(cluster_center)
         #to ignore stops with 0 people assigned:
-        people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+        people_assigned_next = inputFile.loc[cluster_center, 'passengers']
         if people_assigned_next == 0:
             continue
         cluster_nodelist_dict[cluster_number] += [cluster_center]  # assign cluster center to cluster
@@ -256,7 +281,7 @@ def cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_ch
             ind_min_dist = cluster_candidates_dist.index(min_dist)
             new_clust_elem = cluster_candidates_names[ind_min_dist]
             ind_bus_stop = bus_names_check.index(new_clust_elem)
-            people_assigned_next = bus_stops_df.loc[new_clust_elem, 'passengers']
+            people_assigned_next = inputFile.loc[new_clust_elem, 'passengers']
             # make sure we do not put in the cluster the stops with 0 people assigned
             if people_assigned_next == 0: #make sure we do not put in cluster the 
                 distances_to_arena_check.pop(ind_bus_stop)
@@ -278,7 +303,13 @@ def cloud_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_ch
 
 #CLUSTERING ALGORITHM with SEQUENCE approach
 
-def sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix):
+def sequence_cluster(inputData, capacity):
+
+    matrix = copy.deepcopy(inputData[0])
+    inputFile = copy.deepcopy(inputData[1])
+    distances_to_arena_check = copy.deepcopy(inputData[2])
+    bus_names_check = copy.deepcopy(inputData[3])
+
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:
@@ -288,7 +319,7 @@ def sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names
         cluster_center = bus_names_check[ind_max_dist]
         distances_to_arena_check.remove(max_dist)
         bus_names_check.remove(cluster_center)
-        people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+        people_assigned_next = inputFile.loc[cluster_center, 'passengers']
         if people_assigned_next == 0:
             continue
         cluster_nodelist_dict[cluster_number] += [cluster_center]
@@ -300,7 +331,7 @@ def sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names
             min_dist = min(cluster_candidates_dist)
             ind_min_dist = cluster_candidates_dist.index(min_dist)
             cluster_center = cluster_candidates_names[ind_min_dist]
-            people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+            people_assigned_next = inputFile.loc[cluster_center, 'passengers']
             if people_assigned_next == 0:
                 ind_bus_stop = bus_names_check.index(cluster_center)
                 distances_to_arena_check.pop(ind_bus_stop)
@@ -318,7 +349,13 @@ def sequence_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names
 
 #CLUSTERING ALGORITHM with A-star approach
 #k is hyperparameter to take into account portion of the distance to Arena
-def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, k):
+def a_star_cluster(inputData, capacity, k):
+
+    matrix = copy.deepcopy(inputData[0])
+    inputFile = copy.deepcopy(inputData[1])
+    distances_to_arena_check = copy.deepcopy(inputData[2])
+    bus_names_check = copy.deepcopy(inputData[3]) 
+
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:
@@ -329,7 +366,7 @@ def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_c
         distances_to_arena_check.remove(max_dist)
         bus_names_check.remove(cluster_center)
         cluster_nodelist_dict[cluster_number] += [cluster_center]
-        people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+        people_assigned_next = inputFile.loc[cluster_center, 'passengers']
         if people_assigned_next == 0:
             continue
         people_assigned += people_assigned_next
@@ -344,7 +381,7 @@ def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_c
             min_dist = min(cluster_candidates_dist)
             ind_min_dist = cluster_candidates_dist.index(min_dist)
             cluster_center = cluster_candidates_names[ind_min_dist]
-            people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+            people_assigned_next = inputFile.loc[cluster_center, 'passengers']
             if people_assigned_next == 0:
                 ind_bus_stop = bus_names_check.index(cluster_center)
                 distances_to_arena_check.pop(ind_bus_stop)
@@ -362,7 +399,13 @@ def a_star_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_c
 
 #CLUSTERING ALGORITHM with A-star k-next approach
 #k is hyperparameter how many next closest points to compare to get the one that leads to Arena
-def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_names_check, matrix, k = 3):
+def a_star_k_next_cluster(inputData, capacity, k = 3):
+
+    matrix = copy.deepcopy(inputData[0])
+    inputFile = copy.deepcopy(inputData[1])
+    distances_to_arena_check = copy.deepcopy(inputData[2])
+    bus_names_check = copy.deepcopy(inputData[3])
+    
     cluster_nodelist_dict = defaultdict(list)
     cluster_number = 0  # cluster number
     while len(bus_names_check) != 0:
@@ -373,7 +416,7 @@ def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
         distances_to_arena_check.remove(max_dist)
         bus_names_check.remove(cluster_center)
         cluster_nodelist_dict[cluster_number] += [cluster_center]
-        people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+        people_assigned_next = inputFile.loc[cluster_center, 'passengers']
         if people_assigned_next == 0:
             continue
         people_assigned += people_assigned_next
@@ -398,7 +441,7 @@ def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
             min_dist = min(cluster_candidates_k_next_dist)
             ind_min_dist = cluster_candidates_k_next_dist.index(min_dist)
             cluster_center = cluster_candidates_k_next_names[ind_min_dist]
-            people_assigned_next = bus_stops_df.loc[cluster_center, 'passengers']
+            people_assigned_next = inputFile.loc[cluster_center, 'passengers']
             if people_assigned_next == 0:
                 ind_bus_stop = bus_names_check.index(cluster_center)
                 distances_to_arena_check.pop(ind_bus_stop)
@@ -417,70 +460,36 @@ def a_star_k_next_cluster(bus_stops_df, capacity, distances_to_arena_check, bus_
 #%% Function imported by main script
 
 
-def runCluster(method, src, inputScenario, capacity):
-
-    # Data pre-processing
-    # import dataframe including number of passengers assigned to stations
-    matrix, distances_to_arena, bus_names, df_clusters_CL = dataprep_CL(src+"/data/", inputScenario)
-
-    # Define some variables
-    distances_to_arena_check = distances_to_arena.copy()  # list of possible stops
-    bus_names_check = bus_names.copy()
+def runCluster(src, inputData, method, capacity):
 
     if method == "CONVEX_HULL_CLOUD_random":
-        dict_clusters_CL = convex_cloud_cluster(df_clusters_CL , capacity,
-                                                     distances_to_arena_check,
-                                                     bus_names_check, matrix,
-                                                     choice='random')
+        clustersDICT = convex_cloud_cluster(inputData, capacity, choice='random')
+        
     elif method == "CONVEX_HULL_CLOUD_distance":
-        dict_clusters_CL = convex_sequence_cluster(df_clusters_CL , capacity,
-                                                        distances_to_arena_check,
-                                                        bus_names_check, matrix,
-                                                        choice='distance')
+        clustersDICT = convex_sequence_cluster(inputData, capacity, choice='distance')
+        
     elif method == "CONVEX_HULL_SEQUENCE_random":
-        dict_clusters_CL = convex_sequence_cluster(df_clusters_CL , capacity,
-                                                        distances_to_arena_check,
-                                                        bus_names_check, matrix,
-                                                        choice='random')
+        clustersDICT = convex_sequence_cluster(inputData, capacity, choice='random')
     
     elif method == "CONVEX_HULL_SEQUENCE_distance":
-        dict_clusters_CL = convex_sequence_cluster(df_clusters_CL , capacity,
-                                                        distances_to_arena_check,
-                                                        bus_names_check, matrix,
-                                                        choice='distance')
+        clustersDICT = convex_sequence_cluster(inputData, capacity, choice='distance')
 
     elif method == "CONVEX_HULL_A_STAR_random":
-        dict_clusters_CL = convex_a_star_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3,
-                                                      choice='random')
+        clustersDICT = convex_a_star_cluster(inputData, capacity, choice='random')
 
     elif method == "CONVEX_HULL_A_STAR_distance":
-        dict_clusters_CL = convex_a_star_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3,
-                                                      choice='distance')
+        clustersDICT = convex_a_star_cluster(inputData, capacity, choice='distance')
 
     elif method == "SEQUENCE":
-        dict_clusters_CL = sequence_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix)
+        clustersDICT = sequence_cluster(inputData, capacity)
 
     elif method == "CLOUD":
-        dict_clusters_CL = cloud_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix)
+        clustersDICT = cloud_cluster(inputData, capacity)
 
     elif method == "A_STAR":
-        dict_clusters_CL = a_star_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3)
+        clustersDICT = a_star_cluster(inputData, capacity, k=3)
         
     elif method == "A_STAR_K_NEXT":
-        dict_clusters_CL = a_star_k_next_cluster(df_clusters_CL , capacity,
-                                                      distances_to_arena_check,
-                                                      bus_names_check, matrix, k=3)    
+        clustersDICT = a_star_k_next_cluster(inputData, capacity, k=3)    
 
-    return dict_clusters_CL, df_clusters_CL
-
-
+    return clustersDICT

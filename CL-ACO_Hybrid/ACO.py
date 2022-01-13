@@ -10,6 +10,8 @@ Created on Tue Dec 28 21:44:26 2021
 # %% IMPORTING PACKAGES
 
 import numpy as np
+import copy
+import random as rnd
 
 # %% CLASSES
 
@@ -158,8 +160,10 @@ class AntColony(object):
         '''
         all_routes = []
         for i in range(self.n_colony):
-            route = self.gen_route(0, len(self.dist) - 1)  
-            # set depot = start & arena = end
+            # randomly pick first stop, have arena as last stop
+            start = rnd.randint(0,len(self.dist)-2)
+            end = len(self.dist) - 1
+            route = self.gen_route(start, end) 
             all_routes.append((route, self.gen_route_dist(route)))
         return all_routes
 
@@ -219,18 +223,21 @@ class AntColony(object):
 
 # %% "Full" solution (all clusters)
 
-# Loop over all data subsets (defined by clusters) in df_clusters
+# Loop over all data subsets (defined by clusters) in inputFile
 
-def runACO(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
+def runACO(inputACO, a=2, b=5, g=80, r=0.8, named=True):
 
+    clustersDICT = copy.deepcopy(inputACO[0])   
+    clustersDF = copy.deepcopy(inputACO[1])
+    
     best_routes_all_clusters = {}
     total_cost_all_clusters = 0
 
-    for i in range(0, int(df_clusters['cluster'].max()+1)):
-        cost_matrix = dict_clusters[i]
-        distance_matrix = np.asarray(cost_matrix)
-        new_matrix = np.array(distance_matrix)
-        ant_colony = AntColony(new_matrix,
+    for i in range(0, int(clustersDF['cluster'].max()+1)):
+        matrix = clustersDICT[i]
+        matrix = np.asarray(matrix)
+        matrix = np.array(matrix)
+        ant_colony = AntColony(matrix,
                                n_colony=22,
                                n_elite=3,
                                n_iter=1,
@@ -244,5 +251,13 @@ def runACO(dict_clusters, df_clusters, a=2, b=5, g=80, r=0.8):
         route_gbest = ant_colony.run()
         best_routes_all_clusters[i] = route_gbest[0]  
         total_cost_all_clusters += route_gbest[-1]
+    
+    if named == True: # replace numbers by station names 
+        for j in range(0, len(best_routes_all_clusters)):  
+            for i in range(0, len(best_routes_all_clusters[j])): 
+                best_routes_all_clusters[j][i] = list(best_routes_all_clusters[j][i])
+                for k in range(2):
+                    index = best_routes_all_clusters[j][i][k]
+                    best_routes_all_clusters[j][i][k] = clustersDICT[j].columns.values[index]
         
     return best_routes_all_clusters, total_cost_all_clusters
