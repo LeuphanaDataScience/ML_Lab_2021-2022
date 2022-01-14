@@ -17,7 +17,8 @@ from main import Run
 ###### VARIABLES TO BE DEFINED BY USER ########################################
 
 src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid/"
-iterations = 100
+#src = "./"
+iterations = 50
 scenario = 'scenario_1.csv' # input file
 capacity = 70               # max people per cluster (bus capacity)
 

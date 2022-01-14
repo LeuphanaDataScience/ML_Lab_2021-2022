@@ -3,6 +3,23 @@
 This approach is designed to find good bus routes based on different setups (people being assigned to bus stops where they start).
 To run this, you need to follow these steps.
 
+----- REQUIREMENTS ------
+
+Used packages:
+
+- pandas
+- numpy
+- copy
+- collections
+- scipy
+- random 
+- math
+- shutil
+- time
+- pickle
+- os
+- warnings
+
 ----- HOW TO USE -----
 
 1) 	Put a csv file including bus stops and number of passengers assigned to them in the folder "data".

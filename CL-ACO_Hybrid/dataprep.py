@@ -36,7 +36,8 @@ def dataprep(src, scenario):
     
     return inputData
 
-def clusters_DF(src, inputData, clustersDICT, method, export=True, best=False):
+def clusters_DF(src, inputData, clustersDICT, 
+                method, export=True, best=False):
     
     clustersDF = inputData[1].copy()                                                          
     clustersDF['cluster'] = [np.nan]*clustersDF.shape[0]

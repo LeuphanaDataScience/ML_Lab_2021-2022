@@ -186,10 +186,10 @@ def Run(src,
             filehandler = open(new_result_dir+"/comp-time.obj", 'wb')
             pickle.dump(comp_time, filehandler)
             
-            filehandler = open(new_result_dir+"/best/best_costs_{best_method}.obj", 'wb')
+            filehandler = open(new_result_dir+f'/best/best_costs_{best_method}.obj', 'wb')
             pickle.dump(best_costs, filehandler)
             
-            filehandler = open(new_result_dir+"/best/best_routes_{best_method}.obj", 'wb')
+            filehandler = open(new_result_dir+f'/best/best_routes_{best_method}.obj', 'wb')
             pickle.dump(best_routes, filehandler)
             
             clusters_DF(new_result_dir, inputData, best_clustersDICT, 
