@@ -16,15 +16,33 @@ def dataprep(src, scenario):
     inputData = {}
     
     # import distance matrix
-    datafile = src+'data/full_distance_matrix_lueneburg.csv'
-    matrix = pd.read_csv(datafile, sep=";", index_col='name')
-    inputData[0] = matrix
+    if scenario.endswith("LK.csv"):
+        datafile = src+'data/full_distance_matrix_LK.csv'
+        matrix = pd.read_csv(datafile, sep=",", index_col="name")
+        inputData[0] = matrix
+    else:
+        datafile = src+'data/full_distance_matrix_lueneburg.csv'
+        matrix = pd.read_csv(datafile, sep=";", index_col='name')
+        inputData[0] = matrix
     
     # importing file with bus stations & passengers assigned to them
-    inputFile = pd.read_csv(src+f'data/{scenario}')
+    inputFile = pd.read_csv(src+f'INPUT/{scenario}')
+    
+    # merge with osm information
+    osminfo = pd.read_csv(src+"data/stop_info_osm.csv")
+    inputFile = (osminfo.merge(inputFile,
+                      on=['name'], how='left',
+                      indicator=True).drop(columns='_merge'))
+    inputFile = inputFile.dropna(axis = 0)
+    
     inputFile.index = inputFile['name']
     inputFile = inputFile.drop('name', axis=1)
     inputData[1] = inputFile
+    
+    # remark: no name for osmid 354506387 (not present in bus name file)
+
+    # remove stations at which no. passengers = 0    
+    
     
     # list of distances to arena
     distances_to_arena = list(matrix.loc["Schlachthof"])
@@ -59,8 +77,7 @@ def clusters_DF(src, inputData, clustersDICT,
 def dataprep_ACO(src, inputData, clustersDF):
     
     # Reduce data frame by dropping columns that aren't needed
-    clustersDF_tmp = clustersDF.drop(['element_type', 'osmid', 'x', 'y', 
-                                  'geometry', 'passengers'], axis=1)
+    clustersDF_tmp = clustersDF.drop(['x', 'y', 'passengers'], axis=1)
     
     # Merge distance matrix & cluster dataframe 
     inputACO_df = (clustersDF_tmp.merge(inputData[0],
@@ -95,3 +112,35 @@ def dataprep_ACO(src, inputData, clustersDF):
     inputACO[2] = copy.deepcopy(inputData[3])
         
     return inputACO
+
+
+
+#%%
+
+'''
+
+# Put names to distance matrix
+
+busstops = pd.read_csv(src+"data/busstops_LK.csv")
+matrix = pd.read_csv(src+"data/full_distance_matrix_LK_only osmid.csv")
+
+datafile = src+'data/full_distance_matrix_lueneburg.csv'
+matrix_s = pd.read_csv(datafile, sep=";", index_col='name')
+
+                                     
+matrix['name'] = [np.nan]*matrix.shape[0]
+
+for i, j in enumerate(matrix.osmid):
+    for k, l in enumerate(busstops.osmid):
+        if j == l:
+            matrix.name[i] = busstops.name[k]
+            matrix.columns.values[i+1] = busstops.name[k]
+
+matrix.index = matrix['name']
+
+
+matrix = matrix.drop('name', axis=1)
+matrix = matrix.drop(['osmid'], axis=1)
+
+matrix.to_csv(f'{src}data/distance_matrix_LK.csv')
+'''

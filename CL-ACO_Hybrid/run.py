@@ -16,11 +16,11 @@ from main import Run
 
 ###### VARIABLES TO BE DEFINED BY USER ########################################
 
-src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid/"
-#src = "./"
+#src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid/"
+src = "./"
 iterations = 50
-scenario = 'scenario_1.csv' # input file
-capacity = 70               # max people per cluster (bus capacity)
+scenario = 'scenario_1_LK.csv' # input file
+capacity = 70                  # max people per cluster (bus capacity)
 
 
 ###### Technical details ######################################################

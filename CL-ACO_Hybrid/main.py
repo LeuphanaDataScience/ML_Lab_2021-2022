@@ -47,14 +47,14 @@ def Run(src,
             # for displaying progress
             T_initial = time.time()                 
          
-            # Create folder for new results
+            # Create folder for new OUTPUT
             time_now = time.localtime() 
             time_string = time.strftime("%d-%m-%Y_%H-%M", time_now)
             
             if previous_run == False:    
-                new_result_dir = src+f'results/{time_string}/'    
+                new_result_dir = src+f'OUTPUT/{time_string}/'    
             if previous_run != False:
-                new_result_dir = src+f'results/{time_string}_refined_{previous_run}/'
+                new_result_dir = src+f'OUTPUT/{time_string}_refined_{previous_run}/'
         
             # Delete directory if it is already existent...
             if os.path.isdir(new_result_dir):
@@ -66,7 +66,7 @@ def Run(src,
             # re-define methods based on those that were used previously 
             if previous_run != False:
                 methods = []
-                for file in os.listdir(src+"results/"+previous_run+"/best"):
+                for file in os.listdir(src+"OUTPUT/"+previous_run+"/best"):
                     if overall == True:
                         if file.startswith("bestClusterOverall"):
                             filename = file
@@ -131,7 +131,7 @@ def Run(src,
           #                  clustersDF = clustersDF.set_index('name')
                       
                     else:
-                         clustersDF = pd.read_csv(src + f'results/{previous_run}/best/best_clusters_{methodName}.csv')
+                         clustersDF = pd.read_csv(src + f'OUTPUT/{previous_run}/best/best_clusters_{methodName}.csv')
                          clustersDF = clustersDF.set_index('name')
                          clustersDF.to_csv(src+ f'tmp/tmp_{methodName}.csv')
                  
@@ -176,7 +176,7 @@ def Run(src,
                     best_clustersDICT = clustersDICT
                     best_method = methodName
                     
-            # save other results outside python
+            # save other OUTPUT outside python
             filehandler = open(new_result_dir+"costs.obj", 'wb')
             pickle.dump(costs, filehandler)
             

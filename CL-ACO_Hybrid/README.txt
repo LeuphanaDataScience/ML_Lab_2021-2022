@@ -22,7 +22,7 @@ Used packages:
 
 ----- HOW TO USE -----
 
-1) 	Put a csv file including bus stops and number of passengers assigned to them in the folder "data".
+1) 	Put a csv file including bus stops and number of passengers assigned to them in the folder "INPUT".
 	Examples here are "scenario_1.csv", "scenario_2.csv" & "scenario_3.csv".
 
 2)	In the file "run.py", specify following variables
@@ -55,7 +55,7 @@ Not yet implemented
 
 3)	Run the script "run.py"
 
-4)	The results are stored in a new folder (name starts with date & time run was started)
+4)	The results are stored in a new folder under "OUTPUT" (name starts with date & time run was started)
 
 --------------------------------------------------------------------------------------------------------
 
