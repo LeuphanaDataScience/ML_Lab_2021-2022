@@ -42,7 +42,7 @@ def Run(src,
                 methods = methods[0:3]  
             if testing == True:
                 iterations = 2
-                methods = methods[2:3]   
+                methods = ["CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_CLOUD_random"]
             
             # for displaying progress
             T_initial = time.time()                 

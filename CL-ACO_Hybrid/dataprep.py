@@ -84,9 +84,10 @@ def dataprep_ACO(src, inputData, clustersDF):
                       on=['name'], how='left',
                       indicator=True).drop(columns='_merge'))
 
-    # remove stations at which no. passengers = 0    
+    # remove stations at which no. passengers = 0   
+    arena = inputACO_df[inputACO_df.index == "Schlachthof"]
     inputACO_df = inputACO_df.dropna(axis = 0)
-    inputACO_df.cluster = np.array(inputACO_df.cluster)
+    inputACO_df = pd.concat([inputACO_df, arena])
     
     inputACO_dict = {}
     

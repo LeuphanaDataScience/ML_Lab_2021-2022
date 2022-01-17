@@ -13,21 +13,7 @@ import os
 
 src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid/'
 
-methods = ["CONVEX_HULL_CLOUD_random", 
-           "CONVEX_HULL_SEQUENCE_random",
-           "CONVEX_HULL_A_STAR_random",
-           
-           "CONVEX_HULL_CLOUD_distance", 
-           "CONVEX_HULL_SEQUENCE_distance",
-           "CONVEX_HULL_A_STAR_distance", 
-           
-           "CLOUD", 
-           "SEQUENCE", 
-           "A_STAR", 
-           "A_STAR_K_NEXT" 
-           ]  
-
-outputfile = '17-01-2022_01-44'  # example 
+outputfile = '17-01-2022_21-43'  # example 
 
 
 def getResults(src, outputfile):
@@ -35,16 +21,16 @@ def getResults(src, outputfile):
     src_results = src+f'OUTPUT/{outputfile}/'
     results = pd.read_pickle(src_results+"costs.obj")
     print("Mean distance")
-    for method in methods:        
+    for method in results.keys():        
         print(f'{method} : {np.mean(results[method])}')
     print("\nMinimum distance")
-    for method in methods:
+    for method in results.keys():
         print(f'{method} : {np.min(results[method])}')
     print("\nMaximum distance")
-    for method in methods:
+    for method in results.keys():
         print(f'{method} : {np.max(results[method])}')        
     print("\nStandard Deviation")
-    for method in methods:
+    for method in results.keys():
         print(f'{method} : {np.std(results[method])}')        
         
     for file in os.listdir(src_results+"best"):
