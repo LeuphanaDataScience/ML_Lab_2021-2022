@@ -161,7 +161,7 @@ class AntColony(object):
         all_routes = []
         for i in range(self.n_colony):
             # randomly pick first stop, have arena as last stop
-            start = rnd.randint(0,len(self.dist)-2)
+            start = rnd.randint(0,len(self.dist)-1)
             end = len(self.dist) - 1
             route = self.gen_route(start, end) 
             all_routes.append((route, self.gen_route_dist(route)))

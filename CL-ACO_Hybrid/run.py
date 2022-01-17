@@ -37,7 +37,7 @@ methods = ["CONVEX_HULL_CLOUD_random",
            "SEQUENCE", 
            "A_STAR", 
            "A_STAR_K_NEXT" 
-           ]                # clustering methods
+           ]                 # clustering methods
 #methods = methods[2:4]      # select methods (e.g. [3:] for only non-random ones)
 random_only = False      
 previous_run = False        # or e.g. "08-01-2022_03-40"
