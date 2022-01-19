@@ -19,7 +19,7 @@ from main import Run
 #src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid/"
 src = "./"
 iterations = 100
-scenario = 'scenario_1_LK.csv' # input file
+scenario = 'scenario_3_LK.csv' # input file
 capacity = 70                  # max people per cluster (bus capacity)
 
 
@@ -42,7 +42,8 @@ methods = ["CONVEX_HULL_CLOUD_random",
 random_only = False      
 previous_run = False        # or e.g. "08-01-2022_03-40"
 overall = True
-testing = False
+testing = True
+identifier = "osmid"
 
 ###### RUN ####################################################################
 
@@ -51,6 +52,7 @@ Run(src,
     scenario, 
     capacity, 
     methods,
+    identifier,
     random_only=random_only, 
     previous_run=previous_run, 
     overall=overall,

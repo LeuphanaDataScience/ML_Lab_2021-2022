@@ -77,7 +77,7 @@ def clusters_DF(src, inputData, clustersDICT,
 def dataprep_ACO(src, inputData, clustersDF):
     
     # Reduce data frame by dropping columns that aren't needed
-    clustersDF_tmp = clustersDF.drop(['x', 'y', 'passengers'], axis=1)
+    clustersDF_tmp = clustersDF.drop(['x', 'y', 'passengers', 'osmid'], axis=1)
     
     # Merge distance matrix & cluster dataframe 
     inputACO_df = (clustersDF_tmp.merge(inputData[0],
@@ -111,6 +111,7 @@ def dataprep_ACO(src, inputData, clustersDF):
     inputACO[0] = inputACO_dict
     inputACO[1] = inputACO_df
     inputACO[2] = copy.deepcopy(inputData[3])
+    inputACO[3] = clustersDF.drop(['x', 'y', 'passengers'], axis=1)
         
     return inputACO
 

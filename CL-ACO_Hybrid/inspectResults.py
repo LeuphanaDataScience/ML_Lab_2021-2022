@@ -15,7 +15,9 @@ import scipy.stats as st
 
 src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid/'
 
-outputfile = '17-01-2022_22-02'  # example 
+outputfile = '19-01-2022_22-11'  # example 
+
+#new_result_dir = src+f'OUTPUT/{outputfile}/'    
 
 # %%
 
@@ -78,7 +80,12 @@ def getResults(src, outputfile, distr_plot=False, ci_plot=False):
 
 #%%
 
-best_costs, best_routes, routes, costs = getResults(src, outputfile, ci_plot=True)
+best_costs, best_routes, routes, costs = getResults(src, outputfile, 
+                                                  #  ci_plot=True,
+                                                    distr_plot=True
+                                                    )
+#%%
+
 
 
 

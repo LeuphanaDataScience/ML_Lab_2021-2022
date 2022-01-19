@@ -30,6 +30,7 @@ def Run(src,
         scenario, 
         capacity, 
         methods, 
+        identifier,
         random_only=False, 
         previous_run=False, 
         overall=True,
@@ -42,7 +43,7 @@ def Run(src,
                 methods = methods[0:3]  
             if testing == True:
                 iterations = 2
-                methods = ["CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_CLOUD_random"]
+                methods = ["CONVEX_HULL_CLOUD_distance", "CONVEX_HULL_SEQUENCE_distance"]
             
             # for displaying progress
             T_initial = time.time()                 
@@ -104,7 +105,7 @@ def Run(src,
                 for iteration in range(iterations): 
                     
                     # To display progress  
-                    print(f'Current method: {methods[method]} (Method {method+1}/{len(methods)}), \nIteration {iteration+1}/{iterations}')              
+                    print(f'Scenario: {scenario} \nCurrent method: {methods[method]} (Method {method+1}/{len(methods)}), \nIteration {iteration+1}/{iterations}')              
                     T_now = time.time()
                     t0 = time.time() 
                  
@@ -152,7 +153,7 @@ def Run(src,
                         print(f'Estimated time left: {mt.floor(time_left/60)} minutes')
                     
                     # ACO step
-                    route, cost = runACO(inputACO)
+                    route, cost = runACO(inputACO, identifier)
                         
                     # Calculate computational time 
                     t1 = time.time()
