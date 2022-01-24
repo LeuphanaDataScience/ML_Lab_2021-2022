@@ -35,8 +35,8 @@ def Run(src,
             
             # clustering methods
             methods = [
-                       "CONVEX_HULL_SEQUENCE_random",
-                       "CONVEX_HULL_SEQUENCE_distance"
+                "CONVEX_HULL_SEQUENCE_distance",
+                "CONVEX_HULL_SEQUENCE_random",
                        ]    
             
             # for displaying progress
@@ -115,7 +115,7 @@ def Run(src,
                     if T_passed >= 1:
                         time_per_it = mt.floor(T_passed/(its))
                         time_left = time_per_it*(its_total-its)
-                        print(f'Time passed: {mt.floor(T_passed)}s ({time_per_it}s/iteration[method])')
+                        print(f'Time passed: {mt.floor(T_passed)}s ({time_per_it}s/iteration)')
                         print(f'Estimated time left: {mt.floor(time_left/60)} minutes')
                     
                     # ACO step

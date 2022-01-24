@@ -13,9 +13,9 @@ import os
 import matplotlib.pyplot as plt
 import scipy.stats as st
 
-src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO_Hybrid/'
+src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO/'
 
-outputfile = '19-01-2022_22-11'  # example  
+outputfile = '24-01-2022_12-57'  # example  
 
 # %%
 
