@@ -18,9 +18,11 @@ import pickle
 warnings.filterwarnings("ignore") # don't print warnings
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
-from dataprep import dataprep, clusters_DF, dataprep_ACO
+from dataprep import dataprep, clusters_DF, dataprep_ACO, export_excel
 from Clustering import runCluster
 from ACO import runACO
+
+
 
 
 #%% Main pipeline
@@ -35,8 +37,8 @@ def Run(src,
             
             # clustering methods
             methods = [
-                "CONVEX_HULL_SEQUENCE_distance",
-                "CONVEX_HULL_SEQUENCE_random",
+                       "CONVEX_HULL_SEQUENCE_distance",
+                       "CONVEX_HULL_SEQUENCE_random"
                        ]    
             
             # for displaying progress
@@ -115,7 +117,7 @@ def Run(src,
                     if T_passed >= 1:
                         time_per_it = mt.floor(T_passed/(its))
                         time_left = time_per_it*(its_total-its)
-                        print(f'Time passed: {mt.floor(T_passed)}s ({time_per_it}s/iteration)')
+                        print(f'Time passed: {mt.floor(T_passed)}s ({time_per_it}s/iteration[method])')
                         print(f'Estimated time left: {mt.floor(time_left/60)} minutes')
                     
                     # ACO step
@@ -147,6 +149,8 @@ def Run(src,
             
             filehandler = open(new_result_dir+"/routes.obj", 'wb')
             pickle.dump(routes, filehandler)
+
+
             
             filehandler = open(new_result_dir+"/comp-time.obj", 'wb')
             pickle.dump(comp_time, filehandler)
@@ -156,7 +160,9 @@ def Run(src,
             
             filehandler = open(new_result_dir+f'/best/best_routes_{best_method}.obj', 'wb')
             pickle.dump(best_routes, filehandler)
-            
+
+            export_excel(best_routes, new_result_dir, best_method)
+
             clusters_DF(new_result_dir, inputData, best_clustersDICT, 
                         best_method, export=True, best=True)
             

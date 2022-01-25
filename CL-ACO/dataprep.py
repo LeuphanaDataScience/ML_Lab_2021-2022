@@ -8,6 +8,9 @@ Created on Mon Jan 10 20:41:32 2022
 import pandas as pd
 import numpy as np
 import copy
+import string
+import openpyxl
+from openpyxl.styles import Font
 
 #%%
 
@@ -115,7 +118,32 @@ def dataprep_ACO(src, inputData, clustersDF):
         
     return inputACO
 
+def export_excel(best_routes, new_result_dir, best_method):
+    best_routes_clean = best_routes
+    for key, values in best_routes.items():
+        new_values = []
+        for v in values:
+            new_values.append(v[0])
+        best_routes_clean[key] = new_values
 
+    best_routes_df = pd.DataFrame.from_dict(best_routes_clean, orient='index')
+    col_names = []
+    for col in best_routes_df.columns:
+        col_names.append("Stop: " + str(col))
+    best_routes_df.columns = col_names
+    best_routes_df.index.names = ["BUS"]
+
+    alphabet_string = string.ascii_uppercase
+    alphabet_list = list(alphabet_string)
+
+    best_routes_df.to_excel(new_result_dir + f'/best/best_routes_{best_method}.xlsx', sheet_name='route')
+    wb = openpyxl.load_workbook(new_result_dir + f'/best/best_routes_{best_method}.xlsx')
+    ws = wb.active
+
+    for col in alphabet_list[:len(best_routes_df.columns)]:
+        ws.column_dimensions[col].width = 16
+
+    wb.save(new_result_dir + f'/best/best_routes_{best_method}.xlsx')
 
 #%%
 
