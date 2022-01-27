@@ -146,31 +146,3 @@ def export_excel(best_routes, new_result_dir, best_method):
     wb.save(new_result_dir + f'/best/best_routes_{best_method}.xlsx')
 
 #%%
-
-'''
-
-# Put names to distance matrix
-
-busstops = pd.read_csv(src+"data/busstops_LK.csv")
-matrix = pd.read_csv(src+"data/full_distance_matrix_LK_only osmid.csv")
-
-datafile = src+'data/full_distance_matrix_lueneburg.csv'
-matrix_s = pd.read_csv(datafile, sep=";", index_col='name')
-
-                                     
-matrix['name'] = [np.nan]*matrix.shape[0]
-
-for i, j in enumerate(matrix.osmid):
-    for k, l in enumerate(busstops.osmid):
-        if j == l:
-            matrix.name[i] = busstops.name[k]
-            matrix.columns.values[i+1] = busstops.name[k]
-
-matrix.index = matrix['name']
-
-
-matrix = matrix.drop('name', axis=1)
-matrix = matrix.drop(['osmid'], axis=1)
-
-matrix.to_csv(f'{src}data/distance_matrix_LK.csv')
-'''

@@ -23,8 +23,6 @@ from Clustering import runCluster
 from ACO import runACO
 
 
-
-
 #%% Main pipeline
 
 def Run(src, 
@@ -86,7 +84,9 @@ def Run(src,
                     
                     its += 1
                     # To display progress  
-                    print(f'Scenario: {scenario} \nCurrent method: {methods[method]} (Method {method+1}/{len(methods)}), \nIteration {iteration+1}/{iterations[method]}')              
+                    print(f'Scenario: {scenario}')
+                    print(f'Current method: {methodName} (Method {method+1}/{len(methods)})')
+                    print(f'Iteration {iteration+1}/{iterations[method]}\n')              
                     T_now = time.time()
                     t0 = time.time() 
                  
