@@ -137,7 +137,7 @@ def sample_passengers(data, area = "county", mu = 3500, sigma = 0.001, seed = 2,
     return bus_stops_gdf
 
 
-gdf_with_pass = sample_passengers(data)
+gdf_with_pass = sample_passengers(data_city, area = "city", mu = 2500, empty_stops = 0.15)
 sum(gdf_with_pass['passengers'])
 
 pd.DataFrame(gdf_with_pass).to_csv("scenario_538_stations_3.csv")
@@ -150,7 +150,7 @@ def plot_heatmap(gdf_with_pass, data):
     only_stops_with_passengers = gdf_with_pass[stop_with_passengers]
 
     #divide bus stops into classes at a rate of +2 passengers
-    heat_classes = list(range(1,14,2))
+    heat_classes = list(range(1,28,4))
     heat_classes.insert(0,0)
     heat_stops_list = []
     for i in range(len(heat_classes)):
@@ -162,13 +162,13 @@ def plot_heatmap(gdf_with_pass, data):
             heat_stops_list.append(bus_stop_class)
 
     #plot map
-    graph = data[2]
+    graph = data_city[2]
 
-    colors = iter(plt.cm.viridis(np.linspace(0.5, 1, len(heat_classes))))
-    fig, ax = ox.plot_graph(graph, show=False, close=False)
-    for df in heat_stops_list:
-        df.plot(ax=ax, markersize = 15, color=next(colors) , alpha=1, zorder=7)
+    colors = iter(plt.cm.viridis(np.linspace(0, 1, len(heat_classes))))
+    fig, ax = ox.plot_graph(graph, bgcolor='white', node_size = 1, show=False, close=False)
+    for i, df in enumerate(heat_stops_list):
+        df.plot(ax=ax, markersize = 10 + i*10, color=next(colors) , alpha=1, zorder=7)
     plt.show()
 
 
-plot_heatmap(gdf_with_pass, data)
+plot_heatmap(gdf_with_pass, data_city)
