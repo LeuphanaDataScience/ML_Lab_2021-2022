@@ -1,0 +1,542 @@
+,element_type,osmid,highway,name,network,public_transport,geometry,bench,operator,ref_name,route_ref,shelter,tactile_paving,bicycle_parking,bus,lines,wheelchair,designation,local_ref,source,bin,lastcheck,passenger_information_display,name:HVV,lit,check_date:shelter,wheelchair:description,covered,note,ref,departures_board,fixme,removed:ref_name,network:wikidata,network:wikipedia,description,comment,name:note,toilets:wheelchair,check_date:tactile_paving,level,network:short,name:description,line,check_date:bench,amenity,loc_name,railway,name:source,shelter:description,surface,nodes,layer,x,y
+0,node,1830066645,bus_stop,Abzweigung Bennerstedt,HVV,platform,POINT (10.4869702 53.3146462),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4869702,53.3146462
+1,node,8523611360,bus_stop,Lüneburger Straße,HVV,platform,POINT (10.5227006 53.2288511),yes,KVG,"Barendorf, Lüneburger Straße",5300;5361;5362;AST,yes,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5227006,53.2288511
+3,node,4363687998,bus_stop,"Karze, An den Hauskoppeln",HVV,platform,POINT (10.6739869 53.314295),yes,VOG,,5104;5111;5152-ASM,yes,no,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6739869,53.314295
+4,node,175237700,bus_stop,Universitätsallee,HVV,platform,POINT (10.4052614 53.230091),,KVG,"Lüneburg, Scharnhorststraße (Ost)",,no,,,yes,5605;,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4052614,53.230091
+6,node,957142825,bus_stop,"Artlenburg, Grünstraße",HVV,platform,POINT (10.4921805 53.3719336),yes,,,,yes,,,,,,Grünstr.,Grünstr.,seb1982,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4921805,53.3719336
+7,node,293938369,bus_stop,Bei Mönchsgarten,HVV,platform,POINT (10.3904939 53.2529278),no,KVG,"Lüneburg, Bei Mönchsgarten",5009;ASM,no,no,,,,limited,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3904939,53.2529278
+8,node,298511484,bus_stop,Hermann-Löns-Straße,HVV,platform,POINT (10.4357546 53.2611082),,KVG,"Lüneburg, Hermann Löns Straße",,yes,,,yes,5015; 5110; 5901; 5918,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4357546,53.2611082
+10,node,114241120,bus_stop,Wilhelm-Leuschner-Straße,HVV,platform,POINT (10.4442936 53.236347),yes,KVG,"Lüneburg, Wilhelm-Leuschner-Straße",,yes,no,,yes,5011;5014,limited,,,,yes,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4442936,53.236347
+11,node,1459109815,bus_stop,Graf-von-Moltke-Straße,HVV,platform,POINT (10.4385436 53.2372693),yes,KVG,"Lüneburg, Graf-von-Moltke-Straße",,yes,yes,,yes,5011;5014,,,,,yes,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4385436,53.2372693
+12,node,414692562,bus_stop,St.-Stephanus-Platz,HVV,platform,POINT (10.4347836 53.2385554),yes,KVG,"Lüneburg, St.-Stephanus-Platz",,yes,yes,,yes,5011;5014;5300;5361;5362:5405;5700;5920;5120,yes,,,,yes,20141012,no,"Lüneburg, St.-Stephanus-Platz",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4347836,53.2385554
+13,node,7960254627,bus_stop,Konrad-Adenauer-Straße,HVV,platform,POINT (10.4319275 53.2377656),yes,KVG,"Lüneburg, Konrad-Adenauer-Straße",,no,yes,,yes,5011;5601,,,,,yes,20141012,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4319275,53.2377656
+14,node,275404815,bus_stop,Waldfriedhof,HVV,platform,POINT (10.429653 53.2361294),yes,KVG,"Lüneburg, Waldfriedhof",,yes,no,,yes,5011,yes,,,,yes,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.429653,53.2361294
+15,node,1872332223,bus_stop,Schäferfeld,HVV,platform,POINT (10.4287246 53.2378491),no,KVG,"Lüneburg, Schäferfeld",,no,no,,yes,5011,,,,,yes,20141012,no,"Lüneburg, Schäferfeld",no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4287246,53.2378491
+16,node,279632687,bus_stop,Kurt-Schumacher-Straße,HVV,platform,POINT (10.4269383 53.2401354),no,KVG,"Lüneburg, Kurt-Schuhmacher-Straße",,no,no,,yes,5011,,,,,yes,20141012,no,"Lüneburg, Kurt-Schumacher-Straße",no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4269383,53.2401354
+17,node,307769211,bus_stop,Blümchensaal,HVV,platform,POINT (10.4230445 53.2433336),no,KVG,"Lüneburg, Blümchensaal",,no,no,,,5011,,,,,no,20141012,no,"Lüneburg, Blümchensaal",,2021-05-05,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4230445,53.2433336
+18,node,1053737986,bus_stop,Theodor-Heuss-Straße,HVV,platform,POINT (10.4329576 53.2462219),yes,KVG,"Lüneburg, Theodor-Heuss-Straße",,yes,no,,yes,5010; 5014,,,,,yes,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4329576,53.2462219
+19,node,301861007,bus_stop,Venusberg (Johanneum),HVV,platform,POINT (10.4303141 53.2465477),yes,KVG,"Lüneburg, Venusberg (Johanneum)",,yes,no,,yes,5014; 5361; 5362; 5405; 5920; 5620; 5700,,,,,yes,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4303141,53.2465477
+20,node,301860995,bus_stop,Ziegelkamp,HVV,platform,POINT (10.4276158 53.2474105),yes,KVG,"Lüneburg, Ziegelkamp",,yes,yes,,yes,5014,,,,,yes,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4276158,53.2474105
+21,node,201192065,bus_stop,Am Schützenplatz,HVV,platform,POINT (10.4236403 53.2487451),no,KVG,"Lüneburg, Am Schützenplatz",,no,no,,yes,5007;5010;5011;5012;5014;5015;5100;5110;5300;5361;5901;5918;5920,,,,,yes,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4236403,53.2487451
+22,node,309164430,bus_stop,"Deutsch Evern, Triftstraße",,platform,POINT (10.4383763 53.2028361),,,,5020;5606;ASM,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4383763,53.2028361
+23,node,272771855,bus_stop,Becklingen,,platform,POINT (10.638701 53.1685565),,,,5303,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.638701,53.1685565
+24,node,311743901,bus_stop,"Radbruch, Schäfer-Ast-Straße",,platform,POINT (10.2858188 53.3115371),,,,5403,yes,,,,,limited,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2858188,53.3115371
+25,node,4133634392,bus_stop,"Thomasburg, Radenbecker Weg",,platform,POINT (10.6537654 53.2297167),,,,5114;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6537654,53.2297167
+26,node,313574492,bus_stop,Abzweig Dumstorf,HVV,platform,POINT (10.6967738 53.1893837),yes,KVG,"Dahlenburg, Abzweig Dumstorf",5300;5304,yes,no,,,,,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6967738,53.1893837
+27,node,3790432850,bus_stop,"Köstorf, Abzw. Barskamp",,platform,POINT (10.7566624 53.2330487),,,,5103,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7566624,53.2330487
+28,node,1713950571,bus_stop,Abzweig Radenbeck,HVV,platform,POINT (10.6206885 53.2012926),yes,,"Radenbeck, Abzweig Radenbeck",,yes,no,,,"5300, 5304, 5361",,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6206885,53.2012926
+30,node,369792808,bus_stop,Mitte / B216,HVV,platform,POINT (10.6378781 53.1973134),yes,KVG,"Bavendorf, Mitte / B216",5300;5304;5361,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6378781,53.1973134
+31,node,319989751,bus_stop,Breetzer Straße,HVV,platform,POINT (10.7248594 53.2821702),,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7248594,53.2821702
+32,node,276915521,bus_stop,Wichernstraße,HVV,platform,POINT (10.397792 53.2268409),,KVG,"Lüneburg, Wichernstraße",,,,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.397792,53.2268409
+33,node,1690093376,bus_stop,Anna-Vogeley-Heim,HVV,platform,POINT (10.3984829 53.2251001),,KVG,"Lüneburg, Anna-Vogeley-Heim",,,,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3984829,53.2251001
+34,node,1690093389,bus_stop,Am Elsenbruch,HVV,platform,POINT (10.4012942 53.2245326),,KVG,"Lüneburg, Am Elsenbruch",,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4012942,53.2245326
+35,node,322053789,bus_stop,Röntgenstraße / Kirche,HVV,platform,POINT (10.4024801 53.2227054),,KVG,"Lüneburg, Röntgenstraße (Kirche)",,,,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4024801,53.2227054
+36,node,322051827,bus_stop,Röntgenstraße,HVV,platform,POINT (10.4028648 53.2207693),,KVG,"Lüneburg, Röntgenstraße",,,,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4028648,53.2207693
+37,node,322053484,bus_stop,Planckstraße,HVV,platform,POINT (10.404717 53.2192047),,KVG,"Lüneburg, Planckstraße",,,,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.404717,53.2192047
+38,node,323130818,bus_stop,Neetzebrücke,HVV,platform,POINT (10.6150702 53.2650616),,KVG,"Neetze, Neetzebrücke",5100;5110,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6150702,53.2650616
+40,node,333248611,bus_stop,Reichenbachplatz,HVV,platform,POINT (10.4106941 53.2531248),yes,KVG,"Lüneburg, Reichenbachplatz",,yes,yes,,yes,,yes,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4106941,53.2531248
+41,node,332606128,bus_stop,Bürgeramt,HVV,platform,POINT (10.4092892 53.2522431),no,KVG,"Lüneburg, Bürgeramt",,no,yes,,yes,5002; 5010; 5014,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4092892,53.2522431
+43,node,336363945,bus_stop,"Radenbeck, Siedlung",HVV,platform,POINT (10.6264241 53.2178751),,,,,,,,,5362,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6264241,53.2178751
+44,node,314666239,bus_stop,Markt,HVV,platform,POINT (10.7418278 53.1870816),,,"Dahlenburg, Markt",5103;5300;5301;5302;5303;5304;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7418278,53.1870816
+46,node,317179812,bus_stop,Meisterweg,HVV,platform,POINT (10.4317204 53.2599086),,KVG,"Lüneburg, Meisterweg",,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4317204,53.2599086
+48,node,705465966,bus_stop,Hansestraße,HVV,platform,POINT (10.4261391 53.2555935),yes,KVG,"Lüneburg, Hansestraße",,yes,yes,,yes,5015,,,,,yes,20141213,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4261391,53.2555935
+50,node,296886493,bus_stop,Henningstraße,HVV,platform,POINT (10.4233245 53.2525633),,KVG,"Lüneburg, Henningstraße",,,,,yes,5007; 5015,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4233245,53.2525633
+52,node,201192013,bus_stop,Pulverweg (Nord),HVV,platform,POINT (10.422458 53.2511748),,KVG,"Lüneburg, Pulverweg Nord",,no,no,,yes,5007; 5012; 5015,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.422458,53.2511748
+61,node,274309813,bus_stop,Theodor-Haubach-Straße,HVV,platform,POINT (10.4422643 53.2341433),no,KVG,"Lüneburg, Theodor-Haubach-Straße",,no,no,,yes,5014,limited,,,,no,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4422643,53.2341433
+63,node,114240790,bus_stop,Bülows Kamp,HVV,platform,POINT (10.4459154 53.2314995),yes,KVG,"Lüneburg, Bülows Kamp",,yes,no,,yes,5014,,,,,yes,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4459154,53.2314995
+64,node,414685401,bus_stop,Klosterkamp,HVV,platform,POINT (10.4460096 53.2292609),yes,KVG,"Lüneburg, Klosterkamp",,yes,no,,yes,5014,,,,,no,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4460096,53.2292609
+65,node,1249144962,bus_stop,Hermann-Wagner-Straße,HVV,platform,POINT (10.4441928 53.2288883),no,KVG,"Lüneburg, Hermann-Wagner-Straße",,no,no,,,5014,,,,,yes,20141012,no,,,2021-05-07,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4441928,53.2288883
+67,node,282853219,bus_stop,Hinrich-Wilhelm-Kopf-Straße,HVV,platform,POINT (10.4337268 53.2393598),no,KVG,"Lüneburg, Hinrich-Wilhelm-Kopf-Straße",,no,no,,yes,5014,,,,,yes,20141012,no,"Lüneburg, Hinrich-Wilhelm-Kopf-Straße",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4337268,53.2393598
+71,node,452997887,bus_stop,"Handorf, Grundschule",HVV,platform,POINT (10.3467072 53.3419322),no,KVG,,5402;ASM,no,no,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3467072,53.3419322
+72,node,2301671297,bus_stop,Im Kirchfelde,HVV,platform,POINT (10.3196032 53.2800856),yes,,"Mechtersen, Im Kirchfelde",5009;5404,yes,no,,,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3196032,53.2800856
+73,node,292157701,bus_stop,"Barum, Am Sportplatz",HVV,platform,POINT (10.4088761 53.3509372),no,KVG,"Barum, Am Sportplatz",5405,no,no,,,,,,,,no,,,,,2021-09-30,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4088761,53.3509372
+75,node,4013236506,bus_stop,Am Sande,HVV,platform,POINT (10.4107075 53.2477583),yes,,"Lüneburg, Am Sande A",5001;5003;5007;5011;5012;5015;5600;5605;5700,yes,no,,yes,,yes,,A,,yes,,,"Lüneburg, Am Sande (BereichA)",yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4107075,53.2477583
+79,node,7173992955,bus_stop,Oedeme Dorf,HVV,platform,POINT (10.3769693 53.228942),yes,KVG,"Lüneburg, Oedeme Dorf",5007;5201;5203;ASM,yes,no,,,,,,,,yes,,,,,2021-02-03,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3769693,53.228942
+81,node,374359791,bus_stop,Im Kamp,HVV,platform,POINT (10.3850765 53.2222253),no,KVG,"Lüneburg, Im Kamp",5007;5920;ASM,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3850765,53.2222253
+82,node,276915516,bus_stop,Scharnhorststraße/DJH,HVV,platform,POINT (10.3971229 53.2300297),,KVG,"Lüneburg, Scharnhorststraße/DJH",,no,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3971229,53.2300297
+83,node,1658400344,bus_stop,Blücherstraße,HVV,platform,POINT (10.4000814 53.2311691),yes,KVG,"Lüneburg, Blücherstraße",,yes,yes,,yes,5011;5012;5600;5605,,,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,10.4000814,53.2311691
+84,node,249238920,bus_stop,Imkerstieg,HVV,platform,POINT (10.388762 53.2746341),yes,KVG,"Lüneburg, Imkerstieg",5005;ASM,yes,no,,,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.388762,53.2746341
+85,node,387439255,bus_stop,Neue Straße,HVV,platform,POINT (10.431328 53.274525),no,KVG,"Adendorf, Neue Straße",,no,no,,yes,5006; 5007,,,,,,,,,,2021-05-22,,,Position eingemessen,618398,,,,,,,,,,,,,,,,,,,,,,,,10.431328,53.274525
+86,node,546443116,bus_stop,Danziger Weg,HVV,platform,POINT (10.4383568 53.2816633),yes,KVG,"Adendorf, Danziger Weg",,yes,yes,,,,,,,,,,,,no,2021-03-06,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4383568,53.2816633
+87,node,268638584,bus_stop,MTV-Platz,HVV,platform,POINT (10.4049563 53.2353498),yes,KVG,"Lüneburg, MTV-Platz",,yes,no,,yes,,,,,,yes,,,,yes,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4049563,53.2353498
+88,node,111246549,bus_stop,Kurpark,HVV,platform,POINT (10.4043801 53.2384105),yes,KVG,"Lüneburg, Kurpark",,no,no,,yes,5011,,,,,yes,,,,no,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4043801,53.2384105
+90,node,114242620,bus_stop,Uelzener Straße (Kurzentrum),HVV,platform,POINT (10.4044333 53.2404345),yes,KVG,"Lüneburg, Uelzener Straße (Kurzentrum)",,no,no,,yes,,yes,,,,yes,,,,no,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4044333,53.2404345
+91,node,305382797,bus_stop,Munstermannskamp,HVV,platform,POINT (10.4052689 53.232103),,KVG,"Lüneburg, Munstermannskamp",,yes,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4052689,53.232103
+92,node,402986884,bus_stop,Osterwiese,HVV,platform,POINT (10.3746107 53.2148267),yes,KVG,"Lüneburg, Osterwiese",,yes,no,,,5011;5203;5920,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3746107,53.2148267
+93,node,403012178,bus_stop,Klosterweg,HVV,platform,POINT (10.371994 53.2117385),yes,KVG,"Lüneburg, Klosterweg",,yes,no,,,5011;5203;5920,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.371994,53.2117385
+94,node,3348587797,bus_stop,Ginsterweg,HVV,platform,POINT (10.3959836 53.2326736),no,KVG,"Lüneburg, Ginsterweg",,no,no,,yes,"5007, 5700",,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3959836,53.2326736
+95,node,1057013365,bus_stop,Am Schwalbenberg,HVV,platform,POINT (10.4223308 53.2459133),yes,KVG,"Lüneburg, Am Schwalbenberg",,yes,no,,yes,5011;5600,,,,,yes,20141012,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4223308,53.2459133
+97,node,262253660,bus_stop,Wallstraße (Theater),HVV,platform,POINT (10.4072015 53.245682),yes,KVG,"Lüneburg, Wallstraße (Theater)",,yes,yes,,yes,5002;5003;5005;5007;5009;5010;5011;5013;5014;5015;5200;5202;5405;5600;5601;5605;5606;5700;5702,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4072015,53.245682
+98,node,539018433,bus_stop,Postamt,HVV,platform,POINT (10.4038332 53.2429593),yes,KVG,"Lüneburg, Postamt",,yes,no,,yes,5003;5007;5011;5300,,,,,yes,,,,yes,2021-06-13,Kein Kasseler Bord vorhanden,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4038332,53.2429593
+102,node,297426712,bus_stop,Hasenburg,HVV,platform,POINT (10.3940989 53.2255233),,KVG,"Lüneburg, Hasenburg",,yes,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3940989,53.2255233
+104,node,389948830,bus_stop,Eintracht Sportplatz,HVV,platform,POINT (10.3854737 53.2211913),yes,KVG,"Lüneburg, Eintracht Sportplatz",5011;5203;5700;5920;ASM,yes,no,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3854737,53.2211913
+106,node,402916911,bus_stop,Am Bahnhof Rettmer,HVV,platform,POINT (10.3816755 53.21947),no,KVG,"Lüneburg, Am Bahnhof Rettmer",,no,no,,,5011,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3816755,53.21947
+107,node,403012164,bus_stop,Wiesengrund,HVV,platform,POINT (10.3746747 53.2134269),no,KVG,"Lüneburg, Wiesengrund",,no,no,,,5011;5203;5920,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3746747,53.2134269
+108,node,2618162533,bus_stop,Pilgerpfad,HVV,platform,POINT (10.3783934 53.2099019),yes,KVG,"Lüneburg, Pilgerpfad",5003;5011;5203;5921;5922;ASM,yes,no,,,,no,,,,yes,,,,yes,,Stufe in den Bus sind recht hoch,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3783934,53.2099019
+109,node,7799257024,bus_stop,Am Wischfeld,HVV,platform,POINT (10.3882696 53.2112187),yes,KVG,"Lüneburg, Am Wischfeld",,yes,yes,,,5011;5203;5920;ASM,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3882696,53.2112187
+110,node,3267192184,bus_stop,Hessenweg (Mitte),HVV,platform,POINT (10.3879839 53.2138366),yes,KVG,"Lüneburg, Hessenweg (Mitte)",5003;5011;5203;5921;5922;ASM,yes,no,,,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3879839,53.2138366
+111,node,393498311,bus_stop,Am Bäckfeld,HVV,platform,POINT (10.3886319 53.2166547),yes,KVG,"Lüneburg, Am Bäckfeld Post",5003;5011;5203;5921;5922;ASM,yes,no,,,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3886319,53.2166547
+112,node,402916874,bus_stop,Häcklinger Weg,HVV,platform,POINT (10.387037 53.2197354),no,KVG,"Lüneburg, Häcklinger Weg",5011;5203;5921;5922;ASM,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.387037,53.2197354
+114,node,353270704,bus_stop,B 4 Parkplatz,HVV,platform,POINT (10.345182 53.3345096),no,KVG,,,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.345182,53.3345096
+115,node,268415869,bus_stop,Stadttheater,HVV,platform,POINT (10.4076949 53.2439859),yes,KVG,"Lüneburg, Stadttheater",,yes,no,,yes,5201,yes,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4076949,53.2439859
+117,node,2907063685,bus_stop,Sültenweg,HVV,platform,POINT (10.3929476 53.244192),,KVG,"Lüneburg, Sültenweg",5015;5919;ASM,no,no,,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3929476,53.244192
+119,node,318640483,bus_stop,Am Grasweg,HVV,platform,POINT (10.3881566 53.2461189),no,KVG,"Lüneburg, Am Grasweg",5015;5919;ASM,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3881566,53.2461189
+120,node,382390327,bus_stop,Jägerstraße,HVV,platform,POINT (10.3847644 53.2489566),no,KVG,"Lüneburg, Jägerstraße",,no,no,,yes,5919,,,,,yes,,,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,,,10.3847644,53.2489566
+121,node,268233024,bus_stop,Johanna-Stegen-Straße,HVV,platform,POINT (10.3874009 53.2494991),yes,KVG,"Lüneburg, Johanna-Stegen-Straße",,yes,no,,yes,5013;5200;5202;5919,yes,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3874009,53.2494991
+122,node,178848802,bus_stop,Vor dem Neuen Tore,HVV,platform,POINT (10.3924213 53.2500778),no,KVG,"Lüneburg, Vor dem Neuen Tore",,no,no,,,5013;5202;5919,,,,,,,,,,2020-12-29,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3924213,53.2500778
+123,node,828077495,bus_stop,Dörnbergstraße,HVV,platform,POINT (10.3938125 53.2511306),no,KVG,"Lüneburg, Dörnbergstraße",,no,no,,yes,5009;5919,limited,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3938125,53.2511306
+124,node,308648777,bus_stop,Witzendorffstraße,HVV,platform,POINT (10.3923654 53.2565779),,KVG,"Lüneburg, Witzendorffstraße",5005;5402;5404;ASM,no,,,,,yes,,,,,,,,,,,,,,,Position ist nicht exakt ..,,,,,,,,,,,,,,,,,,,,,,10.3923654,53.2565779
+125,node,4827722223,bus_stop,Ebelingweg,HVV,platform,POINT (10.3911893 53.2614652),,KVG,"Lüneburg, Ebelingweg",,no,no,,yes,5005;5919,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3911893,53.2614652
+127,node,414191921,bus_stop,Naruto-Straße,HVV,platform,POINT (10.3852786 53.2693964),,KVG,"Lüneburg, Naruto-Straße",5005;5919;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3852786,53.2693964
+128,node,381911675,bus_stop,Krähornsberg,HVV,platform,POINT (10.3867792 53.2706226),,KVG,"Lüneburg, Krähornsberg",5005;5919;ASM,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3867792,53.2706226
+131,node,414237511,bus_stop,Teilfeld,HVV,platform,POINT (10.3895463 53.2794573),yes,KVG,"Lüneburg, Teilfeld",5005;ASM,yes,no,,,,yes,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3895463,53.2794573
+132,node,2371152648,bus_stop,Wilhelm-Hänel-Weg,HVV,platform,POINT (10.4044742 53.2699592),yes,KVG,"Lüneburg, Wilhelm-Hänel-Weg",,yes,,,yes,5002;5405;5402;5404,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4044742,53.2699592
+134,node,317133890,bus_stop,Am Wildgehege,HVV,platform,POINT (10.3891011 53.2686373),,KVG,"Lüneburg, Am Wildgehege",,,,,yes,5005;5919,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3891011,53.2686373
+136,node,1037002221,bus_stop,Laffertstraße,HVV,platform,POINT (10.3930618 53.255513),,KVG,"Lüneburg, Laffertstraße",,,,,yes,5005;5402;5405,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3930618,53.255513
+137,node,293976961,bus_stop,Schomakerstraße,HVV,platform,POINT (10.3996894 53.2540821),no,KVG,"Lüneburg, Schomakerstraße",5005;ASM,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3996894,53.2540821
+138,node,178844318,bus_stop,Am Springintgut,HVV,platform,POINT (10.4002528 53.2521255),,KVG,"Lüneburg, Am Springintgut",,no,,,yes,"5005, 5013",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4002528,53.2521255
+139,node,121149168,bus_stop,Am Graalwall,HVV,platform,POINT (10.4027651 53.2509053),yes,KVG,"Lüneburg, Am Graalwall",,yes,yes,,yes,5005;5009;5013;5200;5202,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4027651,53.2509053
+140,node,2990731692,bus_stop,Neue Sülze,HVV,platform,POINT (10.4040892 53.2478008),yes,KVG,"Lüneburg, Neue Sülze",,yes,no,,yes,5002;5005;5009;5010;5013;5014;5200;5202;5405,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4040892,53.2478008
+141,node,262253493,bus_stop,Lambertiplatz,HVV,platform,POINT (10.4031072 53.2456516),yes,KVG,"Lüneburg, Lambertiplatz",,yes,no,,yes,5002;5005;5009;5010;5013;5014;5015;5200;5202;5405,yes,,,,yes,,,,yes,,Kein Kasseler Bord vorhanden,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4031072,53.2456516
+146,node,262229788,bus_stop,Rathaus,HVV,platform,POINT (10.4068106 53.2506572),,KVG,"Lüneburg, Rathaus",,yes,,,yes,5002;5005;5009;5010;5013;5014;516;5200;5202,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4068106,53.2506572
+147,node,181308509,bus_stop,Kefersteinstraße (UNI),HVV,platform,POINT (10.4102138 53.2406193),no,KVG,"Lüneburg, Kefersteinstraße/Universität",,no,no,,yes,5001;5012,yes,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4102138,53.2406193
+149,node,109895066,bus_stop,Gut Willerding,HVV,platform,POINT (10.4566119 53.225116),,KVG,"Wendisch Evern, Gut Willerding",,no,,,,5361; 5362; 5601,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4566119,53.225116
+151,node,385545644,bus_stop,Bahnhof,HVV,platform,POINT (10.4336107 53.2000625),no,KVG,"Deutsch Evern, Bahnhof",,no,yes,,yes,5601; 5605; 5606,yes,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4336107,53.2000625
+153,node,385545626,bus_stop,Von-Kleist-Weg,HVV,platform,POINT (10.4311623 53.1971633),,KVG,"Deutsch Evern, V.-Kleist-Weg",,,,,yes,5601; 5605; 5606,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4311623,53.1971633
+155,node,1834313719,bus_stop,"Deutsch Evern, Fritz-Reuter-Straße",,platform,POINT (10.4284361 53.1939183),no,,,5020;5606,no,yes,,yes,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4284361,53.1939183
+157,node,1834313713,bus_stop,"Deutsch Evern, Friedhof",,platform,POINT (10.4232358 53.1924397),yes,,,5020;5606,yes,yes,,yes,,,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4232358,53.1924397
+159,node,420381006,bus_stop,Deutsch Everner Weg,HVV,platform,POINT (10.4159088 53.1860963),no,KVG,"Melbeck, Deutsch Everner Weg",,no,no,,,5605; 5606,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4159088,53.1860963
+160,node,385545545,bus_stop,"Deutsch Evern, An der Ilmenau",,platform,POINT (10.4196648 53.1957057),yes,,,5020;5606;ASM,yes,no,,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4196648,53.1957057
+162,node,393415825,bus_stop,"Deutsch Evern, Wandelfeld",,platform,POINT (10.4201711 53.1978557),yes,,,5020;5606,yes,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4201711,53.1978557
+164,node,385545543,bus_stop,"Deutsch Evern, Finkenstieg",,platform,POINT (10.4204929 53.2018114),,,,5020;5606,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4204929,53.2018114
+166,node,385545536,bus_stop,"Deutsch Evern, Petersberg",,platform,POINT (10.4170104 53.2056615),,,,5020;5606,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4170104,53.2056615
+168,node,272618493,bus_stop,"Deutsch Evern, Am Tiergarten",,platform,POINT (10.4186211 53.2073704),no,,,5606,no,no,,yes,,,,,,,,,,,,,,,,,,"Deutsch Evern, Nordausgang",,,,,,,,,,,,,,,,,,,,,10.4186211,53.2073704
+170,node,7462422450,bus_stop,"Deutsch Evern, Tiergartenstraße",,platform,POINT (10.4293826 53.2061751),,,,5606;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4293826,53.2061751
+173,node,309179087,bus_stop,"Deutsch Evern, Birkenweg",,platform,POINT (10.4432816 53.2042662),yes,,,5020;5606,no,yes,,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4432816,53.2042662
+175,node,5254285882,bus_stop,Schützenstraße,HVV,platform,POINT (10.4452134 53.2035664),,KVG,"Deutsch Evern, Schützenstraße",,,,,yes,5606,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4452134,53.2035664
+178,node,2316338604,bus_stop,Im Alten Dorfe,HVV,platform,POINT (10.2968669 53.2083215),yes,KVG,"Südergellersen, Im Alten Dorfe",5201;5203,yes,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2968669,53.2083215
+180,node,181396837,bus_stop,Am Kreideberg,HVV,platform,POINT (10.4042363 53.255164),,KVG,"Lüneburg, Am Kreideberg",,no,no,,yes,5014,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4042363,53.255164
+181,node,181396824,bus_stop,Stöteroggestraße (Süd),HVV,platform,POINT (10.4020549 53.2556211),,KVG,"Lüneburg, Stöteroggestraße (Süd)",,no,no,,yes,5014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4020549,53.2556211
+182,node,500905961,bus_stop,Boizenburger Straße,HVV,platform,POINT (10.3989629 53.2574691),no,KVG,"Lüneburg, Boizenburger Straße",,no,no,,yes,5014,limited,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3989629,53.2574691
+183,node,1029618352,bus_stop,Thorner Straße (West),HVV,platform,POINT (10.3943921 53.2585943),,KVG,"Lüneburg, Ostpreußenring",,no,,,yes,5014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3943921,53.2585943
+184,node,312506373,bus_stop,Thorner Platz,HVV,platform,POINT (10.3997927 53.2595982),yes,KVG,"Lüneburg, Thorner Platz",,no,no,,,5014; 5405; 5404; 5919; 5402,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3997927,53.2595982
+185,node,253248083,bus_stop,Salzwedeler Straße,HVV,platform,POINT (10.4032549 53.2606612),no,KVG,"Lüneburg, Salzwedeler Straße",,no,no,,,5014,,,,,yes,,,,no,2021-07-27,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4032549,53.2606612
+186,node,312510075,bus_stop,Elbinger Straße,HVV,platform,POINT (10.4028514 53.2627146),,KVG,"Lüneburg, Elbinger Straße",,no,,,,5014,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4028514,53.2627146
+187,node,312510076,bus_stop,Dessauer Straße,HVV,platform,POINT (10.401462 53.2641491),no,KVG,"Lüneburg, Dessauer Straße",5014;ASM,no,no,,,,,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.401462,53.2641491
+188,node,534870775,bus_stop,Magdeburger Straße,HVV,platform,POINT (10.3993732 53.266558),no,KVG,"Lüneburg, Magdeburger Straße",,no,yes,,,5014,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3993732,53.266558
+189,node,534870781,bus_stop,Stöteroggestraße (Nord),HVV,platform,POINT (10.3993537 53.2644566),yes,KVG,"Lüneburg, Stöteroggestraße (Nord)",5014;ASM,yes,yes,,,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3993537,53.2644566
+198,node,2537095304,bus_stop,Brücke,HVV,platform,POINT (10.3810417 53.331609),,KVG,"Wittorf, Brücke",5405,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3810417,53.331609
+199,node,408449519,bus_stop,Hasenburger Weg,HVV,platform,POINT (10.3832526 53.2287752),,KVG,"Lüneburg, Hasenburger Weg",5007;5920;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3832526,53.2287752
+201,node,1678365436,bus_stop,Wallstraße,HVV,platform,POINT (10.3864893 53.3009499),no,KVG,"Bardowick, Wallstraße",5002;5402;5405,no,no,,yes,,,,,,,,,,,2021-05-04,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3864893,53.3009499
+203,node,312185027,bus_stop,Elba,HVV,platform,POINT (10.4271323 53.2961666),no,KVG,"Adendorf, Elba",,no,no,,,,,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4271323,53.2961666
+204,node,9028646324,bus_stop,Landwehrplatz,,platform,POINT (10.3574147 53.2479717),,,"Reppenstedt, Landwehrplatz",5013;5200;5202;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3574147,53.2479717
+206,node,443886412,bus_stop,Bardowicker Straße,,platform,POINT (10.5031696 53.2949054),no,,"Scharnebeck, Bardowicker Straße",5104;5110;5901,no,no,,,,,,,,,,,,,2021-04-26,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5031696,53.2949054
+207,node,344892589,bus_stop,Lübbelau,HVV,platform,POINT (10.4989646 53.2938205),,,"Scharnebeck, Lübbelau",,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4989646,53.2938205
+208,node,286511203,bus_stop,Finkenweg,HVV,platform,POINT (10.3619305 53.2704586),no,PVG,,5009;5404;ASM,no,no,,yes,,limited,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,,,,,,,,,,,,,10.3619305,53.2704586
+209,node,314645636,bus_stop,"Lemgrabe, Am Hasenberg",,platform,POINT (10.7044397 53.1711381),,,,5303;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7044397,53.1711381
+210,node,1599089598,bus_stop,Lilienthalstraße,HVV,platform,POINT (10.4599879 53.2437212),no,KVG,"Lüneburg, Lilientalstraße",5100;5120;5010,no,no,,,5100;5120;5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4599879,53.2437212
+212,node,1599748806,bus_stop,Von-Stern-Straße,HVV,platform,POINT (10.4625961 53.245733),no,KVG,"Lüneburg, Von-Stern-Straße",5010;5100;5120,no,no,,,5010;5100;5120,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4625961,53.245733
+214,node,119994771,bus_stop,Eisenwerk,HVV,platform,POINT (10.4692372 53.249358),no,KVG,"Lüneburg, Eisenwerk",5010;5100;5120,no,no,,,5010;5100;5120,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4692372,53.249358
+216,node,7819577982,bus_stop,Gebrüder-Heyn-Straße,HVV,platform,POINT (10.4656699 53.248161),no,KVG,"Lüneburg, Gebrüder-Heyn-Straße",5010,no,no,,,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4656699,53.248161
+218,node,373161834,bus_stop,Hagen-Schule,HVV,platform,POINT (10.4473637 53.2440639),no,KVG,"Lüneburg, Hagen/Schule",5012;5100;5120;5300;5304;5362;5402;5700,no,yes,,yes,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4473637,53.2440639
+220,node,119100610,bus_stop,Wacholderweg,HVV,platform,POINT (10.4425033 53.2452459),,KVG,"Lüneburg, Wacholderweg",5012,,,,yes,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4425033,53.2452459
+222,node,301874635,bus_stop,Ahornweg,HVV,platform,POINT (10.4381585 53.2465445),,KVG,"Lüneburg, Ahornweg",5012,,,,yes,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4381585,53.2465445
+224,node,672754332,bus_stop,Adendorfer Straße,,platform,POINT (10.5003095 53.2907226),no,,"Scharnebeck, Adendorfer Straße",5110;5120;5901,no,no,,,,,,,,,,,,no,2021-07-09,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5003095,53.2907226
+226,node,494088099,bus_stop,Boltersener Straße,,platform,POINT (10.5367548 53.2835213),no,,,5110,no,no,,,,,,,,no,,,,,2021-09-05,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5367548,53.2835213
+227,node,4346393490,bus_stop,"Boltersen, Rullstorfer Straße",HVV,platform,POINT (10.5655161 53.2754359),no,KVG,,5110,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5655161,53.2754359
+228,node,324239002,bus_stop,Nutzfelder Weg,HVV,platform,POINT (10.5301085 53.2861568),no,,"Rullstorf, Nutzfelder Weg",5110,no,no,,,,,,,,no,,,,,2021-09-05,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5301085,53.2861568
+229,node,1050068557,bus_stop,Hauptstraße,HVV,platform,POINT (10.5054053 53.2911209),,,,,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5054053,53.2911209
+230,node,2869209506,bus_stop,Sportzentrum,HVV,platform,POINT (10.4553245 53.2890979),yes,,"Adendorf, Sportzentrum",,yes,no,,,5007,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4553245,53.2890979
+231,node,476600749,bus_stop,Grundschule,HVV,platform,POINT (10.5095283 53.2926817),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5095283,53.2926817
+235,node,304638989,bus_stop,Weinbergsweg Schule,HVV,platform,POINT (10.4327074 53.2822368),yes,KVG,"Adendorf, Weinbergsweg Schule",,yes,no,,,,,,,,yes,,,,yes,2020-11-15,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4327074,53.2822368
+237,node,339024845,bus_stop,Meisterstraße,,platform,POINT (10.5102281 53.2939604),yes,,"Scharnebeck, Meisterstraße",5104;5110;5901,yes,no,,,,,,,,,,,,,2021-04-26,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5102281,53.2939604
+238,node,489755319,bus_stop,Jürgenstorfer Straße,HVV,platform,POINT (10.5973461 53.3233128),,,"Jürgenstorf, Jürgenstorfer Straße",5102;5104;5901;5917,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5973461,53.3233128
+239,node,30093348,bus_stop,K 2 / Zum Bahnhof,HVV,platform,POINT (10.528343 53.2892813),no,,"Rullstorf, K 2 / Zum Bahnhof",,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.528343,53.2892813
+240,node,1204223255,bus_stop,Alte Dorfstraße,HVV,platform,POINT (10.5397765 53.2891528),no,,"Rullstorf, Alte Dorfstraße",,no,no,,,,,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5397765,53.2891528
+241,node,567004808,bus_stop,"Scharnebeck, Echemer Straße",,platform,POINT (10.5057743 53.297607),,,,5902;5931,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5057743,53.297607
+243,node,1086281126,bus_stop,"Lentenau, K28",HVV,platform,POINT (10.5054742 53.2755473),yes,,,,yes,no,,,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5054742,53.2755473
+247,node,5113420637,bus_stop,"Reinstorf, Reinstorfer Kreuz",HVV,platform,POINT (10.5684264 53.220633),no,,,5300;5304,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5684264,53.220633
+249,node,416969347,bus_stop,Im Sande,HVV,platform,POINT (10.2803467 53.2301573),,KVG,"Kirchgellersen, Im Sande",5200;5201;5202;5203;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2803467,53.2301573
+252,node,266917632,bus_stop,Kirche,HVV,platform,POINT (10.2939288 53.2303584),,KVG,"Kirche, Kirchgellersen",,yes,,,,5200,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2939288,53.2303584
+253,node,8708546811,bus_stop,Im Wiesengrund,HVV,platform,POINT (10.3009457 53.2311062),,KVG,"Kirchgellersen, Im Wiesengrund",,yes,,,,5200,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3009457,53.2311062
+255,node,3060045192,bus_stop,Landwehr,HVV,platform,POINT (10.3957654 53.2839468),,KVG,"Lüneburg, Landwehr",4714;5002;5402;5405;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3957654,53.2839468
+256,node,454631858,bus_stop,Hagemannsweg,HVV,platform,POINT (10.3983505 53.2810195),,KVG,"Lüneburg, Hagemannsweg",,yes,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3983505,53.2810195
+257,node,417443430,bus_stop,Schulzentrum,HVV,platform,POINT (10.4967743 53.2896025),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4967743,53.2896025
+271,node,1705557196,bus_stop,Floetstraße,HVV,platform,POINT (10.4091665 53.1800477),,,"Melbeck, Floetstraße",,,,,,5600; 5606,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4091665,53.1800477
+272,node,277399793,bus_stop,Rote Schleuse,,platform,POINT (10.410347 53.2094935),no,,"Lüneburg, Rote Schleuse",5020;5606,no,no,,yes,,,,,,no,,,,,,,,,,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,10.410347,53.2094935
+274,node,8524206695,bus_stop,"Melbeck, Uelzener Straße",hvv,platform,POINT (10.4178352 53.1752435),,,,,,,,,5605,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4178352,53.1752435
+275,node,3037235993,bus_stop,Bernhard-Riemann-Straße,HVV,platform,POINT (10.4054578 53.22347),no,KVG,"Lüneburg, Bernhard-Riemann-Straße",,no,,,,5601; 5605; 5606; 5600,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4054578,53.22347
+280,node,244401296,bus_stop,Von-Stauffenberg-Straße,HVV,platform,POINT (10.4401651 53.282214),yes,,"Adendorf, Von-Stauffenberg-Straße",,no,no,,,5007,,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4401651,53.282214
+281,node,301562193,bus_stop,Rauher Weg,HVV,platform,POINT (10.434875 53.276487),yes,KVG,"Adendorf, Rauher Weg",,yes,yes,,,,,,,,,,,,,2021-03-20,,,Position eingemessen,,,,,,,,,,,,,,,,,,,,,,,,,10.434875,53.276487
+283,node,558971480,bus_stop,"Heiligenthal, Ort",HVV,platform,POINT (10.3359066 53.2202422),,KVG,,5201;5203,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3359066,53.2202422
+285,node,470937620,bus_stop,In de Tüünen,HVV,platform,POINT (10.336901 53.2195772),,KVG,,,no,,,,5201,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.336901,53.2195772
+287,node,503301564,bus_stop,Heiligenthaler Straße,HVV,platform,POINT (10.3021503 53.2287282),,KVG,,,,,,,5201,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3021503,53.2287282
+290,node,564137024,bus_stop,"Melbeck, Danziger Straße",,platform,POINT (10.3722583 53.1809678),,,,5600;5606,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3722583,53.1809678
+291,node,577366509,bus_stop,"Embsen, Siedlung",,platform,POINT (10.3612379 53.1806562),,,,5600;5606,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3612379,53.1806562
+292,node,287098768,bus_stop,Kulturforum Wienebüttel,HVV,platform,POINT (10.3744107 53.2644052),,KVG,"Lüneburg, Kulturforum Wienebüttel",5009;ASM,,,,,,limited,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3744107,53.2644052
+293,node,577733836,bus_stop,"Brietlingen, Schierenweg",,platform,POINT (10.4343011 53.3141351),yes,,,5900;5903;5904;ASM,yes,yes,,,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4343011,53.3141351
+294,node,382009302,bus_stop,"Brietlingen, Moorweg",,platform,POINT (10.4397463 53.3174256),yes,,,5903;5904;ASM,yes,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4397463,53.3174256
+295,node,309229350,bus_stop,Ritzkamper Weg,HVV,platform,POINT (10.4574358 53.327569),yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4574358,53.327569
+297,node,346183779,bus_stop,Schwarzer Weg,HVV,platform,POINT (10.428384 53.2715467),no,KVG,"Lüneburg, Schwarzer Weg",,no,no,,yes,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.428384,53.2715467
+298,node,302310334,bus_stop,Gut Olm,HVV,platform,POINT (10.4541438 53.2614926),,KVG,"Lüneburg, Gut Olm",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4541438,53.2614926
+300,node,7051227607,bus_stop,Abzweigung Ebensberg,HVV,platform,POINT (10.4600774 53.2637503),,KVG,"Lüneburg, Abzweigung Ebensberg",,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4600774,53.2637503
+302,node,4338084488,bus_stop,Erbstorfer Landstraße,HVV,platform,POINT (10.4778683 53.2739834),,KVG,"Erbstorf, Erbstorfer Landstraße",5110;5901;5925;5931;AST,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4778683,53.2739834
+304,node,988590957,bus_stop,Hölderlinstraße,HVV,platform,POINT (10.4436723 53.2608865),,KVG,"Lüneburg, Hölderlinstraße",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4436723,53.2608865
+305,node,290823819,bus_stop,"Wendewisch, Campingplatz",,platform,POINT (10.6501668 53.3587971),,,,5102;5152-AST,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6501668,53.3587971
+306,node,1049251506,bus_stop,"Riecklingen, Abzweigung",,platform,POINT (10.7099559 53.205882),,,,5302,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7099559,53.205882
+307,node,317985520,bus_stop,Leestahl 2,,platform,POINT (10.6997246 53.2079337),,,,5302,no,,,,,,,,,,,,,,,,,,,,,,,,,,"Am Haltestellenschild steht noch der Name ""Leestahl"".",,,,,,,,,,,,,,,,10.6997246,53.2079337
+309,node,1854036439,bus_stop,Am Kirchkamp,,platform,POINT (10.6965007 53.1789467),,,"Dumstorf, Am Kirchkamp",5302,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6965007,53.1789467
+310,node,121136981,bus_stop,Schule A,HVV,platform,POINT (10.5369096 53.2254603),,,"Barendorf, Schule",5300;5304;5362;AST,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5369096,53.2254603
+312,node,277260345,bus_stop,"Embsen, Bahnhofstraße",,platform,POINT (10.3454169 53.177286),yes,,,5600;5606,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3454169,53.177286
+314,node,663386180,bus_stop,"Embsen, Querlberg",,platform,POINT (10.3510466 53.1737042),,,,5600;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3510466,53.1737042
+315,node,413541248,bus_stop,"Horndorf, Zur Doven Elbe",,platform,POINT (10.5885781 53.2144044),yes,,,5300;5304;5361;5362,yes,yes,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5885781,53.2144044
+316,node,8716573169,bus_stop,"Reinstorf, Hauptstraße",,platform,POINT (10.5723353 53.2342885),,,,5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5723353,53.2342885
+317,node,1509822736,bus_stop,Forsthaus,HVV,platform,POINT (10.3455259 53.1658521),,,"Embsen, Forsthaus",5600,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3455259,53.1658521
+318,node,8717776249,bus_stop,"Barum, Abzweig Horburg",HVV,platform,POINT (10.404422 53.353689),no,KVG,,5405;5904,no,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.404422,53.353689
+319,node,9028751775,bus_stop,"Barum, Am See",HVV,platform,POINT (10.411604 53.3506593),no,KVG,,5904,no,no,,,,,,,,no,,,,,2021-09-30,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.411604,53.3506593
+321,node,5239244504,bus_stop,"Oerzen, Fliederstraße",,platform,POINT (10.327642 53.1921149),,,,5203;5700;5705,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.327642,53.1921149
+323,node,2075922410,bus_stop,Hohe Luft,HVV,platform,POINT (10.4174102 53.1751221),,,"Melbeck, Hohe Luft",,,,,,5600,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4174102,53.1751221
+324,node,277404766,bus_stop,"Bavendorf, Im Dorfe",,platform,POINT (10.6393535 53.1958992),,,,5303;5361;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6393535,53.1958992
+326,node,109400356,bus_stop,"Reinstorf, Am Vitusbach",,platform,POINT (10.5723556 53.2346506),,,,5110;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5723556,53.2346506
+327,node,317549254,bus_stop,Neumühlener Weg,HVV,platform,POINT (10.5683419 53.289706),no,,"Neu Boltersen, Neumühler Weg",5110,no,no,,,,,,,,,,,,,2021-05-20,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5683419,53.289706
+328,node,728601562,bus_stop,Möhlenkamp,HVV,platform,POINT (10.5603385 53.2898973),no,,"Neu Boltersen, Möhlenkamp",,yes,no,,,,,,,,,,,,,2021-05-20,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5603385,53.2898973
+333,node,2117470702,bus_stop,Auf der Hausstelle,,platform,POINT (10.4764512 53.217232),,,,5361;5362,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4764512,53.217232
+334,node,114244030,bus_stop,Feuerwehr,HVV,platform,POINT (10.4695606 53.2158292),yes,,,,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4695606,53.2158292
+335,node,1736935361,bus_stop,Ostlandring,HVV,platform,POINT (10.4399979 53.242081),no,KVG,"Lüneburg, Ostlandring",,no,no,,yes,5010,,,,,yes,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4399979,53.242081
+336,node,285670612,bus_stop,Freibad,HVV,platform,POINT (10.4423226 53.2409945),no,KVG,Lüneburg Freibad,,no,no,,yes,5010,,,,,no,20141210,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4423226,53.2409945
+337,node,7087531166,bus_stop,Kreuzkamp,HVV,platform,POINT (10.4364118 53.286404),no,KVG,"Adendorf, Kreuzkamp",,no,no,,,,,,,,,,,,,2021-05-08,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4364118,53.286404
+338,node,395382564,bus_stop,Robert-Koch-Straße,HVV,platform,POINT (10.4528497 53.2840109),no,KVG,"Adendorf, Robert-Koch-Straße",,no,no,,,,,,,,,,,,,,,,,,,Lage geschätzt,,,,,,,,,,,,,,,,,,,,,,10.4528497,53.2840109
+339,node,178823219,bus_stop,Friedhof,HVV,platform,POINT (10.4481389 53.2855037),no,KVG,"Adendorf, Dorfstraße Friedhof",,no,no,,,5007,,,,,,,,,,2020-12-30,,,,,,,,,,,,,,2020-12-30,,,,,,,,,,,,,,10.4481389,53.2855037
+340,node,392592179,bus_stop,Heinrich Heine Siedlung,HVV,platform,POINT (10.464871 53.2786754),no,KVG,"Adendorf, Heinrich Heine Siedlung",5007;5925;AST,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.464871,53.2786754
+341,node,395382514,bus_stop,An der Bünte,HVV,platform,POINT (10.4601337 53.2803412),no,KVG,"Adendorf, An der Bünte",,no,no,,,5007,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4601337,53.2803412
+342,node,3082975140,bus_stop,Heinrich-Hille-Straße,HVV,platform,POINT (10.4428154 53.2861609),yes,KVG,"Adendorf, Heinrich-Hille-Straße",,yes,no,,,,,,,,,,,,,2021-05-08,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4428154,53.2861609
+343,node,1119349016,bus_stop,Weinbergsweg,HVV,platform,POINT (10.4327 53.2853082),yes,KVG,"Adendorf, Weinbergsweg",,no,no,,,,,,,,yes,,,,yes,2021-07-07,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4327,53.2853082
+351,node,339316060,bus_stop,"Radenbeck, Linnenkamp",HVV,platform,POINT (10.6277678 53.2215393),yes,,,5114;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6277678,53.2215393
+352,node,9029022165,bus_stop,"Radenbeck, Dorfstraße",HVV,platform,POINT (10.6301273 53.224299),,,,,yes,,,,5362;5104,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6301273,53.224299
+353,node,8192691432,bus_stop,Siedlung,HVV,platform,POINT (10.5916573 53.2412736),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5916573,53.2412736
+355,node,376360688,bus_stop,"Brietlingen, Am Sportplatz",,platform,POINT (10.436449 53.3191189),yes,,,5900;ASM,yes,yes,,,,,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.436449,53.3191189
+357,node,3206896896,bus_stop,Goebelstraße,HVV,platform,POINT (10.4167169 53.26866),,KVG,"Lüneburg, Goebelstraße",5005;ASM,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4167169,53.26866
+358,node,2681822369,bus_stop,"Echem, Schulstraße",,platform,POINT (10.5430609 53.3376807),yes,,,5102;5901;5902;5917,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5430609,53.3376807
+359,node,301562204,bus_stop,Grüner Weg,HVV,platform,POINT (10.432352 53.272947),no,KVG,"Adendorf, Grüner Weg",,no,no,,yes,,,,,,yes,,,,no,,,,Position eingemessen,,,,,,,,,,,,,,,,,,,,,,,,,10.432352,53.272947
+360,node,301562172,bus_stop,Lindenweg,HVV,platform,POINT (10.4380841 53.2730333),,KVG,"Adendorf, Lindenweg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4380841,53.2730333
+362,node,2362894581,bus_stop,Otto-Brenner-Straße (Kehre),HVV,platform,POINT (10.4837546 53.2364276),no,KVG,"Lüneburg, Otto-Brenner-Straße (Kehre)",5010,no,no,,,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4837546,53.2364276
+363,node,382011053,bus_stop,"Brietlingen, Stettiner Ring",,platform,POINT (10.4441547 53.3134023),yes,,,5903;5904,yes,no,,,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4441547,53.3134023
+365,node,7207493398,bus_stop,Sternkamp,HVV,platform,POINT (10.4057395 53.2669292),no,KVG,"Lüneburg, Sternkamp",5002;5402;5405;ASM,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4057395,53.2669292
+366,node,288004885,bus_stop,Kirchweg,HVV,platform,POINT (10.436374 53.278698),no,KVG,"Adendorf, Kirchweg",,no,no,,,,,,,,yes,,,,no,2021-02-27,,,Position eingemessen,,,,,,,,,,,,,,,,,,,,,,,,,10.436374,53.278698
+368,node,301881047,bus_stop,Bunsenstraße,HVV,platform,POINT (10.4412818 53.2495011),yes,KVG,"Lüneburg, Bunsenstraße",,yes,no,,yes,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4412818,53.2495011
+369,node,275637762,bus_stop,Bachstraße,HVV,platform,POINT (10.4400425 53.2473918),no,KVG,"Lüneburg, Bachstraße",,no,no,,yes,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4400425,53.2473918
+370,node,369971304,bus_stop,Rosenkamp,HVV,platform,POINT (10.3790788 53.2244958),,KVG,"Lüneburg, Rosenkamp",,yes,yes,,yes,"5007,5920",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3790788,53.2244958
+371,node,1602198371,bus_stop,Schmiedestraße,HVV,platform,POINT (10.3767866 53.2247574),,KVG,"Lüneburg, Schmiedestraße",,no,,,yes,"5007,5920",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3767866,53.2247574
+373,node,369971275,bus_stop,Rehrweg,HVV,platform,POINT (10.3725779 53.2263697),no,KVG,"Lüneburg, Rehrweg",,yes,yes,,yes,"5007,5920",,,,,no,,,,,,"Kein Kasseler Bord, aber Hochbord",,,,,,,,,,,,,2021-01-09,,,,,,,,,,,,,,10.3725779,53.2263697
+376,node,452899291,bus_stop,"Wittorf, Wiesenstraße",HVV,platform,POINT (10.3800426 53.3322006),yes,KVG,,5402;5405,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3800426,53.3322006
+377,node,382390323,bus_stop,Volgershall/UNI,HVV,platform,POINT (10.3840653 53.249349),no,KVG,"Lüneburg, Volgershall/UNI",,no,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3840653,53.249349
+378,node,113588289,bus_stop,Städtisches Klinikum,HVV,platform,POINT (10.397306 53.2407753),yes,KVG,"Lüneburg, Städtisches Klinikum",,yes,no,,yes,"5920, 5003",yes,,,,,,,,,,,,,,,,,,,,,,yes,,,,,,,,,,,,,,,10.397306,53.2407753
+380,node,489755257,bus_stop,"Lüdersburg, Kirchtwiete",,platform,POINT (10.5738389 53.3204039),no,,,5104;5901;ASM,no,no,,,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5738389,53.3204039
+382,node,260371872,bus_stop,Abzweigung Jürgenstorf,HVV,platform,POINT (10.5951755 53.3304483),,,"Lüdersburg, Abzweigung Jürgenstorf",5901,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5951755,53.3304483
+383,node,1524824915,bus_stop,Melbeck Grundschule,HVV,platform,POINT (10.404557 53.1787734),,,,,yes,,,,5600,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.404557,53.1787734
+384,node,294218205,bus_stop,Gifkendorf,,platform,POINT (10.5503194 53.1892645),yes,,,5361;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5503194,53.1892645
+386,node,297767103,bus_stop,B 209,HVV,platform,POINT (10.4945384 53.3681692),no,,"Artlenburg, B 209",,no,,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4945384,53.3681692
+387,node,319171756,bus_stop,Gerhart-Hauptmann-Straße,HVV,platform,POINT (10.3395324 53.2463836),,KVG,"Reppenstedt, Gerhart Hauptmann Straße",5013;5202;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3395324,53.2463836
+388,node,355263024,bus_stop,Händelstraße,HVV,platform,POINT (10.3420038 53.2517922),,KVG,"Reppenstedt, Händelstraße",5013,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3420038,53.2517922
+389,node,355265900,bus_stop,Alter Postweg,,platform,POINT (10.3435316 53.2525452),,,"Reppenstedt, Alter Postweg",5013;ASM,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3435316,53.2525452
+390,node,357421278,bus_stop,Lessingstraße,HVV,platform,POINT (10.3398479 53.2496234),,KVG,"Reppenstedt, Lessingstraße",5013;5202;ASM,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3398479,53.2496234
+391,node,359603064,bus_stop,Am Fuchsberg,HVV,platform,POINT (10.3473817 53.2531473),,KVG,"Reppenstedt, Am Fuchsberg",5013;ASM,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3473817,53.2531473
+392,node,336245617,bus_stop,Im Westerfelde,HVV,platform,POINT (10.349476 53.2522281),,KVG,"Reppenstedt, Im Westerfelde",5013;ASM,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.349476,53.2522281
+393,node,301866124,bus_stop,Behördenzentrum (Ost),HVV,platform,POINT (10.4313902 53.2509696),,KVG,"Lüneburg, Behördenzentrum (Ost)",,yes,no,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4313902,53.2509696
+394,node,484379283,bus_stop,Psychiatrische Klinik,HVV,platform,POINT (10.3880794 53.2543494),,KVG,"Lüneburg, Psychiatrische Klinik",5009;ASM,yes,no,,,,limited,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3880794,53.2543494
+395,node,386775036,bus_stop,Am Bruch,HVV,platform,POINT (10.3319859 53.3020685),,KVG,"Bardowick, Am Bruch",5403,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3319859,53.3020685
+396,node,1603400020,bus_stop,Bei der Pferdehütte,HVV,platform,POINT (10.4047332 53.2741646),yes,KVG,"Lüneburg, Bei der Pferdehütte",5005;ASM,yes,no,,,,,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4047332,53.2741646
+397,node,318656446,bus_stop,Alec-Moore-Straße,HVV,platform,POINT (10.3812801 53.2465139),no,KVG,"Lüneburg, Alec-Moore-Straße",,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3812801,53.2465139
+399,node,89367284,bus_stop,Am Bargenturm,HVV,platform,POINT (10.3985975 53.2452478),no,KVG,"Lüneburg, Am Bargenturm",,no,no,,yes,,limited,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3985975,53.2452478
+400,node,318404239,bus_stop,Heidkoppelweg,HVV,platform,POINT (10.4689526 53.2613986),,KVG,"Lüneburg, Heidkoppelweg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4689526,53.2613986
+401,node,318404242,bus_stop,Memeler Straße,HVV,platform,POINT (10.4680489 53.2602671),,KVG,"Lüneburg, Memeler Straße",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4680489,53.2602671
+402,node,318656460,bus_stop,William-Watt-Straße,HVV,platform,POINT (10.38069 53.2448537),yes,KVG,"Lüneburg, William-Watt-Straße",,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.38069,53.2448537
+403,node,281778288,bus_stop,Allensteiner Straße,HVV,platform,POINT (10.463416 53.2641335),,KVG,"Lüneburg, Allensteiner Straße",,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.463416,53.2641335
+406,node,275642168,bus_stop,"Erbstorf, Wendeplatz",HVV,platform,POINT (10.4763614 53.2737862),yes,KVG,"Erbstorf, Wendeplatz",5007;5918;5920;5925,yes,no,yes,yes,,,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4763614,53.2737862
+408,node,178849093,bus_stop,Jüttkenmoor,HVV,platform,POINT (10.3849708 53.2479273),no,KVG,"Lüneburg, Jüttkenmoor",5015;ASM,no,no,,,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3849708,53.2479273
+411,node,419272371,bus_stop,Am Ziegeleiteich,HVV,platform,POINT (10.4720436 53.2599796),,KVG,"Lüneburg, Am Ziegeleiteich",5015;5901;5918,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4720436,53.2599796
+414,node,357349548,bus_stop,Ostlandstraße (Schule),HVV,platform,POINT (10.3500738 53.2485861),,KVG,"Reppenstedt, Ostlandstraße Schule",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3500738,53.2485861
+415,node,262620087,bus_stop,Schnellenberger Weg,HVV,platform,POINT (10.3639159 53.2477958),,KVG,"Reppenstedt, Lüneburger Landstraße",,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3639159,53.2477958
+417,node,357417529,bus_stop,Ostlandstraße Spielplatz,HVV,platform,POINT (10.3433004 53.2483843),,KVG,"Reppenstedt, Ostlandstraße Spielplatz",5013;5202;ASM,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3433004,53.2483843
+418,node,336407095,bus_stop,Am Lerchenberg,HVV,platform,POINT (10.3674726 53.2470042),,KVG,"Reppenstedt, Am Lerchenberg",,yes,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3674726,53.2470042
+419,node,5363848753,bus_stop,Am Schwarzen Berg,HVV,platform,POINT (10.3434432 53.2453669),,KVG,"Reppenstedt, Am Schwarzen Berg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3434432,53.2453669
+420,node,430344880,bus_stop,Steinweg,HVV,platform,POINT (10.4425957 53.2755805),,KVG,"Adendorf, Steinweg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4425957,53.2755805
+421,node,3082975156,bus_stop,Im Gutspark,HVV,platform,POINT (10.4468141 53.286184),no,KVG,"Adendorf, Im Gutspark",5007;5920,no,no,,,,,,,,no,,,,yes,2021-07-22,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4468141,53.286184
+422,node,430344915,bus_stop,Virchowstraße,HVV,platform,POINT (10.4469601 53.2814563),yes,KVG,"Adendorf, Virchowstraße",5925,no,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4469601,53.2814563
+425,node,409100826,bus_stop,Teichaue,HVV,platform,POINT (10.449058 53.2865534),yes,KVG,"Adendorf, Teichaue",,yes,no,,,5007,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.449058,53.2865534
+426,node,312184964,bus_stop,Moorchaussee,HVV,platform,POINT (10.4478643 53.2889918),no,KVG,"Adendorf, Moorchaussee",,no,no,,,5007,,,,,,,,,,2021-05-05,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4478643,53.2889918
+427,node,3119436266,bus_stop,Kastanienallee,HVV,platform,POINT (10.454844 53.2839238),no,KVG,"Adendorf, Kastanienallee",,no,no,,,,,,,,,,,,,2021-04-26,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.454844,53.2839238
+429,node,3119436360,bus_stop,Katzenweg,HVV,platform,POINT (10.4572671 53.2868678),no,KVG,"Adendorf, Katzenweg",,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4572671,53.2868678
+431,node,7607589705,bus_stop,Friedrich-Ludwig-Jahn-Straße,HVV,platform,POINT (10.4083952 53.235035),yes,KVG,"Lüneburg, Friedrich-Ludwig-Jahn-Straße",,yes,no,,yes,5012,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4083952,53.235035
+432,node,111246659,bus_stop,Rotes Tor,HVV,platform,POINT (10.4097351 53.2437968),no,KVG,"Lüneburg, Rotes Tor",,no,no,,yes,5012,,,,,yes,,,,yes,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4097351,53.2437968
+433,node,195848633,bus_stop,Goethestraße,HVV,platform,POINT (10.4104754 53.2351006),yes,KVG,"Lüneburg, Goethestraße",,yes,no,,yes,5012,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4104754,53.2351006
+436,node,208986248,bus_stop,Hagen Wendeplatz,HVV,platform,POINT (10.4519518 53.2428075),,KVG,"Lüneburg, Hagen (Wendeplatz)",,,,,yes,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4519518,53.2428075
+439,node,317279940,bus_stop,Hopfengarten,HVV,platform,POINT (10.4278875 53.2510849),no,KVG,"Lüneburg, Hopfengarten",,no,no,,,5012,,,,,no,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4278875,53.2510849
+440,node,268638460,bus_stop,Wielandstraße,HVV,platform,POINT (10.4108562 53.2377319),yes,KVG,"Lüneburg, Wielandstraße",,no,no,,yes,5012,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4108562,53.2377319
+441,node,120036482,bus_stop,Hans-Steffens-Weg,HVV,platform,POINT (10.4349723 53.2509447),,KVG,"Lüneburg, Hans-Steffens-Weg",,no,,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4349723,53.2509447
+442,node,322053497,bus_stop,Gaußstraße,HVV,platform,POINT (10.4047485 53.222771),,KVG,"Lüneburg, Gaußstraße",,,,,,5012,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4047485,53.222771
+448,node,273712613,bus_stop,Heinrich-Böll-Straße,HVV,platform,POINT (10.4039471 53.2267352),,KVG,"Lüneburg, Heinrich-Böll-Straße",,yes,no,,,5012,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4039471,53.2267352
+453,node,275907714,bus_stop,Carl-von-Ossietzky-Straße,HVV,platform,POINT (10.4015929 53.2275296),yes,KVG,"Lüneburg, Carl-von-Ossietzky-Straße",,yes,no,,,5012,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4015929,53.2275296
+454,node,3087504050,bus_stop,Otto-Brenner-Straße,HVV,platform,POINT (10.478437 53.2423045),no,KVG,"Lüneburg, Otto-Brenner-Straße",,no,no,,yes,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.478437,53.2423045
+455,node,119994939,bus_stop,Flugplatz,HVV,platform,POINT (10.4592049 53.2448717),no,KVG,"Lüneburg, Flugplatz",,no,no,,,5010,,,,,yes,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4592049,53.2448717
+457,node,373161853,bus_stop,Walter-Bötcher-Straße,HVV,platform,POINT (10.4459578 53.2455633),no,KVG,"Lüneburg, Walter-Bötcher-Straße",,no,no,,yes,5010,limited,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4459578,53.2455633
+458,node,302304521,bus_stop,Stadtkoppel,HVV,platform,POINT (10.4492537 53.2461948),no,KVG,"Lüneburg, Auf den Blöcken",,no,no,,yes,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4492537,53.2461948
+459,node,7043202191,bus_stop,Kurt-Höbold-Straße,HVV,platform,POINT (10.4778019 53.2402935),no,KVG,"Lüneburg, Kurt-Höbold-Straße",,no,no,,,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4778019,53.2402935
+460,node,2843007891,bus_stop,Richard-Brauer-Straße,HVV,platform,POINT (10.4429666 53.2447657),no,KVG,"Lüneburg, Richard-Brauer-Straße",,no,no,,yes,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4429666,53.2447657
+461,node,3699972417,bus_stop,Elso-Klöver-Straße,HVV,platform,POINT (10.477347 53.2465791),no,KVG,"Lüneburg, Elso-Klöver-Straße",,no,no,,,5010,,,,,yes,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.477347,53.2465791
+462,node,301866208,bus_stop,Gellersstraße,HVV,platform,POINT (10.4300483 53.2478555),no,KVG,"Lüneburg, Gellersstraße",,no,no,,yes,5010;5100;5120;5300;5304,,,,,yes,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4300483,53.2478555
+463,node,7043202216,bus_stop,Wilhelm-Fressel-Straße,HVV,platform,POINT (10.4760492 53.2390287),no,KVG,"Lüneburg, Wilhelm-Fressel-Straße",,no,no,,,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4760492,53.2390287
+474,node,5849955401,bus_stop,Große Hof,HVV,platform,POINT (10.3745541 53.1342237),,,"Barnstedt, Große Hof",5600;5604;5606,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3745541,53.1342237
+475,node,8526782425,bus_stop,Abzw. Betzendorf,HVV,platform,POINT (10.3727202 53.1351636),,,"Abzw. Betzendorf, Barnstedt",5600;5604;5606,yes,,,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3727202,53.1351636
+476,node,196043670,bus_stop,Schildsteinweg,HVV,platform,POINT (10.3914278 53.2407532),no,KVG,"Lüneburg, Schildsteinweg",,no,no,,yes,5003,,,,,yes,,,,,,Kein Kasseler Bord,,Richtung SZ Oedeme / Teufelsküche,,,,,,,,,,,,,,,,,,,,,,,,,10.3914278,53.2407532
+477,node,976986466,bus_stop,Bauerholzweg,HVV,platform,POINT (10.3722547 53.1388961),,,"Barnstedt, Bauerholzweg",5600;5604;5606,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3722547,53.1388961
+478,node,276968755,bus_stop,Kampweg,HVV,platform,POINT (10.382554 53.1578114),yes,KVG,"Kolkhagen, Kampweg",5604;5606,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.382554,53.1578114
+479,node,511089699,bus_stop,Wiesenweg,HVV,platform,POINT (10.3829747 53.1602771),,KVG,"Kolkhagen, Wiesenweg",5604;5606,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3829747,53.1602771
+480,node,976986438,bus_stop,Mühlenberg,HVV,platform,POINT (10.3710862 53.1423653),yes,KVG,"Barnstedt, Mühlenberg",5604;5606,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3710862,53.1423653
+481,node,277261028,bus_stop,Bokenkamp,HVV,platform,POINT (10.3636165 53.1457606),yes,,"Barnstedt, Bokenkamp",5600;5606,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3636165,53.1457606
+482,node,302887839,bus_stop,Finanzamt,HVV,platform,POINT (10.4121817 53.2554488),no,KVG,"Lüneburg, Finanzamt",,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4121817,53.2554488
+483,node,313957909,bus_stop,Auf dem Schmaarkamp,HVV,platform,POINT (10.4105509 53.2603115),no,KVG,"Lüneburg, Auf dem Schmaarkamp",,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4105509,53.2603115
+484,node,1588318071,bus_stop,Auf der Hude,HVV,platform,POINT (10.4136152 53.2583328),no,KVG,"Lüneburg, Auf der Hude",5002;ASM,no,no,,yes,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4136152,53.2583328
+488,node,2041723022,bus_stop,Tennispark,HVV,platform,POINT (10.3849925 53.2598361),yes,KVG,"Lüneburg, Tennispark",,yes,no,,yes,,limited,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3849925,53.2598361
+489,node,1305577576,bus_stop,Kiefernweg,HVV,platform,POINT (10.3526052 53.2753237),no,KVG,"Vögelsen, Kiefernweg",5009;5404;ASM,no,no,,yes,,limited,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,,,,,,,,,,,,,10.3526052,53.2753237
+491,node,287098772,bus_stop,Brockwinkler Weg,HVV,platform,POINT (10.3866216 53.256493),no,KVG,"Lüneburg, Brockwinkler Weg",5009;ASM,no,no,,yes,,limited,,,,,,,,,,,,,,,Stimmt die Lage?,,,,,,,,,,,,,,,,,,,,,,10.3866216,53.256493
+494,node,286287619,bus_stop,Dachtmisser Weg,HVV,platform,POINT (10.3477471 53.2780348),,KVG,"Vögelsen, Dachtmisser Weg",5009;5009;5404;ASM,yes,no,,yes,,limited,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,0,,,,,,,,,,,,,10.3477471,53.2780348
+495,node,703728543,bus_stop,Niendorfer Weg,HVV,platform,POINT (10.4727397 53.2140252),yes,,,5620,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4727397,53.2140252
+499,node,7284444420,bus_stop,Große Straße,HVV,platform,POINT (10.4871138 53.3709802),no,,"Artlenburg, Große Straße",5900;5903,no,no,,,,limited,,,,yes,,,,,2021-08-28,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4871138,53.3709802
+500,node,311219666,bus_stop,"Göddingen, Wöppenberg",,platform,POINT (10.7610009 53.2566452),yes,,,5103,yes,no,,,,,,,,,,,,,2021-04-18,,,,,,,,,,,,"Am Haltestellenschild steht noch ""Ortsmitte"".",,,,,,,,,,,,,,,,10.7610009,53.2566452
+501,node,311219673,bus_stop,"Göddingen, Am Fischteich",,platform,POINT (10.7642906 53.2535523),no,,,5103,no,no,,,,,,,,,,,,,2021-04-18,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7642906,53.2535523
+502,node,7023976079,bus_stop,Neu Oerzen,,platform,POINT (10.3184746 53.1792981),,,,5700,yes,no,,,,,,,,,,,,,,,,,,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,10.3184746,53.1792981
+503,node,8708023922,bus_stop,"Wendhausen, Im Ort",,platform,POINT (10.5670338 53.2506276),yes,,,5110;5362;ASM,yes,yes,,,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5670338,53.2506276
+504,node,8390221907,bus_stop,"Melbeck, Gymnasium",HVV,platform,POINT (10.4156375 53.1785399),,,,,,,,,5600,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4156375,53.1785399
+505,node,1624952652,bus_stop,Ebstorfer Straße,HVV,platform,POINT (10.4043018 53.1789627),,,"Melbeck, Ebstorfer Straße",,,,,,5600,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4043018,53.1789627
+506,node,185936322,bus_stop,"Barendorf, Dorfstraße",HVV,platform,POINT (10.5212258 53.2244543),,,,5361;6362;AST,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5212258,53.2244543
+508,node,1602107135,bus_stop,Neu Häcklingen,HVV,platform,POINT (10.4055348 53.2094134),no,KVG,"Lüneburg, Neu Häcklingen",,no,no,,yes,5600,,,,,no,,,,,,,,,,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,10.4055348,53.2094134
+511,node,5234486266,bus_stop,Am Rischpool,HVV,platform,POINT (10.3791154 53.1810146),,,"Melbeck, Am Rischpool",,,,,,5600,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3791154,53.1810146
+512,node,942482191,bus_stop,Robert-Schumann-Straße,HVV,platform,POINT (10.433913 53.2900786),no,KVG,"Adendorf, Robert-Schumann-Straße",,yes,yes,,,5006,yes,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.433913,53.2900786
+514,node,387439300,bus_stop,Königsberger Weg,HVV,platform,POINT (10.4398725 53.2834046),yes,KVG,"Adendorf, Königsberger Weg",,yes,yes,,,5006,yes,,,,yes,,,,yes,2020-11-25,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4398725,53.2834046
+516,node,445774035,bus_stop,Kornblumenweg,HVV,platform,POINT (10.4327786 53.2876679),no,KVG,"Adendorf, Kornblumenweg",,no,no,,,,,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4327786,53.2876679
+518,node,302900001,bus_stop,Röthenweg,HVV,platform,POINT (10.4327278 53.2859085),no,KVG,"Adendorf, Röthenweg",,no,yes,,,,yes,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4327278,53.2859085
+520,node,313954414,bus_stop,Zeltberg,HVV,platform,POINT (10.4069669 53.2650556),no,KVG,"Lüneburg, Zeltberg",,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4069669,53.2650556
+522,node,7510268775,bus_stop,Dorfplatz,HVV,platform,POINT (10.3501768 53.2783682),yes,KVG,"Vögelsen, Dorfplatz",5002;5009;5404;ASM,no,no,,yes,,limited,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,0,,,,,,,,,,,,,10.3501768,53.2783682
+523,node,287436861,bus_stop,Am Stadtberg,HVV,platform,POINT (10.3588328 53.2733993),yes,KVG,"Vögelsen, Am Stadtberg",5009;5404;ASM,yes,no,,yes,,limited,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,,,,,,,,,,,,,10.3588328,53.2733993
+524,node,4065795354,bus_stop,Pumpenstation,HVV,platform,POINT (10.3675583 53.2652064),,KVG,"Lüneburg, Pumpenstation",,,,,yes,,limited,,,,,,,,,,,,,,,"Position nur geschätzt, bitte Korrigieren",,,,,,,,,,,,,,,,,,,,,,10.3675583,53.2652064
+529,node,286287601,bus_stop,Friedhofsweg,HVV,platform,POINT (10.3471319 53.2765812),no,KVG,"Vögelsen, Friedhofsweg",5404,no,no,,yes,,limited,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,,,,,,,,,,,,,10.3471319,53.2765812
+530,node,319992028,bus_stop,Heimathaus,HVV,platform,POINT (10.7250696 53.2951218),no,,"Bleckede, Heimathaus",5102;5104;5111,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7250696,53.2951218
+532,node,355298835,bus_stop,Marschweg,HVV,platform,POINT (10.7201811 53.2971121),,,"Bleckede, Marschweg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7201811,53.2971121
+534,node,275652358,bus_stop,"Bleckede, Auf dem Kamp",,platform,POINT (10.7366005 53.2891135),no,,,5101;5103;5104,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7366005,53.2891135
+535,node,319969924,bus_stop,Saatbau,HVV,platform,POINT (10.7403748 53.2850418),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7403748,53.2850418
+537,node,1801632891,bus_stop,Fähranleger,,platform,POINT (10.7342034 53.2977944),,,,5101;5104;5111,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7342034,53.2977944
+538,node,1838158752,bus_stop,Buendorf,,platform,POINT (10.7519136 53.1843834),,,"Dahlenburg, Buendorf",5301;5302;5303;5304,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7519136,53.1843834
+540,node,1432208149,bus_stop,Quickborn,,platform,POINT (10.7529866 53.1861215),,,"Dahlenburg, Quickborn",5103;5300;5362,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7529866,53.1861215
+542,node,6445357812,bus_stop,"Nindorf bei Bleckede, L222",,platform,POINT (10.7428188 53.2618189),,,,5101;5103;5301,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7428188,53.2618189
+544,node,320064688,bus_stop,"Bleckede, Dahlenburger Straße",,platform,POINT (10.741308 53.2790683),no,,,5101;5103,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.741308,53.2790683
+545,node,319974894,bus_stop,"Bleckede, Waldfrieden",,platform,POINT (10.7436216 53.2717076),,,,5103,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7436216,53.2717076
+546,node,747323812,bus_stop,"Neu Wendischthun, Abzweig",,platform,POINT (10.78729 53.3036952),,,,512,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.78729,53.3036952
+548,node,747323812,bus_stop,Neu Wendischthun,,platform,POINT (10.7761113 53.3050591),,,,512,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7761113,53.3050591
+550,node,566592806,bus_stop,Vor der Westermarsch,HVV,platform,POINT (10.3846317 53.2957478),,KVG,"Bardowick, Vor der Westermarsch",5002;5402,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3846317,53.2957478
+551,node,2307579589,bus_stop,"Artlenburg, Elbdeich",,platform,POINT (10.4826681 53.3751486),,,,5903,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4826681,53.3751486
+552,node,3019763968,bus_stop,Scharnebecker Straße,HVV,platform,POINT (10.4479667 53.3317514),no,,,5904,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4479667,53.3317514
+555,node,3749693091,bus_stop,"Rullstorf, Am Neetzekanal",HVV,stop_position,POINT (10.5589707 53.2965617),no,,,5104;5901,no,yes,,,,,,,,,,,,,2021-05-17,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5589707,53.2965617
+557,node,278806832,bus_stop,"Vastorf, Abzweigung Bahnhof",,platform,POINT (10.5499284 53.1989822),no,,,5361,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5499284,53.1989822
+559,node,1839897577,bus_stop,Denkmal,HVV,platform,POINT (10.4432224 53.333012),yes,,"Brietlingen, Denkmal",5900;5903;5904,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4432224,53.333012
+561,node,7623285536,bus_stop,"Brietlingen, Ort",,platform,POINT (10.4452223 53.3302669),yes,,,5900;5903;5904,yes,no,,,,,,,,,,,,,2021-09-04,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4452223,53.3302669
+562,node,2481243764,bus_stop,"Walmsburg, Bruchdorfer Straße",,platform,POINT (10.8482356 53.2391409),,,,5101;5131,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.8482356,53.2391409
+563,node,7611446379,bus_stop,"Garze, Große Straße 29",,platform,POINT (10.6950179 53.3072631),yes,,,5104;5111;5152-ASM,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6950179,53.3072631
+564,node,846062334,bus_stop,"Nutzfelde, Am Walde",,platform,POINT (10.5173332 53.2686827),yes,,,5120;5925,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5173332,53.2686827
+566,node,2332372281,bus_stop,Vrestorfer Weg,HVV,platform,POINT (10.4260987 53.2788106),yes,KVG,"Lüneburg, Vrestorfer Weg",,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4260987,53.2788106
+568,node,393141179,bus_stop,Thiessendörper Weg,HVV,platform,POINT (10.3910124 53.2890091),no,KVG,"Bardowick, Thiessendörper Weg",,no,no,,,5404,yes,,,,yes,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3910124,53.2890091
+571,node,8479006739,bus_stop,Am Diemel,HVV,platform,POINT (10.4009785 53.1803408),,,"Melbeck, Am Diemel",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4009785,53.1803408
+573,node,578361745,bus_stop,Ätzberg,HVV,platform,POINT (10.3949058 53.1774491),,,"Melbeck, Ätzberg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3949058,53.1774491
+575,node,2269708054,bus_stop,"Hittbergen, Roggenberg",,platform,POINT (10.5960677 53.3481539),yes,,,5102;5917,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5960677,53.3481539
+577,node,301567834,bus_stop,Südergellerser Weg,Hamburger Verkehrsverbund,platform,POINT (10.2524476 53.232284),,KVG,"Westergellersen, Südergellerser Weg",5200;5201;5202;5203,yes,,,yes,,,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,HVV,,,,,,,,,,,,10.2524476,53.232284
+578,node,571528159,bus_stop,Hauptstraße (L 216),Hamburger Verkehrsverbund,platform,POINT (10.2483036 53.2329848),,KVG,"Westergellersen, Hauptstraße L 216",5200;5201;5202;5203,yes,,,yes,,,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,HVV,,,,,,,,,,,,10.2483036,53.2329848
+579,node,277251847,bus_stop,Teufelsküche,HVV,platform,POINT (10.384344 53.2382175),yes,KVG,"Lüneburg, Teufelsküche",,yes,no,,yes,5003,,,,,no,,,,,2020-12-28,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.384344,53.2382175
+580,node,266917061,bus_stop,Im Dorfe,HVV,platform,POINT (10.2918703 53.2313242),,KVG,"Kirchgellersen, Im Dorfe",5200;5201;5202,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2918703,53.2313242
+582,node,3133820777,bus_stop,Neu Süttorf,HVV,platform,POINT (10.6839508 53.2731495),,KVG,"Neu Süttorf Ortsmitte, Neetze",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6839508,53.2731495
+583,node,322526004,bus_stop,Am Dorfplatz,HVV,platform,POINT (10.624862 53.2653005),yes,KVG,"Neetze, Am Dorfplatz",5100;5110;5111;5114,yes,no,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,"Haltestelle ist am Schild mit ""Ortsmitte"" benannt ..",,,,,,,,,,,10.624862,53.2653005
+584,node,767341122,bus_stop,"Sülbeck, An den Eichen (L 221)",,platform,POINT (10.56262 53.2652483),,,,5100;5110;5362,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.56262,53.2652483
+585,node,566580956,bus_stop,Bühringsmoor,HVV,platform,POINT (10.3594187 53.2922837),,KVG,"Bardowick, Bühringsmoor",5002;5403;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3594187,53.2922837
+587,node,8723627995,bus_stop,Radbrucher Weg,HVV,platform,POINT (10.3622233 53.2903712),yes,KVG,"Bardowick, Radbrucher Weg",5002;5403;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3622233,53.2903712
+589,node,566580954,bus_stop,Wendeplatz,HVV,platform,POINT (10.3564185 53.2938238),,KVG,"Bardowick, Wendeplatz",5002,,,,,,,,,,,,,,,,,,,,,Bitte diese platform/stop_position nochmal prüfen!,,,,,,,,,,,,,,,,,,,,,,10.3564185,53.2938238
+590,node,448194685,bus_stop,Witwenkamp,HVV,platform,POINT (10.3650642 53.2891832),,KVG,"Bardowick, Witwenkamp",5002;5403;ASM,no,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3650642,53.2891832
+592,node,319008950,bus_stop,Ernst-Braune-Straße,HVV,platform,POINT (10.388196 53.23946),yes,KVG,"Lüneburg, Ernst-Braune-Straße",,yes,no,,yes,5003,,,,,yes,,,,,2020-12-28,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.388196,53.23946
+594,node,1277149593,bus_stop,"Hittbergen, Kirche",,platform,POINT (10.5892276 53.3445894),,,,5102;5900;5901;5917;5152-RufMobil;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5892276,53.3445894
+595,node,5249245058,bus_stop,Leuphana,HVV,platform,POINT (10.4010697 53.2300356),no,KVG,"Lüneburg, Leuphana",,no,no,,yes,5001;5600,limited,,,,,,,,,,,,,,,,,,,,,,,,,,,5001,,,,,,,,,,10.4010697,53.2300356
+596,node,8526739908,bus_stop,Ort,HVV,platform,POINT (10.5142698 53.2520864),,KVG,"Neu Wendhausen, Ort",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5142698,53.2520864
+598,node,4363688126,bus_stop,"Neu Neetze, Am Milchberg",,platform,POINT (10.6495418 53.2888391),,,,5111;5152-Rufmobil;5823-ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6495418,53.2888391
+599,node,1286093175,bus_stop,"Neu Neetze, Birkenhof",,platform,POINT (10.6532373 53.2920806),,,,5111;5152-Rufmobil,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6532373,53.2920806
+600,node,3751608111,bus_stop,"Bleckeder Moor, Abzweigung",,platform,POINT (10.6580057 53.3008983),,,,5111;5152-Rufmobil;5823-ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6580057,53.3008983
+601,node,1897714546,bus_stop,"Karze, Auf dem Weel",,platform,POINT (10.6683701 53.3107637),,,,5104;5111;5152-ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6683701,53.3107637
+602,node,2406049718,bus_stop,Große Straße 71,HVV,platform,POINT (10.6846002 53.3088173),no,,"Garze, Große Straße 71",5104;5111,no,no,,,,,,,,,,,,,2021-04-18,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6846002,53.3088173
+603,node,2406049696,bus_stop,Große Straße 3,HVV,platform,POINT (10.7061658 53.3016323),no,,"Garze, Große Straße 3",,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7061658,53.3016323
+604,node,346183826,bus_stop,Lüner Rennbahn,HVV,platform,POINT (10.4227875 53.2748865),,KVG,"Lüneburg, Lüner Rennbahn",,,,,yes,5007,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4227875,53.2748865
+605,node,1330162044,bus_stop,Schlachthof,HVV,platform,POINT (10.4249277 53.2727519),no,KVG,"Lüneburg, Schlachthof",,no,no,,yes,5007,,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4249277,53.2727519
+606,node,104072787,bus_stop,Auf den Blöcken,HVV,platform,POINT (10.4613219 53.2384976),no,KVG,"Lüneburg, Auf den Blöcken",,no,no,,,5010,,,,,no,20141026,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4613219,53.2384976
+610,node,274859677,bus_stop,"Bleckede, Rathaus",,platform,POINT (10.7321198 53.2907814),,,,5101;5103;5104;ASM,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7321198,53.2907814
+611,node,425907797,bus_stop,Töpferdamm,HVV,platform,POINT (10.7250404 53.2938286),,,,,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7250404,53.2938286
+612,node,386927750,bus_stop,"Walmsburg, Kateminer Straße",,platform,POINT (10.8439138 53.2391182),,,,5101;5131,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.8439138,53.2391182
+613,node,3324922587,bus_stop,"Barskamp, Markt",HVV,platform,POINT (10.7837919 53.2441291),yes,,,5101;5103;5301,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7837919,53.2441291
+614,node,320862727,bus_stop,"Bleckede, Elbweg",,platform,POINT (10.7518144 53.2846395),,,,5101;5104;5131;5151;5301,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7518144,53.2846395
+616,node,2936483856,bus_stop,"Alt Garge, Waldbad",,platform,POINT (10.8044277 53.2580616),,,,5101;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.8044277,53.2580616
+617,node,3112209667,bus_stop,Brennbusch,HVV,platform,POINT (10.7549585 53.2817049),,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7549585,53.2817049
+618,node,3324922573,bus_stop,Walmsburger Straße,HVV,platform,POINT (10.7853326 53.2434432),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7853326,53.2434432
+619,node,3371516337,bus_stop,Turnhalle,HVV,platform,POINT (10.7981006 53.265378),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7981006,53.265378
+620,node,354506387,bus_stop,,HVV,platform,POINT (10.7504645 53.2821462),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7504645,53.2821462
+621,node,302553134,bus_stop,"Bleckede, Schiedenitzweg",,platform,POINT (10.7416057 53.2800631),,,,5101,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7416057,53.2800631
+622,node,2481243765,bus_stop,Schieringen,HVV,platform,POINT (10.8235273 53.2335364),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.8235273,53.2335364
+623,node,1075586972,bus_stop,"Reeßeln, Abzweigung",,platform,POINT (10.8611674 53.2354658),,,,5101;5131,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.8611674,53.2354658
+624,node,2377705328,bus_stop,"Breetze, Bokelstraße",,platform,POINT (10.709379 53.2646484),,,,5103,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.709379,53.2646484
+625,node,320131115,bus_stop,"Breetze, Ziegelei",,platform,POINT (10.7152808 53.270797),,,,5103,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7152808,53.270797
+626,node,297191245,bus_stop,"Artlenburg, Ost",HVV,stop_position,POINT (10.5042912 53.3679135),,KVG,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5042912,53.3679135
+627,node,2973160630,bus_stop,Bessemerstraße,HVV,platform,POINT (10.4128482 53.2697777),,KVG,"Lüneburg, Bessemerstraße",5005;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4128482,53.2697777
+630,node,1459111220,bus_stop,SZ Kaltenmoor,HVV,platform,POINT (10.4362805 53.2390035),,KVG,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4362805,53.2390035
+631,node,582819370,bus_stop,Rettmer (Mitte),HVV,platform,POINT (10.3697803 53.2139069),no,KVG,"Lüneburg, Rettmer Mitte",5203;5606;5700,no,no,,,,,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3697803,53.2139069
+633,node,5239344687,bus_stop,"Oerzen, Im Dorfe",,platform,POINT (10.3244054 53.1933078),,,,-,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3244054,53.1933078
+635,node,668998388,bus_stop,"Amelinghausen, Grundschule",,platform,POINT (10.2202329 53.1251788),,,,5701;5703,yes,,,,,,,,,,,,,,,,,,B,,,,,,,,,,,,,,,,,,,,,,,,10.2202329,53.1251788
+636,node,1259355587,bus_stop,Kastanienweg,HVV,platform,POINT (10.1700179 53.126874),,,"Dehnsen, Kastanienweg",5700,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.1700179,53.126874
+637,node,665485671,bus_stop,Dehnsener Straße,HVV,platform,POINT (10.1920065 53.1252587),,,"Etzen, Dehnsener Straße",5700,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.1920065,53.1252587
+638,node,668998388,bus_stop,"Amelinghausen, Kirche",,platform,POINT (10.2126403 53.1245595),,,,5702,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2126403,53.1245595
+639,node,665485671,bus_stop,Soltauer Straße,HVV,platform,POINT (10.2084902 53.1247475),no,,"Amelinghausen, Soltauer Straße",5700,no,no,,,,,,,,no,,,,,,,,,,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,10.2084902,53.1247475
+641,node,318077802,bus_stop,Kloster Lüne,HVV,platform,POINT (10.4233448 53.2609955),,KVG,"Lüneburg, Kloster Lüne",,yes,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4233448,53.2609955
+642,node,2298685630,bus_stop,Nikolaihof,HVV,platform,POINT (10.3954401 53.2915066),no,KVG,,5002;5402;5405,no,no,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3954401,53.2915066
+645,node,270948120,bus_stop,DRK-Heim,HVV,platform,POINT (10.4461997 53.2801254),,KVG,"Adendorf, DRK-Heim",,,,,,5007,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4461997,53.2801254
+648,node,395336856,bus_stop,Hasenburger Berg,HVV,platform,POINT (10.3977854 53.2356105),no,KVG,"Lüneburg, Hasenburger Berg",,no,no,,yes,,,,,,no,,,,,,Kein Kasseler Bord vorhanden,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3977854,53.2356105
+650,node,268754159,bus_stop,Zentralfriedhof,HVV,platform,POINT (10.3988728 53.2370178),no,KVG,"Lüneburg, Zentralfriedhof",,no,no,,yes,5007,,,,,no,,,,,,Kein Kasseler Bord vorhanden,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3988728,53.2370178
+652,node,323190902,bus_stop,Am Eiskeller,HVV,platform,POINT (10.3850037 53.2362354),yes,KVG,"Lüneburg, Am Eiskeller",,yes,no,,,"5003, 5806-ASM",,,,,,,,,,,Kein Kasseler Bord,,Linien 5003 und 5806-ASM in beide Richtungen (Haltestelle aber nur auf einer Seite der Fahrbahn),,,,,,,,,,,,,,,,,,,,,,,,,10.3850037,53.2362354
+653,node,305333659,bus_stop,Auf dem Knieberg,HVV,platform,POINT (10.3884282 53.2356314),no,KVG,"Lüneburg, Auf dem Knieberg",,no,no,,yes,"5003, 5806-ASM",,,,,no,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3884282,53.2356314
+654,node,2693352776,bus_stop,Heidkamp,HVV,platform,POINT (10.3931163 53.235028),no,KVG,"Lüneburg, Heidkamp",,no,,,yes,"5003,5920",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3931163,53.235028
+655,node,319010384,bus_stop,Meinekenhop,HVV,platform,POINT (10.3876742 53.2375288),yes,KVG,"Lüneburg, Meinekenhop",,yes,no,,yes,"5003, 5806-ASM",,,,,yes,,,,,,,no,,,,,,,,,,,,,,,,,2021-11-12,,,,,,,,,10.3876742,53.2375288
+656,node,175237596,bus_stop,Ringstraße,HVV,platform,POINT (10.38936 53.2358785),yes,KVG,"Lüneburg, Ringstraße",,yes,,,yes,"5003, 5806-ASM",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.38936,53.2358785
+658,node,318900995,bus_stop,Soltauer Straße (Kurzentrum),HVV,platform,POINT (10.4016865 53.241219),,KVG,"Lüneburg, Soltauer Straße (Kurzentrum)",,no,,,yes,5003;5007;5201;5600;5700;5702;5919,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4016865,53.241219
+662,node,4213538001,bus_stop,Sandfeld,HVV,platform,POINT (10.7222326 53.2853563),no,,"Bleckede, Sandfeld",5100;ASM,no,no,,,,,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7222326,53.2853563
+663,node,2936448612,bus_stop,Kurt-Löwenstein-Schule,HVV,platform,POINT (10.7299436 53.2881094),,,"Bleckede, Kurt-Löwenstein-Schule",,no,no,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7299436,53.2881094
+673,node,3347854743,bus_stop,Clamartpark,HVV,platform,POINT (10.4094815 53.2457263),yes,KVG,"Lüneburg, Clamartpark",,no,yes,,yes,,,,,,yes,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4094815,53.2457263
+674,node,395336864,bus_stop,Hasenburger Schule,HVV,platform,POINT (10.3973858 53.2331247),,KVG,"Lüneburg, Hasenburger Schule",,yes,,,yes,"5003,5920",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3973858,53.2331247
+675,node,374423407,bus_stop,Rosenkamp Wendeplatz,HVV,platform,POINT (10.3809308 53.2237159),no,KVG,"Lüneburg, Rosenkamp Wendeplatz",,no,no,,yes,"5007,5920",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3809308,53.2237159
+677,node,469967662,bus_stop,Övelgönner Weg,HVV,platform,POINT (10.3918692 53.2298285),no,KVG,"Lüneburg, Övelgönner Weg",,no,,,yes,"5007,5920",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3918692,53.2298285
+691,node,6926404073,bus_stop,Bahnhofstraße,HVV,platform,POINT (10.380284 53.2910843),,KVG,"Bardowick, Bahnhofstraße",5002;5403;5404,no,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.380284,53.2910843
+694,node,430358199,bus_stop,St.-Nikolai-Straße (Schule),HVV,platform,POINT (10.389031 53.2924355),,KVG,"Bardowick, St.-Nikolai-Straße (Schule)",5002,no,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.389031,53.2924355
+698,node,2988597647,bus_stop,Königsberger Straße,HVV,platform,POINT (10.4086651 53.2627692),,KVG,"Lüneburg, Landwehr",,,,,yes,,,,,Bing,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4086651,53.2627692
+704,node,2368355707,bus_stop,Pieperstraße,HVV,platform,POINT (10.3933335 53.2950296),,KVG,"Bardowick, Pieperstraße",5002,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3933335,53.2950296
+705,node,299750887,bus_stop,Am Graben,HVV,platform,POINT (10.4180528 53.2668709),no,KVG,"Lüneburg, Am Graben",5005;ASM,no,no,,yes,,,,,,yes,,,,no,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4180528,53.2668709
+707,node,299750852,bus_stop,Böcklerstraße/TÜV,HVV,platform,POINT (10.4098875 53.2716586),,KVG,"Lüneburg, Boecklerstraße (TÜV)",5005;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4098875,53.2716586
+709,node,3957759599,bus_stop,Eisenbahnbrücke,HVV,platform,POINT (10.4189258 53.2623711),no,KVG,"Lüneburg, Eisenbahnbrücke",5005;ASM,no,no,,,,,,,,yes,,,,no,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4189258,53.2623711
+711,node,1754660733,bus_stop,Goseburgstraße,HVV,platform,POINT (10.4181483 53.2646288),no,KVG,"Lüneburg, Goseburgstraße",5005;ASM,no,no,,,,,,,,yes,,,,,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4181483,53.2646288
+713,node,181476668,bus_stop,Ilmenaucenter,HVV,platform,POINT (10.4165325 53.2608424),no,KVG,"Lüneburg, Ilmenaucenter",5005;ASM,no,no,,yes,,,,,,no,,,,no,,Kein Kasseler Bord,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4165325,53.2608424
+715,node,268638530,bus_stop,Konrad-Zuse-Allee,HVV,platform,POINT (10.4169116 53.2561248),,KVG,"Lüneburg, Konrad-Zuse-Allee",,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4169116,53.2561248
+719,node,401250060,bus_stop,Dorfstraße,HVV,platform,POINT (10.4717328 53.2766905),no,KVG,"Erbstorf, Dorfstraße",5007;AST,no,no,,,,,,,,no,,,,no,2021-12-03,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4717328,53.2766905
+720,node,382366792,bus_stop,EDEKA,HVV,platform,POINT (10.4232857 53.2813577),,KVG,"Lüneburg, EDEKA",,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4232857,53.2813577
+723,node,339699613,bus_stop,Brockwinklerweg,HVV,,POINT (10.3863261 53.2570492),no,KVG,,,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3863261,53.2570492
+724,node,3305522864,bus_stop,"Wendewisch, Hittberger Straße 56",HVV,platform,POINT (10.6336008 53.3445568),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6336008,53.3445568
+725,node,401250060,bus_stop,"Erbstorf, Feuerwehr",HVV,platform,POINT (10.4742246 53.2755275),,KVG,"Erbstorf, Feuerwehr",5007;5918;5920;5925,yes,,,yes,,,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,,,,,,,,,,,,,10.4742246,53.2755275
+727,node,1687409703,bus_stop,An der Roten Bleiche (Universität),HVV,platform,POINT (10.4132004 53.2387357),yes,KVG,"Lüneburg, An der Roten Bleiche",,yes,yes,,yes,5001,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4132004,53.2387357
+728,node,111246693,bus_stop,Feldstraße (Universität),HVV,platform,POINT (10.4137315 53.2420275),no,KVG,"Lüneburg, Feldstraße (Universität)",,no,yes,,yes,5001,,,,,no,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4137315,53.2420275
+729,node,351118780,bus_stop,GHS Kreideberg,HVV,platform,POINT (10.3982108 53.2619427),,KVG,"Lüneburg, GHS Kreideberg",,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3982108,53.2619427
+730,node,361362587,bus_stop,Herderschule,HVV,platform,POINT (10.3913545 53.2558772),no,KVG,"Lüneburg, Herderschule",5404;5919,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3913545,53.2558772
+731,node,292566443,bus_stop,Spechtsweg,HVV,platform,POINT (10.4164645 53.2323864),,KVG,"Lüneburg, Spechtsweg",,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ASM,,,,,,,,,,10.4164645,53.2323864
+735,node,278240111,bus_stop,Abzweig Sommerbeck,,platform,POINT (10.6778814 53.1898413),,KVG,"Dahlenburg, Abzweig Sommerbeck",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6778814,53.1898413
+736,node,306530329,bus_stop,Ehrenfriedhof,HVV,platform,POINT (10.7320747 53.1886856),,KVG,"Dahlenburg, Ehrenfriedhof",5300;5304,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7320747,53.1886856
+737,node,114242773,bus_stop,Kanalbrücke,HVV,platform,POINT (10.4842206 53.2356735),no,KVG,"Lüneburg, Kanalbrücke",5300;5304,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4842206,53.2356735
+739,node,663385979,bus_stop,Amselweg,HVV,platform,POINT (10.3449174 53.1714801),,,"Embsen, Amselweg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,no,,,,,,10.3449174,53.1714801
+746,node,8716771655,bus_stop,Heinsen,,platform,POINT (10.3447019 53.1592249),,,,5600;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3447019,53.1592249
+748,node,419327205,bus_stop,Georg - Chors - Weg,HVV,platform,POINT (10.2943277 53.2105163),,KVG,"Südergellersen, Georg-Chors-Weg",,yes,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2943277,53.2105163
+753,node,456388987,bus_stop,"Boltersen, Bahnhofstraße",HVV,platform,POINT (10.5663192 53.2757253),no,KVG,,5110,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5663192,53.2757253
+754,node,3366247101,bus_stop,Im Ort,HVV,platform,POINT (10.5308366 53.2861978),no,,"Rullstorf, Im Ort",5110,no,no,,,,,,,,no,,,,,2021-09-05,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5308366,53.2861978
+756,node,728601573,bus_stop,Neumühlen bei Rullstorf,,platform,POINT (10.5858354 53.2874917),,,,5110,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Am Haltestellenschild vor Ort steht ""Bruchweg"", im HVV-Fahrplan ""Neumühlen bei Rullstorf""",,,,,,,,,,,10.5858354,53.2874917
+758,node,420155010,bus_stop,Das Rote Feld,Hamburger Verkehrsverbund,platform,POINT (10.2405714 53.2353327),,,"Westergellersen, Das rote Feld",4410;4618;5200;5201,no,,,yes,,,,,,,,,,,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,HVV,,,,,,,,,,,,10.2405714,53.2353327
+761,node,320858912,bus_stop,"Alt Garge, Hauptstraße",,platform,POINT (10.8022425 53.2651088),,,,5101;5301;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.8022425,53.2651088
+765,node,278243150,bus_stop,"Eimstorf, Ort",HVV,platform,POINT (10.6828334 53.1862227),,,"Eimstorf, Ort",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6828334,53.1862227
+767,node,369829358,bus_stop,Alte Salzstraße,,platform,POINT (10.4557029 53.3507868),,,"Lüdershausen, Alte Salzstraße",5900;5903,yes,,,,,,,,,,,,,,,,,,,,,,,,"Die Haltestelle trägt nachwievor am Schild den Namen ""Ort"" ..",,,,,,,,,,,,,,,,,,10.4557029,53.3507868
+768,node,2332372283,bus_stop,Artlenburger Landstraße,HVV,platform,POINT (10.4274564 53.2794438),,KVG,"Lüneburg, Artlenburger Landstraße",,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4274564,53.2794438
+780,node,2406061692,bus_stop,Bockelheide,HVV,platform,POINT (10.6403465 53.2810053),,,"Neetze, Bockelheide",5111,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6403465,53.2810053
+786,node,317676997,bus_stop,"Wittorf, Birkenweg",HVV,platform,POINT (10.355069 53.3270942),,KVG,,5402,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.355069,53.3270942
+788,node,8245152809,bus_stop,Veilchenring,HVV,platform,POINT (10.3723079 53.2104621),yes,KVG,,,yes,yes,,,5011;5920,no,,,,no,,,,,,Stufe in den Bus sind recht hoch,yes,,,,,,,,,,,,,,,,,,,,,,,,,,10.3723079,53.2104621
+791,node,433017861,bus_stop,"Horburg, Im Winkel",,platform,POINT (10.3944561 53.3597796),no,,,5405;5904,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3944561,53.3597796
+793,node,362093968,bus_stop,"Horburg, Schule",,platform,POINT (10.4036105 53.3540064),no,,,5405,no,no,,,,,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4036105,53.3540064
+795,node,582947071,bus_stop,"St. Dionys, Gotenweg",,platform,POINT (10.397319 53.3352977),,,,5405;5451;5904,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.397319,53.3352977
+797,node,2370520897,bus_stop,"Artlenburg, Hopfenhof",,platform,POINT (10.4862852 53.3725339),,,,5903,no,,,,,limited,,Hopfenhof,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4862852,53.3725339
+800,node,275639229,bus_stop,"Barförde, Barförder Elbdeich 22",,platform,POINT (10.6282233 53.3678943),,,,5102;5152-AST,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6282233,53.3678943
+802,node,774862471,bus_stop,"Dahlenburg, Mittelfeld",,platform,POINT (10.7237884 53.1914733),,,,5103;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7237884,53.1914733
+803,node,8813390762,bus_stop,"Dahlenburg, Ehrenfriedhof",,platform,POINT (10.7314192 53.1888642),,,,5300;5304,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7314192,53.1888642
+808,node,1411319176,bus_stop,"Bockelkathen, Auf dem Kreuze",,platform,POINT (10.5691162 53.3029267),no,,,5104;5901,yes,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5691162,53.3029267
+810,node,206278990,bus_stop,"Lüdersburg, Bachkoppelweg",,platform,POINT (10.5722596 53.3102723),,,,5104;5901,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5722596,53.3102723
+812,node,290823730,bus_stop,"Rosenthal, Ortsmitte",,platform,POINT (10.6335663 53.3112261),,,,5112,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6335663,53.3112261
+814,node,275648240,bus_stop,"Bleckeder Moor, Zweiter Moorweg",,platform,POINT (10.666641 53.2975978),,,,5104,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.666641,53.2975978
+816,node,1067860447,bus_stop,"Karze, Am Rotdorn",,platform,POINT (10.6752663 53.3154938),,,,5104,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6752663,53.3154938
+818,node,206278954,bus_stop,"Neu Jürgenstorf, Ort",,platform,POINT (10.6147204 53.3073398),,,,5104;5901;5917,yes,,,,,,,,,,,,,,2021-05-19,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6147204,53.3073398
+819,node,206278954,bus_stop,"Neu Jürgenstorf, Rosenthaler Weg",,platform,POINT (10.6168856 53.3075161),,,,5104;5112,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6168856,53.3075161
+821,node,3751608250,bus_stop,"Neu Neetze, Haus Nr. 50",,platform,POINT (10.6323779 53.301733),,,,5112,no,,,,,,,,,,,,,,,,,"Die Linie 5104 ist noch angeschrieben, fährt aber laut Fahrplan nicht mehr hierher.",,,,,,,,,,,,,,,,,,,,,,,,,10.6323779,53.301733
+823,node,287014411,bus_stop,"Garlstorf, Dorfstraße 36",,platform,POINT (10.676738 53.3499558),,,,5102;5152-AST,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.676738,53.3499558
+825,node,513951024,bus_stop,"Garlstorf, Dorfstraße 68",,platform,POINT (10.6697376 53.3511113),,,,5102;5152-AST,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6697376,53.3511113
+827,node,1720652175,bus_stop,"Radegast, Pferdekoppel",,platform,POINT (10.7071268 53.3533351),,,,5102;5104;5152-AST,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7071268,53.3533351
+828,node,410916180,bus_stop,"Radegast, Zum Kirchplatz",,platform,POINT (10.7246837 53.3451981),,,,5102;5104;5152-RufMobil,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7246837,53.3451981
+830,node,482156873,bus_stop,"Radegast, Elbuferstraße 41",,platform,POINT (10.7162708 53.3479752),,,,5102;5152-AST,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7162708,53.3479752
+833,node,1294141096,bus_stop,"Wendewisch, Hittberger Straße 59",,platform,POINT (10.6473268 53.3539936),,,,5102;5152-AST,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6473268,53.3539936
+835,node,8991919413,bus_stop,"Wendewisch, Siedlung",,platform,POINT (10.6530073 53.3488213),,,,5102;5152-AST,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6530073,53.3488213
+837,node,8716733466,bus_stop,"Barförde, Feuerwehr",,platform,POINT (10.6323104 53.3673472),,,,5102;5152-AST,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6323104,53.3673472
+839,node,3245889306,bus_stop,"Barförde, Hinter den Höfen",,platform,POINT (10.6383729 53.3671791),,,,5102,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6383729,53.3671791
+841,node,8718605728,bus_stop,"Garlstorf, Schmiede",,platform,POINT (10.6600421 53.3498813),,,,5102;5152-AST,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6600421,53.3498813
+843,node,29539485,bus_stop,"Bullendorf, Brücke",,platform,POINT (10.566308 53.3447411),,,,5902;5931,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.566308,53.3447411
+845,node,260373655,bus_stop,"Hittbergen, Feldstraße",,platform,POINT (10.5950416 53.3443083),,,,5901,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5950416,53.3443083
+847,node,290823842,bus_stop,"Hittbergen, Im Kamp",,platform,POINT (10.5810492 53.34497),,,,5102;5900;5901;5917;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5810492,53.34497
+849,node,3882554551,bus_stop,"Hittbergen, Schönfeld",,platform,POINT (10.6152667 53.3642732),,,,5102;5917,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6152667,53.3642732
+853,node,7342250178,bus_stop,Wennekath 5,,platform,POINT (10.6242331 53.2365926),,,,5114;5362,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6242331,53.2365926
+855,node,324045717,bus_stop,Wennekath 8,,platform,POINT (10.6322698 53.236357),,,,5114;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6322698,53.236357
+858,node,1281368280,bus_stop,Süttorf,,platform,POINT (10.6354576 53.2479476),,,,5114,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6354576,53.2479476
+864,node,286860553,bus_stop,Neu Bleckede,,platform,POINT (10.7471717 53.3024296),,,,512,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7471717,53.3024296
+865,node,314668739,bus_stop,"Dahlenburg, Fliederweg",,platform,POINT (10.7314217 53.1843821),,,,5303,no,,,,,,,,,,,,,,,,,,,,,,,,,,"Am Haltestellenschild steht noch der Name ""Siedlung"".",,,,,,,,,,,,,,,,10.7314217,53.1843821
+867,node,1711950728,bus_stop,"Lemgrabe, An der Kleinbahn",,platform,POINT (10.7134588 53.1769326),,,,5302;5303;ASM,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7134588,53.1769326
+869,node,289344634,bus_stop,Birkenhof,,platform,POINT (10.6980317 53.1972976),,,,5302,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6980317,53.1972976
+870,node,1053087616,bus_stop,"Ellringen, Ellringer Neetzetal",,platform,POINT (10.703255 53.2234077),yes,,,5103,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.703255,53.2234077
+872,node,1838536537,bus_stop,Klein Sommerbeck 15,,platform,POINT (10.6785795 53.2014664),,,,5302,yes,,,,,,,,,,,,,,,,,,,,,,,,,,"Am Haltestellenschild steht noch der Name ""Klein Sommerbeck"".",,,,,,,,,,,,,,,,10.6785795,53.2014664
+873,node,82615616,bus_stop,"Wiecheln, Abzweig K 26",,platform,POINT (10.6766872 53.2240294),,,,5114;5362,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6766872,53.2240294
+876,node,317372769,bus_stop,"Barskamp, Hohe Luft",,platform,POINT (10.7771277 53.2415976),,,,5103,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7771277,53.2415976
+882,node,252229125,bus_stop,Feldstraße,,platform,POINT (10.3702017 53.2894336),no,,"Bardowick, Feldstraße",5002;5403;5404;ASM,yes,no,,,,yes,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3702017,53.2894336
+886,node,311593778,bus_stop,"Radbruch, Peerort",HVV,platform,POINT (10.2918472 53.3168729),yes,,,5403;5404,yes,no,,yes,,,,,,yes,,,,yes,,,,,,,,,Q896916,de:Hamburger Verkehrsverbund,,,,,,,,,,,,,,,,,,,10.2918472,53.3168729
+887,node,7950259357,bus_stop,"Echem, Dorfstraße",,platform,POINT (10.5331709 53.3367656),,,,5902;5931,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5331709,53.3367656
+889,node,299136013,bus_stop,"Marienthal, Alte Salzstraße",,platform,POINT (10.4725373 53.3622633),yes,,,5900;5903,yes,no,,,,,,,,yes,,,,,,,,,,,,,,,"Die Haltestelle trägt nachwievor den Namen ""Ort"" ..",,,,,,,,,,,,,Fahrplan,,,,,10.4725373,53.3622633
+890,node,7466201289,bus_stop,"Radbruch, Mühle",,platform,POINT (10.3136963 53.3051747),,,,5403,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3136963,53.3051747
+892,node,1938275557,bus_stop,"Radbruch, Wittorferweg",,platform,POINT (10.2941944 53.3087294),yes,,,5403,yes,,,,,yes,,,,,,,,,2021-11-12,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2941944,53.3087294
+894,node,393824226,bus_stop,"Bardowick, Wendeplatz",,platform,POINT (10.3559539 53.2938116),,,,5403;5404,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3559539,53.2938116
+897,node,7046503994,bus_stop,Hamburger Landstraße,,platform,POINT (10.3868997 53.2935428),yes,,,4714;5402,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3868997,53.2935428
+901,node,2697806584,bus_stop,"Artlenburg, Mühle",,platform,POINT (10.4989909 53.3687034),no,,,5903,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4989909,53.3687034
+903,node,356905909,bus_stop,"Dachtmissen, Waldweg",,platform,POINT (10.3162694 53.2523063),,,,5202;5203,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3162694,53.2523063
+904,node,7048403408,bus_stop,"Wittorf, Hauptstraße",,platform,POINT (10.3805995 53.3305839),,,,5402;5405,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3805995,53.3305839
+906,node,2537095340,bus_stop,"Wittorf, Brücke",,platform,POINT (10.3819406 53.3318132),,,,5405,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3819406,53.3318132
+907,node,2536581848,bus_stop,"Wittorf, Neulander Weg",,platform,POINT (10.3646075 53.3293056),,,,5402,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3646075,53.3293056
+909,node,7679492562,bus_stop,"Handorf, Mühle",,platform,POINT (10.3474554 53.338914),yes,,,5402,yes,no,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3474554,53.338914
+911,node,880485710,bus_stop,"Handorf, Ortsmitte",,platform,POINT (10.345704 53.3435453),yes,,,5402,yes,no,,,,yes,,,,yes,,,,,,,,,,,,,,,Das Wartehäuschen befindet sich etwas 100m südlich die Hauptstraße entlang,,,,,,,,,,,,,,,,,,10.345704,53.3435453
+912,node,294214964,bus_stop,"Vastorf, Gifkendorfer Straße",,platform,POINT (10.5461749 53.1974828),,,,5361;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5461749,53.1974828
+913,node,278802893,bus_stop,"Vastorf, Bahnbrücke",,platform,POINT (10.5455513 53.2001171),,,,5361;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Bushäuschen befindet sich in der Nebenstraße ..,,,,10.5455513,53.2001171
+914,node,109348618,bus_stop,"Horndorf, Kreuzung B 216",,platform,POINT (10.587352 53.214515),yes,,,5300;5304,yes,no,,,,,,,,no,,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.587352,53.214515
+915,node,8526832480,bus_stop,"Rohstorf, Ort",,platform,POINT (10.5823456 53.2029603),,,,5361;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5823456,53.2029603
+918,node,1851919318,bus_stop,Volkstorf,,platform,POINT (10.5459413 53.2062821),,,,5361;5362,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5459413,53.2062821
+919,node,121136981,bus_stop,Schule B,HVV,platform,POINT (10.5371366 53.2254971),,,"Barendorf, Schule",5361,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5371366,53.2254971
+925,node,82615634,bus_stop,"Ellringen, Kettelberg",,platform,POINT (10.7040434 53.2262198),no,,,5362,no,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.7040434,53.2262198
+927,node,324243468,bus_stop,"Neetze, Am Ried",,platform,POINT (10.6198868 53.2734573),,,,5112,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6198868,53.2734573
+930,node,1392485084,bus_stop,"Neu Jürgenstorf, Ahrenschulter",,platform,POINT (10.6240146 53.3161402),yes,,,5104,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,"Am Schild steht noch ""Abzw. Ahrenschulter"" ..",,,,,,,,,,,,,,,,10.6240146,53.3161402
+932,node,290823737,bus_stop,"Rosenthal, L 219",,platform,POINT (10.6340671 53.3154685),,,,5104;5102,yes,,,,,,,,,,,,,,,,,,,,,,,,,,"Am Schild steht noch ""Rosenthal"" ..",,,,,,,,,,,,,,,,10.6340671,53.3154685
+934,node,8935642944,bus_stop,Vogelsang 11,,platform,POINT (10.6507453 53.3241209),,,,5104,no,,,,,,,,,,,,,,,,,,,,,,,,,,"Am Schild steht noch ""Haus Nr. 11"" ..",,,,,,,,,,,,,,,,10.6507453,53.3241209
+936,node,8935642937,bus_stop,"Vogelsang, Ort",,platform,POINT (10.6596535 53.3242727),,,,5104;5152-ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6596535,53.3242727
+938,node,275648241,bus_stop,"Bleckeder Moor, Heidmoor",,platform,POINT (10.6731644 53.2995353),,,,5104;5152-ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6731644,53.2995353
+940,node,1825241579,bus_stop,"Bleckeder Moor, Fuchsweg",,platform,POINT (10.6903112 53.2923899),,,,5104,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6903112,53.2923899
+942,node,287014402,bus_stop,"Garlstorf, Neu Brackede",,platform,POINT (10.6911641 53.348685),,,,5102,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6911641,53.348685
+944,node,287014402,bus_stop,"Brackede, Abzweig Garlstorf",,platform,POINT (10.6996707 53.3482567),,,,5102;5104;5152-AST,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6996707,53.3482567
+946,node,482156862,bus_stop,"Barförde, Poggenort",,platform,POINT (10.6433558 53.3604898),,,,5102;5917;5152-AST,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6433558,53.3604898
+948,node,3235803043,bus_stop,"Barförde, Elbdeich 15",,platform,POINT (10.6382803 53.3626705),,,,5102;5917;5152-AST,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6382803,53.3626705
+954,node,2376837835,bus_stop,Kirchgellerser Straße,,platform,POINT (10.2974503 53.2133454),,,,5201;5203;ASM,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2974503,53.2133454
+956,node,419327366,bus_stop,"Südergellersen, Stähwiesen",HVV,platform,POINT (10.2971117 53.2160895),,KVG,,5201;5203,yes,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2971117,53.2160895
+958,node,265791156,bus_stop,"Kirchgellersen, Grundschule",,platform,POINT (10.2909644 53.2342138),,,,5201,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2909644,53.2342138
+959,node,354956451,bus_stop,Dachtmisser Straße,,platform,POINT (10.3449053 53.250619),,,,5202;5203,no,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.3449053,53.250619
+961,node,665485671,bus_stop,"Amelinghausen, Bahnhof",,platform,POINT (10.2155574 53.1307291),yes,,,4406;5701;5706,yes,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.2155574,53.1307291
+971,node,303148144,bus_stop,Tartuer Platz,HVV,platform,POINT (10.4329656 53.2528511),no,KVG,"Lüneburg, Tartuer Platz",,no,yes,,,5004,,,,,no,,,,no,,,no,,,,,,,,,,,,,,,,,,,,,,,,,,10.4329656,53.2528511
+973,node,1417611429,bus_stop,"Wendhausen, Wendenstraße",,platform,POINT (10.5608855 53.2496753),,,,5110;5362,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5608855,53.2496753
+975,node,767330154,bus_stop,"Holzen, Op dan Brink",,platform,POINT (10.5827643 53.241263),yes,,,5110;5362;ASM,yes,no,yes,,,,,,,,,,,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.5827643,53.241263
+976,node,290823834,bus_stop,"Neu Neetze, Denker",,platform,POINT (10.6217631 53.2950977),,,,5112,yes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6217631,53.2950977
+978,node,272772967,bus_stop,"Gienau, Wiebecker Straße",,platform,POINT (10.6644576 53.1645591),,,,5303,no,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6644576,53.1645591
+981,node,317985403,bus_stop,Groß Sommerbeck 3,,platform,POINT (10.6808782 53.2047377),,,,5302,yes,,yes,,,,,,,,,,,,,,,,,,,,,,,,"Am Haltestellenschild steht noch der Name ""Groß Sommerbeck"".",,,,,,,,,,,,,,,,10.6808782,53.2047377
+984,node,1286011651,bus_stop,"Neu Neetze, Tennisclub",,platform,POINT (10.6168579 53.2867567),no,,,5112,no,no,,,,,,,,,,,,no,2021-04-10,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.6168579,53.2867567
+987,node,6401544528,bus_stop,Konrad-Adenauer-Straße Ost,HVV,platform,POINT (10.4451221 53.2312612),no,,"Lüneburg, Konrad-Adenauer-Straße Ost",,no,yes,,yes,5019,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10.4451221,53.2312612
+992,way,1860842794,bus_stop,Bf. Dahlenburg,HVV,platform,POINT (10.7053709 53.16974),,,"Bf. Dahlenburg, Dahlenburg",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"[4530346483, 4530346482]",,10.7053709,53.16974
+994,way,203053094,bus_stop,Pulverweg (Süd),HVV,platform,POINT (10.4212315 53.2484839),no,KVG,"Lüneburg, Pulverweg Süd",,no,yes,,,5007;5010;5011;5012;5014;5015;5100,,,,,yes,20141012,no,,,,,,,a,,,,,,,,,,,,,,,,,,,,,,"[4543202235, 4543202234]",,10.4212315,53.2484839
+997,way,1116169518,bus_stop,Bf. Lüneburg (ZOB),,platform,POINT (10.4191931 53.2488356),yes,,Lüneburg ZOB,5010,yes,yes,,,,,,3,,yes,,no,,,,,,,,,,,,,,,,,,1,,,,,,,,,,,"[4563905003, 4563905002]",1,10.4191931,53.2488356
