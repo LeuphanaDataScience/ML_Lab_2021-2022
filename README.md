@@ -12,7 +12,7 @@ The objective was to find a good route (a short one).
 Multiple approaches were implemented:
 - Linear Programming using Pyomo 
 - combined approach using clustering and Ant Colony Optimization (__CL-ACO__)
-- combined approach using clustering and Simulated Anealing (__CL-SA__)
+- combined approach using clustering and Simulated Annealing (__CL-SA__)
 - ***Linear Programming using PULP (unfinished)***
 
 ## Other folders
