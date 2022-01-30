@@ -233,7 +233,8 @@ def runACO(inputACO, alpha=2, beta=5, gamma=80, rho=0.8, identifier = "name"):
     best_routes_all_clusters = {}
     total_cost_all_clusters = 0
 
-    for i in range(0, int(clustersDF['cluster'].max()+1)):
+#    for i in range(0, int(clustersDF['cluster'].max()+1)):
+    for i in range(0,len(clustersDICT)):
         matrix = clustersDICT[i]
         matrix = np.asarray(matrix)
         matrix = np.array(matrix)
@@ -250,8 +251,12 @@ def runACO(inputACO, alpha=2, beta=5, gamma=80, rho=0.8, identifier = "name"):
                                rho=rho
                             )
         route_gbest = ant_colony.run()
-        best_routes_all_clusters[i] = route_gbest[0]  
+        best_routes_all_clusters[i] = route_gbest[0]
         total_cost_all_clusters += route_gbest[-1]
+    
+#    total_cost_all_clusters_check = 0
+#    for i in range(0,len(best_routes_all_clusters)):
+#        total_cost_all_clusters_check += best_routes_all_clusters[i][1]
     
     if identifier == "name": # replace numbers by station names 
         for j in range(0, len(best_routes_all_clusters)):  

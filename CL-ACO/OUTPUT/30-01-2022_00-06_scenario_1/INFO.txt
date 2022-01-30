@@ -1,0 +1,3 @@
+Scenario: scenario_1.csv
+Clustering Methods: ['CONVEX_HULL_SEQUENCE_distance', 'CONVEX_HULL_SEQUENCE_random']
+Iterations: [20, 30]

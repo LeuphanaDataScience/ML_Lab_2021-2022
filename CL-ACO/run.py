@@ -11,6 +11,7 @@ import os
 import warnings
 warnings.filterwarnings("ignore") # don't print warnings
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
+import argparse
 
 from main import Run
 
@@ -18,10 +19,9 @@ from main import Run
 
 # local directory where project folder is stored
 src = "./"
-#src = "C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/BusRouting_CL-ACO/"
 
-# input file with passangers assigned to stations
-scenario = 'scenario_3_LK.csv' 
+# input file with passengers assigned to stations
+scenario = 'scenario_1_LK.csv' 
 
 
 ###### Technical details ######################################################
@@ -33,12 +33,27 @@ capacity = 70
 identifier = "osmid"
 
 # iterations per method
-iterations = [20,100]
+iterations = [20,30]
+
+
+parser = argparse.ArgumentParser(description='Set variables for run')
+parser.add_argument('scenario', 
+                    type = str,
+                    default = 'scenario_1.csv',
+                    help='Scenario')
+parser.add_argument('identifier', 
+                    type = str,
+                    default = 'osmid',
+                    help='Identifier')
+
+
+args, args_other = parser.parse_known_args()
 
 ###### RUN ####################################################################
 
 Run(src, 
-    scenario, 
+    args.scenario, 
     capacity, 
-    identifier,
+    args.identifier,
     iterations)
+

@@ -1,0 +1,4 @@
+Scenario: scenario_1.csv
+Computational Time: 208sec
+Clustering Methods: ['CONVEX_HULL_SEQUENCE_distance', 'CONVEX_HULL_SEQUENCE_random']
+Iterations: [20, 40]

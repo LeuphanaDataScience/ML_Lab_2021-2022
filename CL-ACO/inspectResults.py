@@ -15,7 +15,9 @@ import scipy.stats as st
 
 src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO/'
 
-outputfile = '24-01-2022_12-57'  # example  
+outputfile = '29-01-2022_23-30_scenario_1'  # example  
+
+#1330162044
 
 # %%
 
@@ -47,7 +49,7 @@ def getResults(src, outputfile, distr_plot=False, ci_plot=False):
     for method in results.keys():
         print(f'{method} : {np.std(results[method])}')        
         
-    for file in os.listdir(src_results+"best"):
+    for file in os.listdir(src_results+"best")[:-1]:
         if file.startswith("best_costs"):
             best_costs = pd.read_pickle(src_results+"best/"+file)
         if file.startswith("best_routes"):
@@ -83,7 +85,12 @@ best_costs, best_routes, routes, costs = getResults(src, outputfile,
                                                     )
 #%%
 
+src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO/'
+outputfile = '28-01-2022_16-45/'
+src_results = src + "OUTPUT/"+ outputfile
 
+costs = pd.read_pickle(src_results+"costs.obj")
+routes = pd.read_pickle(src_results+"routes.obj")
 
 
 

@@ -39,13 +39,18 @@ def Run(src,
                        "CONVEX_HULL_SEQUENCE_random"
                        ]    
             
+            print("Setup")
+            print("Scenario: " + scenario)
+            print("Identifier: " + identifier)
+            
             # for displaying progress
             T_initial = time.time()                 
          
             # Create folder for new OUTPUT
             time_now = time.localtime() 
             time_string = time.strftime("%d-%m-%Y_%H-%M", time_now)
-            new_result_dir = src+f'OUTPUT/{time_string}/'    
+            dir_name = time_string + "_" + scenario[:-4]
+            new_result_dir = src+f'OUTPUT/{dir_name}/'    
 
             # Delete directory if it is already existent...
             if os.path.isdir(new_result_dir):
@@ -61,33 +66,30 @@ def Run(src,
             comp_time = {}
             
             best_routes = []
-            best_costs_method = int(99999999999999)
             best_costs = int(99999999999999)
             
             its_total = np.sum(iterations)
             
             inputData = dataprep(src, scenario)
-
+            
+            its = 0
         # -----------------------------------------------------------------------------
             for method in range(0, len(methods)):
                 
                 methodName = methods[method]
                 
                 # initialize variables
-                best_costs_method = int(99999999999999)  
                 costs[methodName] = []
                 routes[methodName] = []
                 comp_time[methodName] = []
                 
-                its = 0
+                
                 for iteration in range(iterations[method]): 
                     
                     its += 1
                     # To display progress  
-                    print(f'Scenario: {scenario}')
                     print(f'Current method: {methodName} (Method {method+1}/{len(methods)})')
                     print(f'Iteration {iteration+1}/{iterations[method]}\n')              
-                    T_now = time.time()
                     t0 = time.time() 
                  
         ####### DATA PRE-PROCESSING ###################################################
@@ -113,35 +115,34 @@ def Run(src,
                     # Data pre-processing for ACO
                     inputACO = dataprep_ACO(src, inputData, clustersDF)
                     
-                    T_passed = T_now - T_initial
-                    if T_passed >= 1:
-                        time_per_it = mt.floor(T_passed/(its))
-                        time_left = time_per_it*(its_total-its)
-                        print(f'Time passed: {mt.floor(T_passed)}s ({time_per_it}s/iteration[method])')
-                        print(f'Estimated time left: {mt.floor(time_left/60)} minutes')
-                    
                     # ACO step
                     route, cost = runACO(inputACO, identifier = identifier)
                         
                     # Calculate computational time 
+                    T_now = time.time()
+                    T_passed = T_now - T_initial
+                    if T_passed >= 1:
+                        time_per_it = mt.floor(T_passed/(its))
+                        time_left = time_per_it*(its_total-its)
+                        print(f'Time passed: {mt.floor(T_passed)}s')
+                        print(f'Estimated time left: {mt.floor(time_left/60)} minutes')
+                    
                     t1 = time.time()
                     ET = t1-t0
+
+                    T_passed = T_now - T_initial
                     
                     # add current results to result dictonary
                     costs[methodName].append(cost)
                     routes[methodName].append(route)
                     comp_time[methodName].append(ET)
             
-                    # to find best solution for cluster method
-                    if cost < best_costs_method:
-                        best_costs_method = cost
-                        
                     # to find best solution overall
-                if best_costs_method < best_costs:
-                    best_costs = cost
-                    best_routes = route
-                    best_clustersDICT = clustersDICT
-                    best_method = methodName
+                    if cost < best_costs:
+                        best_costs = cost
+                        best_routes = route
+                        best_clustersDICT = clustersDICT
+                        best_method = methodName
                     
             # save other OUTPUT outside python
             filehandler = open(new_result_dir+"costs.obj", 'wb')
@@ -166,4 +167,12 @@ def Run(src,
             clusters_DF(new_result_dir, inputData, best_clustersDICT, 
                         best_method, export=True, best=True)
             
+          #  INFO_text = open(new_result_dir+"INFO.txt","w+")
+            
+          # Create file containing infos about run
+            with open(new_result_dir+"INFO.txt","w+") as INFO:
+                INFO.write("Scenario: "+scenario)
+                INFO.write("\nComputational Time: "+str(mt.floor(T_passed))+"sec")
+                INFO.write("\nClustering Methods: "+str(methods))
+                INFO.write("\nIterations: "+str(iterations))
         

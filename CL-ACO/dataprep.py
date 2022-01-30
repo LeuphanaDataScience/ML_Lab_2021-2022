@@ -89,6 +89,7 @@ def dataprep_ACO(src, inputData, clustersDF):
 
     # remove stations at which no. passengers = 0   
     arena = inputACO_df[inputACO_df.index == "Schlachthof"]
+    inputACO_df = inputACO_df[inputACO_df.index != "Schlachthof"]
     inputACO_df = inputACO_df.dropna(axis = 0)
     inputACO_df = pd.concat([inputACO_df, arena])
     
@@ -99,13 +100,13 @@ def dataprep_ACO(src, inputData, clustersDF):
         df_1 = inputACO_df[inputACO_df['cluster'] == i] 
         
         # re-order dataframe such that arena is last entry
-        end = df_1[df_1.index == "Schlachthof"]
-        tmp = df_1[df_1.index != "Schlachthof"]    
-        df_2 = pd.concat([tmp, end])
+    #    end = df_1[df_1.index == "Schlachthof"]
+     #   tmp = df_1[df_1.index != "Schlachthof"]    
+      #  df_2 = pd.concat([tmp, end])
          
         # only include columns that are needed
-        df_2 = df_2[df_2.index[df_2['cluster'] == i]]
-        inputACO_dict[i] = df_2
+        df_1 = df_1[df_1.index[df_1['cluster'] == i]]
+        inputACO_dict[i] = df_1
         
         # Replace distances between bus stops == 0 by np.inf/ very high number
         inputACO_dict[i] = inputACO_dict[i].replace(0, 999999)
