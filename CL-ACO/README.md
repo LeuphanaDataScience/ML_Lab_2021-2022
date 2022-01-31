@@ -44,3 +44,8 @@ Used packages:
 
 --------------------------------------------------------------------------------------------------------
 
+## ----- Additional -----
+
+In the folder "ACO-PSO" there are approaches for finding good hyperparameter settings with Particle Swarm Optimization 
+as well as new data for Landkreis Lüneburg including some more bus stations and a file for cleaning and adjusting 
+the distance matrices extracted from OSM.
