@@ -21,7 +21,7 @@ os.chdir(os.path.dirname(os.path.realpath(__file__)))
 from dataprep import dataprep, clusters_DF, dataprep_ACO, export_excel
 from Clustering import runCluster
 from ACO import runACO
-
+from visualization import plot_routes
 
 #%% Main pipeline
 
@@ -29,7 +29,8 @@ def Run(src,
         scenario, 
         capacity, 
         identifier = "name",
-        iterations = [20,100]):
+        iterations = [20,100],
+        plot = True):
         
             ####### SETUP #################################################################
             
@@ -58,18 +59,19 @@ def Run(src,
             # ... for being able to create new one    
             os.makedirs(new_result_dir)
             os.makedirs(new_result_dir+'/best')
+            os.makedirs(new_result_dir+'/all')
             
             
             # initialize variables
-            routes = {}
+            routes_names = {}
+            routes_osmids = {}
             costs = {}
             comp_time = {}
             
-            best_routes = []
-            best_costs = int(99999999999999)
-            
+            best_costs = int(99999999999999)    
             its_total = np.sum(iterations)
             
+            # Prepare the data
             inputData = dataprep(src, scenario)
             
             its = 0
@@ -80,7 +82,8 @@ def Run(src,
                 
                 # initialize variables
                 costs[methodName] = []
-                routes[methodName] = []
+                routes_names[methodName] = []
+                routes_osmids[methodName] = []
                 comp_time[methodName] = []
                 
                 
@@ -104,7 +107,6 @@ def Run(src,
                             clustersDF = clusters_DF(src, 
                                                      inputData, 
                                                      clustersDICT, 
-                                                     methodName, 
                                                      export=False)
                                
         # -----------------------------------------------------------------------------
@@ -116,7 +118,7 @@ def Run(src,
                     inputACO = dataprep_ACO(src, inputData, clustersDF)
                     
                     # ACO step
-                    route, cost = runACO(inputACO, identifier = identifier)
+                    route_names, route_osmids, cost = runACO(inputACO)
                         
                     # Calculate computational time 
                     T_now = time.time()
@@ -134,45 +136,53 @@ def Run(src,
                     
                     # add current results to result dictonary
                     costs[methodName].append(cost)
-                    routes[methodName].append(route)
+                    routes_names[methodName].append(route_names)
+                    routes_osmids[methodName].append(route_osmids)
                     comp_time[methodName].append(ET)
             
                     # to find best solution overall
                     if cost < best_costs:
                         best_costs = cost
-                        best_routes = route
+                        best_route_names = route_names
+                        best_route_osmids = route_osmids
                         best_clustersDICT = clustersDICT
                         best_method = methodName
                     
             # save other OUTPUT outside python
-            filehandler = open(new_result_dir+"costs.obj", 'wb')
+            filehandler = open(new_result_dir+"all/costs.obj", 'wb')
             pickle.dump(costs, filehandler)
             
-            filehandler = open(new_result_dir+"/routes.obj", 'wb')
-            pickle.dump(routes, filehandler)
-
-
+            filehandler = open(new_result_dir+"all/routes_names.obj", 'wb')
+            pickle.dump(routes_names, filehandler)
             
-            filehandler = open(new_result_dir+"/comp-time.obj", 'wb')
-            pickle.dump(comp_time, filehandler)
+            filehandler = open(new_result_dir+"all/routes_osmids.obj", 'wb')
+            pickle.dump(routes_osmids, filehandler)
             
-            filehandler = open(new_result_dir+f'/best/best_costs_{best_method}.obj', 'wb')
+            filehandler = open(new_result_dir+'/best/best_costs.obj', 'wb')
             pickle.dump(best_costs, filehandler)
             
-            filehandler = open(new_result_dir+f'/best/best_routes_{best_method}.obj', 'wb')
-            pickle.dump(best_routes, filehandler)
-
-            export_excel(best_routes, new_result_dir, best_method)
-
-            clusters_DF(new_result_dir, inputData, best_clustersDICT, 
-                        best_method, export=True, best=True)
+            filehandler = open(new_result_dir+'/best/best_route_names.obj', 'wb')
+            pickle.dump(best_route_names, filehandler)
             
-          #  INFO_text = open(new_result_dir+"INFO.txt","w+")
+            filehandler = open(new_result_dir+'/best/best_route_osmids.obj', 'wb')
+            pickle.dump(best_route_osmids, filehandler)
+
+            export_excel(best_route_names, new_result_dir)
+
+            clusters_DF(new_result_dir, 
+                        inputData, 
+                        best_clustersDICT, 
+                        export=True)
             
+            if plot == True:
+                 plot_routes(new_result_dir, best_route_osmids)
+            
+
           # Create file containing infos about run
             with open(new_result_dir+"INFO.txt","w+") as INFO:
                 INFO.write("Scenario: "+scenario)
                 INFO.write("\nComputational Time: "+str(mt.floor(T_passed))+"sec")
                 INFO.write("\nClustering Methods: "+str(methods))
+                INFO.write("\nClustering Method with best result: "+str(best_method))
                 INFO.write("\nIterations: "+str(iterations))
         

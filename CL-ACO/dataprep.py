@@ -57,8 +57,10 @@ def dataprep(src, scenario):
     
     return inputData
 
-def clusters_DF(src, inputData, clustersDICT, 
-                method, export=True, best=False):
+def clusters_DF(src, 
+                inputData, 
+                clustersDICT, 
+                export = False):
     
     clustersDF = inputData[1].copy()                                                          
     clustersDF['cluster'] = [np.nan]*clustersDF.shape[0]
@@ -68,11 +70,8 @@ def clusters_DF(src, inputData, clustersDICT,
             if station[1] in clustersDICT[cluster]:
                 clustersDF.cluster[station[1]] = int(cluster)
                 
-    if best == True:
-        export = False
-        clustersDF.to_csv(f'{src}best/bestClusterOverall_({method}).csv')    
     if export == True:
-        clustersDF.to_csv(f'{src}tmp/tmp_{method}.csv')
+        clustersDF.to_csv(f'{src}best/best_cluster.csv')    
            
     return clustersDF
     
@@ -119,7 +118,7 @@ def dataprep_ACO(src, inputData, clustersDF):
         
     return inputACO
 
-def export_excel(best_routes, new_result_dir, best_method):
+def export_excel(best_routes, new_result_dir):
     best_routes_clean = best_routes
     for key, values in best_routes.items():
         new_values = []
@@ -137,13 +136,13 @@ def export_excel(best_routes, new_result_dir, best_method):
     alphabet_string = string.ascii_uppercase
     alphabet_list = list(alphabet_string)
 
-    best_routes_df.to_excel(new_result_dir + f'/best/best_routes_{best_method}.xlsx', sheet_name='route')
-    wb = openpyxl.load_workbook(new_result_dir + f'/best/best_routes_{best_method}.xlsx')
+    best_routes_df.to_excel(new_result_dir + '/best/best_routes.xlsx', sheet_name='route')
+    wb = openpyxl.load_workbook(new_result_dir + '/best/best_routes.xlsx')
     ws = wb.active
 
     for col in alphabet_list[:len(best_routes_df.columns)]:
         ws.column_dimensions[col].width = 16
 
-    wb.save(new_result_dir + f'/best/best_routes_{best_method}.xlsx')
+    wb.save(new_result_dir + '/best/best_routes.xlsx')
 
 #%%

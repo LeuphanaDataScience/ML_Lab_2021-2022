@@ -1,0 +1,5 @@
+Scenario: scenario_1_LK.csv
+Computational Time: 95sec
+Clustering Methods: ['CONVEX_HULL_SEQUENCE_distance', 'CONVEX_HULL_SEQUENCE_random']
+Clustering Method with best result: CONVEX_HULL_SEQUENCE_distance
+Iterations: [1, 1]

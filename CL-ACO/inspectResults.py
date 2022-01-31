@@ -15,7 +15,7 @@ import scipy.stats as st
 
 src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO/'
 
-outputfile = '29-01-2022_23-30_scenario_1'  # example  
+outputfile = '01-02-2022_00-43_scenario_1'  # example  
 
 #1330162044
 

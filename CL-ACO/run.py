@@ -23,37 +23,38 @@ src = "./"
 # input file with passengers assigned to stations
 scenario = 'scenario_1_LK.csv' 
 
+parsing = False
 
 ###### Technical details ######################################################
 
 # bus capacity
 capacity = 70                  
 
-# identifier in output 
-identifier = "osmid"
-
 # iterations per method
 iterations = [20,30]
 
 
-parser = argparse.ArgumentParser(description='Set variables for run')
-parser.add_argument('scenario', 
-                    type = str,
-                    default = 'scenario_1.csv',
-                    help='Scenario')
-parser.add_argument('identifier', 
-                    type = str,
-                    default = 'osmid',
-                    help='Identifier')
+if parsing == True:
+    parser = argparse.ArgumentParser(description='Set variables for run')
+    parser.add_argument('scenario', 
+                        type = str,
+                        default = 'scenario_1.csv',
+                        help='Scenario')
 
+    args, args_other = parser.parse_known_args()
 
-args, args_other = parser.parse_known_args()
 
 ###### RUN ####################################################################
 
-Run(src, 
-    args.scenario, 
-    capacity, 
-    args.identifier,
-    iterations)
+    Run(src, 
+        args.scenario, 
+        capacity, 
+        iterations,
+        plot = True)
 
+else:
+    Run(src, 
+        scenario, 
+        capacity, 
+        iterations,
+        plot = True)

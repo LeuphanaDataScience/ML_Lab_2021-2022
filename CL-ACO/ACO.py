@@ -225,15 +225,13 @@ class AntColony(object):
 
 # Loop over all data subsets (defined by clusters) in inputFile
 
-def runACO(inputACO, alpha=2, beta=5, gamma=80, rho=0.8, identifier = "name"):
+def runACO(inputACO, alpha=2, beta=5, gamma=80, rho=0.8):
 
-    clustersDICT = copy.deepcopy(inputACO[0])   
-    clustersDF = copy.deepcopy(inputACO[1])
+    clustersDICT = copy.deepcopy(inputACO[0]) 
     
     best_routes_all_clusters = {}
-    total_cost_all_clusters = 0
+    total_cost = 0
 
-#    for i in range(0, int(clustersDF['cluster'].max()+1)):
     for i in range(0,len(clustersDICT)):
         matrix = clustersDICT[i]
         matrix = np.asarray(matrix)
@@ -252,12 +250,34 @@ def runACO(inputACO, alpha=2, beta=5, gamma=80, rho=0.8, identifier = "name"):
                             )
         route_gbest = ant_colony.run()
         best_routes_all_clusters[i] = route_gbest[0]
-        total_cost_all_clusters += route_gbest[-1]
+        total_cost += route_gbest[-1]
     
-#    total_cost_all_clusters_check = 0
-#    for i in range(0,len(best_routes_all_clusters)):
-#        total_cost_all_clusters_check += best_routes_all_clusters[i][1]
-    
+    route_names = copy.deepcopy(best_routes_all_clusters) # replace numbers by station names 
+    for j in range(0, len(route_names)):  
+        for i in range(0, len(route_names[j])): 
+            route_names[j][i] = list(route_names[j][i])
+            for k in range(2):
+                index = route_names[j][i][k]
+                route_names[j][i][k] = clustersDICT[j].columns.values[index]
+
+    route_osmids = copy.deepcopy(best_routes_all_clusters)
+    for j in range(0, len(route_osmids)):  
+        for i in range(0, len(route_osmids[j])): 
+            route_osmids[j][i] = list(route_osmids[j][i])
+            for k in range(2):
+                index = route_osmids[j][i][k]
+                route_osmids[j][i][k] = clustersDICT[j].columns.values[index]
+
+    for j in range(0, len(route_osmids)):  
+        for i in range(0, len(route_osmids[j])): 
+            for k in range(2):
+                index_route = route_osmids[j][i][k]
+                route_osmids[j][i][k] = int(inputACO[3].osmid[inputACO[3].index==index_route])
+
+    return route_names, route_osmids, total_cost
+
+                
+'''
     if identifier == "name": # replace numbers by station names 
         for j in range(0, len(best_routes_all_clusters)):  
             for i in range(0, len(best_routes_all_clusters[j])): 
@@ -280,6 +300,5 @@ def runACO(inputACO, alpha=2, beta=5, gamma=80, rho=0.8, identifier = "name"):
                     index_route = best_routes_all_clusters[j][i][k]
                     best_routes_all_clusters[j][i][k] = int(inputACO[3].osmid[inputACO[3].index==index_route])
     
-    return best_routes_all_clusters, total_cost_all_clusters
-
-                        
+    return best_routes_name, best_routes_osmid, total_cost        
+'''
