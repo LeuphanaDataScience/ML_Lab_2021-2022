@@ -22,9 +22,7 @@ import pickle
 from google.colab import output
 output.enable_custom_widget_manager()
 
-API_KEY = 'AIzaSyA5Uo4HDVZIS4yfsu3sw2EQ8WH1_QNOQpk' #Abdullah's key
-#API_KEY = 'AIzaSyAvuH6jSzoTLlwuY0c_K4zpak5aJqjo_jc'
-#API_KEY = 'AIzaSyBHmrGahDedwEKAZKDWhc572N2YyAz4Ufw'
+API_KEY = ''
 gmaps.configure(api_key=API_KEY)
 #!jupyter labextension install jupyter-matplotlib@0.3.0
 
