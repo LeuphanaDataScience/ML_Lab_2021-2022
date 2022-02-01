@@ -18,7 +18,7 @@ from main import Run
 ###### VARIABLES TO BE DEFINED BY USER ########################################
 
 # input file with passengers assigned to stations
-scenario = 'scenario_1.csv' 
+scenario = 'scenario_1_LK.csv' 
 
 # bus capacity
 capacity = 70  
@@ -29,7 +29,7 @@ src = "./"
 ###### Technical details (can be adjusted; optional) ##########################
 
 # iterations per method
-iterations = [20,30]
+iterations = [1,1]
 
 # plot the results on  map using OSM
 plot = True

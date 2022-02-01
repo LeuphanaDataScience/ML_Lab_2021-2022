@@ -77,7 +77,7 @@ def plot_routes(new_result_dir, best_route_osmids):
         
     # Create flat routes
     flat_routes_0 = []
-    for i in range(len(routes[0])-1):
+    for i in range(len(routes)-1):
         r11=routes[i]
         route = []
         routes_ndopp = []
@@ -94,7 +94,7 @@ def plot_routes(new_result_dir, best_route_osmids):
     # Loop over all routes to combine them in one plot
     route_plot = ox.plot_route_folium(L, flat_routes_0[0], route_color='pink', popup_attribute="length", route_opacity = 0.5, weight=2) 
     
-    for route in flat_routes_0:
+    for route in flat_routes_0[1:]:
         route_plot = ox.plot_route_folium(L, route, 
                                           route_map=route_plot, 
                                           route_color = ["#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)])], 

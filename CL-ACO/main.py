@@ -44,20 +44,6 @@ def Run(src,
             
             # for displaying progress
             T_initial = time.time()                 
-         
-            # Create folder for new OUTPUT
-            time_now = time.localtime() 
-            time_string = time.strftime("%d-%m-%Y_%H-%M", time_now)
-            dir_name = time_string + "_" + scenario[:-4]
-            new_result_dir = src+f'OUTPUT/{dir_name}/'    
-
-            # Delete directory if it is already existent...
-            if os.path.isdir(new_result_dir):
-                shutil.rmtree(new_result_dir)
-            # ... for being able to create new one    
-            os.makedirs(new_result_dir)
-            os.makedirs(new_result_dir+'/best')
-            os.makedirs(new_result_dir+'/all')
             
             
             # initialize variables
@@ -146,7 +132,23 @@ def Run(src,
                         best_clustersDICT = clustersDICT
                         best_method = methodName
                     
+            
+            # Create folder for new OUTPUT
+            time_now = time.localtime() 
+            time_string = time.strftime("%d-%m-%Y_%H-%M", time_now)
+            dir_name = time_string + "_" + scenario[:-4]
+            new_result_dir = src+f'OUTPUT/{dir_name}/'    
+
+            # Delete directory if it is already existent...
+            if os.path.isdir(new_result_dir):
+                shutil.rmtree(new_result_dir)
+            # ... for being able to create new one    
+            os.makedirs(new_result_dir)
+            os.makedirs(new_result_dir+'/best')
+            os.makedirs(new_result_dir+'/all')
+            
             # save other OUTPUT outside python
+            
             filehandler = open(new_result_dir+"all/costs.obj", 'wb')
             pickle.dump(costs, filehandler)
             
@@ -182,5 +184,6 @@ def Run(src,
                 INFO.write("\nComputational Time: "+str(mt.floor(T_passed))+"sec")
                 INFO.write("\nClustering Methods: "+str(methods))
                 INFO.write("\nClustering Method with best result: "+str(best_method))
+                INFO.write("\nBest costs: "+str(best_costs))
                 INFO.write("\nIterations: "+str(iterations))
         
