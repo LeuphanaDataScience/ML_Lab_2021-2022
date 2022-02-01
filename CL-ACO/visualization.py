@@ -8,7 +8,6 @@ Original file is located at
 """
 
 import pickle
-import numpy
 import numpy as np
 import osmnx as ox
 import os
@@ -68,15 +67,14 @@ def plot_routes(new_result_dir, best_route_osmids):
     # Create a graph from osm using the cities above
     L = ox.graph_from_place(towns, network_type = 'drive_service', simplify=True)
     
-    # Import previously computed routes
+    # Import previously computed routes 
+    # (only when not running "run.py"; e.g. for trying out/ debugging)
 #    with open(new_result_dir+"/best/best_route_osmids.obj", 'rb') as f: 
 #      routes = pickle.load(f)
-      
+    
+    # use best routes from current run  
     routes = best_route_osmids
         
-  
-  #  routes =  pd.read_pickle(new_result_dir+"/best/best_route_osmids.obj")
-
     # Create flat routes
     flat_routes_0 = []
     for i in range(len(routes[0])-1):

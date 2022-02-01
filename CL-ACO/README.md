@@ -20,6 +20,7 @@ Used packages:
 - os
 - warnings
 - openpyxl
+- osmnx
 
 ## ----- HOW TO USE -----
 
@@ -27,20 +28,21 @@ Used packages:
 	Examples here are "scenario_1.csv", "scenario_2.csv" & "scenario_3.csv".
 
 2)	In the file "run.py", specify following variables
-
-### Elementary (needs to be set to run on local machine)
-- src:		project directory (string)
 	
 ### Basic
-- iterations:	specify number of iterations to run per clustering method (integer)
-- identifier:	specify if stations should be output as "name" or "osmid" 
 - scenario:	file name -> specify which scenario (setup)/ file you want to use as input (string)
 - capacity:	bus capacity; specify number of passengers that should be at max in one bus (integer)
+- src:		local project directory (string)
 
+### Optional
+- iterations:	specify number of iterations to run per clustering method (list of 2 integers)
+- parsing:	can be enabled if run on a cluster for more convenience for specifying the input file (boolean)
+- plot:		specify whether you want a visualization using OSM as html file (boolean)
 
-3)	Run the script "run.py" (providing arguments "scenario" and "identifier")
+3)	Run the script "run.py" 
 
-4)	The results are stored in a new folder (name starts with date & time run was started)
+4)	The results are stored in a new folder (name starts with date & time run was started),
+	including a visualization with OSM (if plot = True)
 
 --------------------------------------------------------------------------------------------------------
 

@@ -28,7 +28,6 @@ from visualization import plot_routes
 def Run(src, 
         scenario, 
         capacity, 
-        identifier = "name",
         iterations = [20,100],
         plot = True):
         
@@ -42,7 +41,6 @@ def Run(src,
             
             print("Setup")
             print("Scenario: " + scenario)
-            print("Identifier: " + identifier)
             
             # for displaying progress
             T_initial = time.time()                 
@@ -127,7 +125,7 @@ def Run(src,
                         time_per_it = mt.floor(T_passed/(its))
                         time_left = time_per_it*(its_total-its)
                         print(f'Time passed: {mt.floor(T_passed)}s')
-                        print(f'Estimated time left: {mt.floor(time_left/60)} minutes')
+                        print(f'Estimated time left: {mt.floor(time_left)}s')
                     
                     t1 = time.time()
                     ET = t1-t0

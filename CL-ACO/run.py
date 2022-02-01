@@ -17,22 +17,25 @@ from main import Run
 
 ###### VARIABLES TO BE DEFINED BY USER ########################################
 
+# input file with passengers assigned to stations
+scenario = 'scenario_1.csv' 
+
+# bus capacity
+capacity = 70  
+
 # local directory where project folder is stored
 src = "./"
 
-# input file with passengers assigned to stations
-scenario = 'scenario_1_LK.csv' 
-
-parsing = False
-
-###### Technical details ######################################################
-
-# bus capacity
-capacity = 70                  
+###### Technical details (can be adjusted; optional) ##########################
 
 # iterations per method
 iterations = [20,30]
 
+# plot the results on  map using OSM
+plot = True
+
+# parsing (for convenience when running on cluster)
+parsing = False
 
 if parsing == True:
     parser = argparse.ArgumentParser(description='Set variables for run')

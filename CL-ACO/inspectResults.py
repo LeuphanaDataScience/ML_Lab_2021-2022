@@ -15,27 +15,16 @@ import scipy.stats as st
 
 src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO/'
 
-outputfile = '01-02-2022_00-43_scenario_1'  # example  
+outputfile = '01-02-2022_00-57_scenario_1'  # example  
 
 #1330162044
 
 # %%
 
-def CI(n, method):
-    
-    # create confidence interval for population mean
-    
-    CI_borders = st.t.interval(alpha=0.95, df=n-1, 
-                       loc=np.mean(costs[method]), 
-                       scale=st.sem(costs[method]))
-    CI_range = CI_borders[1] - CI_borders[0]
-    return CI_borders, CI_range
-
-
 def getResults(src, outputfile, distr_plot=False, ci_plot=False):
 
     src_results = src+f'OUTPUT/{outputfile}/'
-    results = pd.read_pickle(src_results+"costs.obj")
+    results = pd.read_pickle(src_results+"all/costs.obj")
     print("Mean distance")
     for method in results.keys():        
         print(f'{method} : {np.mean(results[method])}')
@@ -49,14 +38,11 @@ def getResults(src, outputfile, distr_plot=False, ci_plot=False):
     for method in results.keys():
         print(f'{method} : {np.std(results[method])}')        
         
-    for file in os.listdir(src_results+"best")[:-1]:
-        if file.startswith("best_costs"):
-            best_costs = pd.read_pickle(src_results+"best/"+file)
-        if file.startswith("best_routes"):
-            best_routes = pd.read_pickle(src_results+"best/"+file)
+    best_costs = pd.read_pickle(src_results+"best/best_costs.obj")
+    best_routes = pd.read_pickle(src_results+"best/best_route_names.obj")
 
-    routes = pd.read_pickle(src_results+"routes.obj")
-    costs = pd.read_pickle(src_results+"costs.obj")
+    routes = pd.read_pickle(src_results+"all/routes_names.obj")
+    costs = pd.read_pickle(src_results+"all/costs.obj")
     
     if distr_plot == True:
         for method in results.keys():
@@ -80,17 +66,7 @@ def getResults(src, outputfile, distr_plot=False, ci_plot=False):
 #%%
 
 best_costs, best_routes, routes, costs = getResults(src, outputfile, 
-                                                  #  ci_plot=True,
                                                     distr_plot=True
                                                     )
-#%%
-
-src = 'C:/Users/fried/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/eirene/CL-ACO/'
-outputfile = '28-01-2022_16-45/'
-src_results = src + "OUTPUT/"+ outputfile
-
-costs = pd.read_pickle(src_results+"costs.obj")
-routes = pd.read_pickle(src_results+"routes.obj")
-
 
 
