@@ -26,10 +26,9 @@ distance_matrix = distance_matrix.round(decimals=0, out=None)
 A = distance_matrix.astype(int)
 
 #df.loc[df['name'] == 'Schlachthof']
-
 #df.loc[df['name'] == 'Hagen Wendeplatz']
+#!pip install ortools
 
-!pip install ortools
 from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
 
